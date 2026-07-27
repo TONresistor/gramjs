@@ -11,4 +11,4 @@ export declare const _serverKeys: Map<string, {
  * @param data the data to be encrypted.
  * @returns {Buffer|*|undefined} the cipher text, or undefined if no key matching this fingerprint is found.
  */
-export declare function encrypt(fingerprint: bigInt.BigInteger, data: Buffer): Promise<Buffer | undefined>;
+export declare function encrypt(fingerprint: bigInt.BigInteger, data: Buffer): Promise<Buffer<ArrayBufferLike> | undefined>;

@@ -6,10 +6,10 @@ export declare class GZIPPacked {
     private CONSTRUCTOR_ID;
     private classType;
     constructor(data: Buffer);
-    static gzipIfSmaller(contentRelated: boolean, data: Buffer): Promise<Buffer>;
-    static gzip(input: Buffer): Buffer;
-    static ungzip(input: Buffer): Buffer;
-    toBytes(): Promise<Buffer>;
-    static read(reader: BinaryReader): Promise<Buffer>;
+    static gzipIfSmaller(contentRelated: boolean, data: Buffer): Promise<Buffer<ArrayBufferLike>>;
+    static gzip(input: Buffer): Buffer<ArrayBuffer>;
+    static ungzip(input: Buffer): Buffer<ArrayBuffer>;
+    toBytes(): Promise<Buffer<ArrayBuffer>>;
+    static read(reader: BinaryReader): Promise<Buffer<ArrayBuffer>>;
     static fromReader(reader: BinaryReader): Promise<GZIPPacked>;
 }

@@ -8,7 +8,7 @@ declare class ObfuscatedIO {
     private _packetClass;
     constructor(connection: ConnectionTCPObfuscated);
     initHeader(): Promise<void>;
-    read(n: number): Promise<Buffer>;
+    read(n: number): Promise<Buffer<any>>;
     write(data: Buffer): void;
 }
 export declare class ConnectionTCPObfuscated extends ObfuscatedConnection {

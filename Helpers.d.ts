@@ -65,7 +65,7 @@ export declare function bigIntMod(n: bigInt.BigInteger, m: bigInt.BigInteger): b
  * @param count
  * @returns {Buffer}
  */
-export declare function generateRandomBytes(count: number): Buffer;
+export declare function generateRandomBytes(count: number): Buffer<ArrayBuffer>;
 /**
  * Calculate the key based on Telegram guidelines, specifying whether it's the client or not
  * @param sharedKey
@@ -81,10 +81,10 @@ export declare function stripText(text: string, entities: Api.TypeMessageEntity[
  * @returns {{key: Buffer, iv: Buffer}}
  */
 export declare function generateKeyDataFromNonce(serverNonceBigInt: bigInt.BigInteger, newNonceBigInt: bigInt.BigInteger): Promise<{
-    key: Buffer;
-    iv: Buffer;
+    key: Buffer<ArrayBuffer>;
+    iv: Buffer<ArrayBuffer>;
 }>;
-export declare function convertToLittle(buf: Buffer): Buffer;
+export declare function convertToLittle(buf: Buffer): Buffer<ArrayBuffer>;
 /**
  * Calculates the SHA1 digest for the given data
  * @param data
@@ -111,7 +111,7 @@ export declare function modExp(a: bigInt.BigInteger, b: bigInt.BigInteger, n: bi
  * @param signed {boolean}
  * @returns {Buffer}
  */
-export declare function getByteArray(integer: bigInt.BigInteger | number, signed?: boolean): Buffer;
+export declare function getByteArray(integer: bigInt.BigInteger | number, signed?: boolean): Buffer<ArrayBufferLike>;
 export declare function returnBigInt(num: bigInt.BigInteger | string | number | bigint): bigInt.BigInteger;
 /**
  * Helper function to return the smaller big int in an array
@@ -136,7 +136,7 @@ export declare const sleep: (ms: number, isUnref?: boolean) => Promise<unknown>;
  * Helper to export two buffers of same length
  * @returns {Buffer}
  */
-export declare function bufferXor(a: Buffer, b: Buffer): Buffer;
+export declare function bufferXor(a: Buffer, b: Buffer): Buffer<ArrayBuffer>;
 export declare function crc32(buf: Buffer | string): number;
 export declare class TotalList<T> extends Array<T> {
     total?: number;

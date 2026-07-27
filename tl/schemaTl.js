@@ -1,3 +1,4 @@
+"use strict";
 module.exports = `
 int ? = Int;
 long ? = Long;
@@ -70,4 +71,5 @@ rpc_drop_answer#58e4a740 req_msg_id:long = RpcDropAnswer;
 get_future_salts#b921bd04 num:int = FutureSalts;
 ping#7abe77ec ping_id:long = Pong;
 ping_delay_disconnect#f3427b8c ping_id:long disconnect_delay:int = Pong;
-destroy_session#e7512126 session_id:long = DestroySessionRes;`;
+destroy_session#e7512126 session_id:long = DestroySessionRes;
+`;

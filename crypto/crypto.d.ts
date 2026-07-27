@@ -9,8 +9,8 @@ export declare class CTR {
     private _remainingCounterIndex;
     private _aes;
     constructor(key: Buffer, counter: any);
-    update(plainText: any): Buffer;
-    encrypt(plainText: any): Buffer;
+    update(plainText: any): Buffer<any>;
+    encrypt(plainText: any): Buffer<any>;
 }
 export declare function createDecipheriv(algorithm: string, key: Buffer, iv: Buffer): CTR;
 export declare function createCipheriv(algorithm: string, key: Buffer, iv: Buffer): CTR;
@@ -20,7 +20,7 @@ export declare class Hash {
     private data?;
     constructor(algorithm: string);
     update(data: Buffer): void;
-    digest(): Promise<Buffer>;
+    digest(): Promise<Buffer<ArrayBuffer>>;
 }
-export declare function pbkdf2Sync(password: any, salt: any, iterations: any, ...args: any): Promise<Buffer>;
+export declare function pbkdf2Sync(password: any, salt: any, iterations: any, ...args: any): Promise<Buffer<ArrayBuffer>>;
 export declare function createHash(algorithm: string): Hash;

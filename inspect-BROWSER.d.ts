@@ -1,3 +1,3 @@
 export declare const inspect: {
-    custom: string;
+    custom: symbol;
 };

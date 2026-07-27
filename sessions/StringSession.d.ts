@@ -26,7 +26,7 @@ export declare class StringSession extends MemorySession {
      * @param x {string}
      * @returns {Buffer}
      */
-    static decode(x: string): Buffer;
+    static decode(x: string): Buffer<ArrayBuffer>;
     load(): Promise<void>;
     save(): string;
 }

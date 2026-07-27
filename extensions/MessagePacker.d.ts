@@ -16,6 +16,6 @@ export declare class MessagePacker {
     wait(): Promise<void>;
     get(): Promise<{
         batch: any[];
-        data: Buffer;
+        data: Buffer<ArrayBufferLike>;
     } | null | undefined>;
 }

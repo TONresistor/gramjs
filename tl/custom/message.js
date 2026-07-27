@@ -87,7 +87,7 @@ class CustomMessage extends senderGetter_1.SenderGetter {
         this.replyTo = replyTo;
         this.date = date;
         this.message = message;
-        this.media = media instanceof api_1.Api.MessageMediaEmpty ? media : undefined;
+        this.media = media instanceof api_1.Api.MessageMediaEmpty ? undefined : media;
         this.replyMarkup = replyMarkup;
         this.entities = entities;
         this.views = views;
@@ -546,26 +546,27 @@ class CustomMessage extends senderGetter_1.SenderGetter {
         }
         if (this.poll) {
             function findPoll(answers) {
+                const pollAnswers = answers.filter((answer) => answer instanceof api_1.Api.PollAnswer);
                 if (i != undefined) {
                     if (Array.isArray(i)) {
                         const corrects = [];
-                        for (let x = 0; x < i.length; x++) {
-                            corrects.push(answers[x].option);
+                        for (const answerIndex of i) {
+                            corrects.push(pollAnswers[answerIndex].option);
                         }
                         return corrects;
                     }
-                    return [answers[i].option];
+                    return [pollAnswers[i].option];
                 }
                 if (text != undefined) {
                     if (typeof text == "function") {
-                        for (const answer of answers) {
+                        for (const answer of pollAnswers) {
                             if (text(answer.text)) {
                                 return [answer.option];
                             }
                         }
                     }
                     else {
-                        for (const answer of answers) {
+                        for (const answer of pollAnswers) {
                             if (answer.text.text == text) {
                                 return [answer.option];
                             }
@@ -574,7 +575,7 @@ class CustomMessage extends senderGetter_1.SenderGetter {
                     return;
                 }
                 if (filter != undefined) {
-                    for (const answer of answers) {
+                    for (const answer of pollAnswers) {
                         if (filter(answer)) {
                             return [answer.option];
                         }

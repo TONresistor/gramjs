@@ -6,6 +6,6 @@ declare const fromLine: (line: string, isFunction: boolean) => any;
 declare function buildArgConfig(name: string, argType: string): any;
 declare const parseTl: (content: string, layer: string, methods?: any[], ignoreIds?: Set<number>) => Generator<any, void, unknown>;
 declare const findAll: (regex: RegExp, str: string, matches?: any) => any;
-export declare function serializeBytes(data: Buffer | string | any): Buffer;
-export declare function serializeDate(dt: DateLike | Date): Buffer;
+export declare function serializeBytes(data: Buffer | string | any): Buffer<ArrayBuffer>;
+export declare function serializeDate(dt: DateLike | Date): Buffer<ArrayBuffer>;
 export { findAll, parseTl, buildArgConfig, fromLine, CORE_TYPES, snakeToCamelCase, variableSnakeToCamelCase, };

@@ -80,7 +80,7 @@ export declare function getInputChatPhoto(photo: any): Api.TypeInputChatPhoto;
  * @param stripped{Buffer}
  * @returns {Buffer}
  */
-export declare function strippedPhotoToJpg(stripped: Buffer): Buffer;
+export declare function strippedPhotoToJpg(stripped: Buffer): Buffer<ArrayBufferLike>;
 /**
  *  Similar to :meth:`get_input_peer`, but for photos
  */

@@ -19,6 +19,7 @@ example.d.ts
 settings
 
 /browser/
+/.browser-build-*/
 
 .DS_STORE
 

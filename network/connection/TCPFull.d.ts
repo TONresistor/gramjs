@@ -3,7 +3,7 @@ import type { PromisedNetSockets, PromisedWebSockets } from "../../extensions";
 export declare class FullPacketCodec extends PacketCodec {
     private _sendCounter;
     constructor(connection: any);
-    encodePacket(data: Buffer): Buffer;
+    encodePacket(data: Buffer): Buffer<ArrayBuffer>;
     /**
      *
      * @param reader {PromisedWebSockets}

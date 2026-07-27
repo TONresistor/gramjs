@@ -7,9 +7,9 @@ export declare class PromisedNetSockets {
     private resolveRead;
     private proxy?;
     constructor(proxy?: ProxyInterface);
-    readExactly(number: number): Promise<Buffer>;
-    read(number: number): Promise<Buffer>;
-    readAll(): Promise<Buffer>;
+    readExactly(number: number): Promise<Buffer<ArrayBuffer>>;
+    read(number: number): Promise<Buffer<ArrayBuffer>>;
+    readAll(): Promise<Buffer<ArrayBufferLike>>;
     /**
      * Creates a new connection
      * @param port

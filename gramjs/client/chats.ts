@@ -187,7 +187,7 @@ export class _ParticipantsIter extends RequestIter {
                         channel: entity,
                     })
                 );
-                if (!(channel.fullChat instanceof Api.ChatFull)) {
+                if (channel.fullChat instanceof Api.ChannelFull) {
                     this.total = channel.fullChat.participantsCount;
                 }
             }

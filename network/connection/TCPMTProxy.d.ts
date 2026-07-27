@@ -26,7 +26,7 @@ declare class MTProxyIO {
     private _dcId;
     constructor(connection: TCPMTProxy);
     initHeader(): Promise<void>;
-    read(n: number): Promise<Buffer>;
+    read(n: number): Promise<Buffer<any>>;
     write(data: Buffer): void;
 }
 interface TCPMTProxyInterfaceParams {

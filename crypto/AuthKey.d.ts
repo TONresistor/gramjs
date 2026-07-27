@@ -7,7 +7,7 @@ export declare class AuthKey {
     constructor(value?: Buffer, hash?: Buffer);
     setKey(value?: Buffer | AuthKey): Promise<void>;
     waitForKey(): Promise<void>;
-    getKey(): Buffer | undefined;
+    getKey(): Buffer<ArrayBufferLike> | undefined;
     /**
      * Calculates the new nonce hash based on the current class fields' values
      * @param newNonce

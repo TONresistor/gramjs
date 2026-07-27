@@ -30,7 +30,6 @@ exports.crc32 = crc32;
 exports._entityType = _entityType;
 const big_integer_1 = __importDefault(require("big-integer"));
 const CryptoFile_1 = __importDefault(require("./CryptoFile"));
-const platform_1 = require("./platform");
 /**
  * converts a buffer to big int
  * @param buffer
@@ -390,9 +389,13 @@ function getRandomInt(min, max) {
  * @param isUnref make a timer unref'ed
  * @returns {Promise}
  */
-const sleep = (ms, isUnref = false) => new Promise((resolve) => isUnref && platform_1.isNode
-    ? setTimeout(resolve, ms).unref()
-    : setTimeout(resolve, ms));
+const sleep = (ms, isUnref = false) => new Promise((resolve) => {
+    const timer = setTimeout(resolve, ms);
+    if (isUnref &&
+        typeof timer.unref === "function") {
+        timer.unref();
+    }
+});
 exports.sleep = sleep;
 /**
  * Helper to export two buffers of same length

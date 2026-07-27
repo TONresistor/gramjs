@@ -4,7 +4,7 @@ import { Api } from "./tl";
  * @param algo {constructors.PasswordKdfAlgoSHA256SHA256PBKDF2HMACSHA512iter100000SHA256ModPow}
  * @param password
  */
-declare function computeDigest(algo: Api.PasswordKdfAlgoSHA256SHA256PBKDF2HMACSHA512iter100000SHA256ModPow, password: string): Promise<Buffer>;
+declare function computeDigest(algo: Api.PasswordKdfAlgoSHA256SHA256PBKDF2HMACSHA512iter100000SHA256ModPow, password: string): Promise<Buffer<ArrayBufferLike>>;
 /**
  *
  * @param request {constructors.account.Password}

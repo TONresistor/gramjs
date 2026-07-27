@@ -996,7 +996,7 @@ export function getInputMedia(
         return getInputMedia(media.media, { isPhoto: isPhoto });
     }
     if (media instanceof Api.MessageMediaPoll) {
-        let correctAnswers;
+        let correctAnswers: number[] | undefined;
         if (media.poll.quiz) {
             if (!media.results.results) {
                 throw new Error(
@@ -1007,7 +1007,17 @@ export function getInputMedia(
             correctAnswers = [];
             for (const r of media.results.results) {
                 if (r.correct) {
-                    correctAnswers.push(r.option);
+                    const answerIndex = media.poll.answers.findIndex(
+                        (answer) =>
+                            answer instanceof Api.PollAnswer &&
+                            answer.option.equals(r.option)
+                    );
+                    if (answerIndex === -1) {
+                        throw new Error(
+                            "Cannot match a correct quiz result to its poll answer."
+                        );
+                    }
+                    correctAnswers.push(answerIndex);
                 }
             }
         } else {

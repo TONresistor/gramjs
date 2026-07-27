@@ -902,7 +902,12 @@ function getInputMedia(media, { isPhoto = false, attributes = undefined, forceDo
             correctAnswers = [];
             for (const r of media.results.results) {
                 if (r.correct) {
-                    correctAnswers.push(r.option);
+                    const answerIndex = media.poll.answers.findIndex((answer) => answer instanceof tl_1.Api.PollAnswer &&
+                        answer.option.equals(r.option));
+                    if (answerIndex === -1) {
+                        throw new Error("Cannot match a correct quiz result to its poll answer.");
+                    }
+                    correctAnswers.push(answerIndex);
                 }
             }
         }

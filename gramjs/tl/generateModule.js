@@ -21,6 +21,27 @@ function main() {
         path.resolve(__dirname, "./schemaTl.js"),
         `module.exports = \`${stripTl(schemaTl)}\`;`
     );
+
+    const layerMatches = [...apiTl.matchAll(/^\/\/ LAYER (\d+)\s*$/gm)];
+    if (layerMatches.length !== 1) {
+        throw new Error(
+            `Expected exactly one layer marker, found ${layerMatches.length}`
+        );
+    }
+    const layer = Number(layerMatches[0][1]);
+    const allTlObjectsPath = path.resolve(__dirname, "./AllTLObjects.ts");
+    const allTlObjects = fs.readFileSync(allTlObjectsPath, "utf8");
+    const updatedAllTlObjects = allTlObjects.replace(
+        /^export const LAYER = \d+;$/m,
+        `export const LAYER = ${layer};`
+    );
+    if (
+        updatedAllTlObjects === allTlObjects &&
+        !allTlObjects.includes(`export const LAYER = ${layer};`)
+    ) {
+        throw new Error("Unable to update the runtime layer constant");
+    }
+    fs.writeFileSync(allTlObjectsPath, updatedAllTlObjects);
 }
 
 function stripTl(tl) {

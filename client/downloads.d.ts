@@ -112,7 +112,7 @@ export declare class GenericDownloadIter extends DirectDownloadIter {
 /** @hidden */
 export declare function iterDownload(client: TelegramClient, { file, offset, stride, limit, chunkSize, requestSize, fileSize, dcId, msgData, }: IterDownloadFunction): DirectDownloadIter;
 /** @hidden */
-export declare function downloadFileV2(client: TelegramClient, inputLocation: Api.TypeInputFileLocation, { outputFile, partSizeKb, fileSize, progressCallback, dcId, msgData, }: DownloadFileParamsV2): Promise<string | Buffer | undefined>;
+export declare function downloadFileV2(client: TelegramClient, inputLocation: Api.TypeInputFileLocation, { outputFile, partSizeKb, fileSize, progressCallback, dcId, msgData, }: DownloadFileParamsV2): Promise<string | Buffer<ArrayBufferLike> | undefined>;
 /**
  * All of these are optional and will be calculated automatically if not specified.
  */
@@ -149,8 +149,8 @@ export declare function _downloadContact(client: TelegramClient, media: Api.Mess
 /** @hidden */
 export declare function _downloadWebDocument(client: TelegramClient, media: Api.WebDocument | Api.WebDocumentNoProxy, args: DownloadMediaInterface): Promise<Buffer>;
 /** @hidden */
-export declare function _downloadCachedPhotoSize(size: Api.PhotoCachedSize | Api.PhotoStrippedSize, outputFile?: OutFile): Promise<string | Buffer | undefined>;
+export declare function _downloadCachedPhotoSize(size: Api.PhotoCachedSize | Api.PhotoStrippedSize, outputFile?: OutFile): Promise<string | Buffer<ArrayBufferLike> | undefined>;
 /** @hidden */
 export declare function _downloadPhoto(client: TelegramClient, photo: Api.MessageMediaPhoto | Api.Photo, file?: OutFile, date?: number, thumb?: number | string | Api.TypePhotoSize, progressCallback?: progressCallback): Promise<Buffer | string | undefined>;
 /** @hidden */
-export declare function downloadProfilePhoto(client: TelegramClient, entity: EntityLike, fileParams: DownloadProfilePhotoParams): Promise<string | Buffer | undefined>;
+export declare function downloadProfilePhoto(client: TelegramClient, entity: EntityLike, fileParams: DownloadProfilePhotoParams): Promise<string | Buffer<ArrayBufferLike> | undefined>;

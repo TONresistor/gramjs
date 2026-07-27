@@ -1,0 +1,109 @@
+{
+  "layer": 228,
+  "source": {
+    "repository": "telegramdesktop/tdesktop",
+    "commit": "138b937f01a275000fb2e06b3d5b864f5b78cc81",
+    "committedAt": "2026-07-10T10:04:30Z"
+  },
+  "history": [
+    {
+      "layer": 224,
+      "commit": "c7ec23b87298db65e98a6bc86e5df35cb50dfa73",
+      "path": "schema-history/api-224.tl",
+      "sha256": "44b4a8cced28a25e13fcb2bfd34983e6b906414f42dc04bbd0e3dded9253331d",
+      "definitionCount": 2329
+    },
+    {
+      "layer": 225,
+      "commit": "bff17504bc96df235559211d97ea616506f22889",
+      "path": "schema-history/api-225.tl",
+      "sha256": "aa21644954119b6b8be10c839c24cbbeff389d7158f65a5a0419887014f89a93",
+      "definitionCount": 2355
+    },
+    {
+      "layer": 226,
+      "commit": "5c5bacaf419ecf16c57d20517bd2231d17f8f8af",
+      "path": "schema-history/api-226.tl",
+      "sha256": "fe4fa42d4011e8a82404e37da40a3ce55dda3eec260b651ed0420378286785ec",
+      "definitionCount": 2376
+    },
+    {
+      "layer": 227,
+      "commit": "8165c7c6c065c8abc94ec5076f75bee0a29b82e1",
+      "path": "schema-history/api-227.tl",
+      "sha256": "f8fe06d2279657cc36f7d5280a28fa00a176ca6c99b5208038850b40e9aa5518",
+      "definitionCount": 2410
+    },
+    {
+      "layer": 228,
+      "commit": "138b937f01a275000fb2e06b3d5b864f5b78cc81",
+      "path": "gramjs/tl/static/api.tl",
+      "sha256": "bbddd9c4c3f5ff16fd4abbf39f2a864fdac7553e9f05b6bf9ead2aeb9c8eb566",
+      "definitionCount": 2449
+    }
+  ],
+  "api": {
+    "path": "gramjs/tl/static/api.tl",
+    "sourcePath": "Telegram/SourceFiles/mtproto/scheme/api.tl",
+    "sha256": "bbddd9c4c3f5ff16fd4abbf39f2a864fdac7553e9f05b6bf9ead2aeb9c8eb566",
+    "definitionCount": 2449
+  },
+  "mtproto": {
+    "path": "gramjs/tl/static/schema.tl",
+    "sourcePath": "Telegram/SourceFiles/mtproto/scheme/mtproto.tl",
+    "sha256": "40c10255afb6cfcbcfc190a457a53b66ec9e410f6418cd97cc4c276709a739a9"
+  },
+  "trace": [
+    {
+      "from": 224,
+      "to": 225,
+      "commit": "bff17504bc96df235559211d97ea616506f22889",
+      "added": 26,
+      "removed": 0,
+      "modified": 6,
+      "changedIds": 3,
+      "allowedRemovals": []
+    },
+    {
+      "from": 225,
+      "to": 226,
+      "commit": "5c5bacaf419ecf16c57d20517bd2231d17f8f8af",
+      "added": 21,
+      "removed": 0,
+      "modified": 11,
+      "changedIds": 9,
+      "allowedRemovals": []
+    },
+    {
+      "from": 226,
+      "to": 227,
+      "commit": "8165c7c6c065c8abc94ec5076f75bee0a29b82e1",
+      "added": 34,
+      "removed": 0,
+      "modified": 18,
+      "changedIds": 14,
+      "allowedRemovals": []
+    },
+    {
+      "from": 227,
+      "to": 228,
+      "commit": "138b937f01a275000fb2e06b3d5b864f5b78cc81",
+      "added": 39,
+      "removed": 0,
+      "modified": 8,
+      "changedIds": 5,
+      "allowedRemovals": []
+    }
+  ],
+  "cumulativeFrom224": {
+    "added": 120,
+    "removed": 0,
+    "modified": 35,
+    "changedIds": 26
+  },
+  "semanticDiff": {
+    "baselineLayer": 224,
+    "path": "telegram-schema-diff.json",
+    "sha256": "e6b65c5bd20a22d855110fc676321c40d1ad4efa6293ba72c6870defd3a44fa2"
+  }
+}

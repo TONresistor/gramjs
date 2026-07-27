@@ -300,7 +300,7 @@ export declare class TelegramClient extends TelegramBaseClient {
      * );
      * ```
      */
-    downloadFile(inputLocation: Api.TypeInputFileLocation, fileParams?: downloadMethods.DownloadFileParamsV2): Promise<string | Buffer | undefined>;
+    downloadFile(inputLocation: Api.TypeInputFileLocation, fileParams?: downloadMethods.DownloadFileParamsV2): Promise<string | Buffer<ArrayBufferLike> | undefined>;
     /**
      * Iterates over a file download, yielding chunks of the file.
      * This method can be used to stream files in a more convenient way, since it offers more control (pausing, resuming, etc.)
@@ -341,7 +341,7 @@ export declare class TelegramClient extends TelegramBaseClient {
      * await fs.writeFile("picture.jpg",buffer);
      * ```
      */
-    downloadProfilePhoto(entity: EntityLike, downloadProfilePhotoParams?: downloadMethods.DownloadProfilePhotoParams): Promise<string | Buffer | undefined>;
+    downloadProfilePhoto(entity: EntityLike, downloadProfilePhotoParams?: downloadMethods.DownloadProfilePhotoParams): Promise<string | Buffer<ArrayBufferLike> | undefined>;
     /**
      * Downloads the given media from a message or a media object.<br/>
      * this will return an empty Buffer in case of wrong or empty media.
@@ -359,7 +359,7 @@ export declare class TelegramClient extends TelegramBaseClient {
      * })
      * ```
      */
-    downloadMedia(messageOrMedia: Api.Message | Api.TypeMessageMedia, downloadParams?: DownloadMediaInterface): Promise<string | Buffer | undefined>;
+    downloadMedia(messageOrMedia: Api.Message | Api.TypeMessageMedia, downloadParams?: DownloadMediaInterface): Promise<string | Buffer<ArrayBufferLike> | undefined>;
     /**
      * This property is the default parse mode used when sending messages. Defaults to {@link MarkdownParser}.<br/>
      * It will always be either undefined or an object with parse and unparse methods.<br/>

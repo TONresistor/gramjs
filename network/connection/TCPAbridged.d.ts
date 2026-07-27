@@ -1,12 +1,12 @@
 import { Connection, PacketCodec } from "./Connection";
 import type { PromisedNetSockets, PromisedWebSockets } from "../../extensions";
 export declare class AbridgedPacketCodec extends PacketCodec {
-    static tag: Buffer;
-    static obfuscateTag: Buffer;
+    static tag: Buffer<ArrayBuffer>;
+    static obfuscateTag: Buffer<ArrayBuffer>;
     private tag;
     obfuscateTag: Buffer;
     constructor(props: any);
-    encodePacket(data: Buffer): Buffer;
+    encodePacket(data: Buffer): Buffer<ArrayBuffer>;
     readPacket(reader: PromisedNetSockets | PromisedWebSockets): Promise<Buffer>;
 }
 /**

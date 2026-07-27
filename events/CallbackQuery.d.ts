@@ -57,7 +57,7 @@ export declare class CallbackQueryEvent extends EventCommonSender {
     _setClient(client: TelegramClient): void;
     get id(): import("big-integer").BigInteger;
     get messageId(): number;
-    get data(): Buffer | undefined;
+    get data(): Api.bytes | undefined;
     get chatInstance(): import("big-integer").BigInteger;
     getMessage(): Promise<Api.Message>;
     _refetchSender(): Promise<void>;

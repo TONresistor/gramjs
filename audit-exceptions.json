@@ -1,0 +1,13 @@
+{
+  "formatVersion": 1,
+  "exceptions": [
+    {
+      "package": "brace-expansion",
+      "advisory": "https://github.com/advisories/GHSA-mh99-v99m-4gvg",
+      "severity": "high",
+      "scope": "dev",
+      "expires": "2026-08-31",
+      "reason": "Jest build/test-only glob chain; the npm force fix downgrades Jest to 25. Production audit is clean."
+    }
+  ]
+}

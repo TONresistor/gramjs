@@ -57,8 +57,8 @@ export declare class MTProtoState {
      * @returns {{iv: Buffer, key: Buffer}}
      */
     _calcKey(authKey: Buffer, msgKey: Buffer, client: boolean): Promise<{
-        key: Buffer;
-        iv: Buffer;
+        key: Buffer<ArrayBuffer>;
+        iv: Buffer<ArrayBuffer>;
     }>;
     /**
      * Writes a message containing the given data into buffer.
@@ -74,7 +74,7 @@ export declare class MTProtoState {
      * following MTProto 2.0 guidelines core.telegram.org/mtproto/description.
      * @param data
      */
-    encryptMessageData(data: Buffer): Promise<Buffer>;
+    encryptMessageData(data: Buffer): Promise<Buffer<ArrayBuffer>>;
     /**
      * Inverse of `encrypt_message_data` for incoming server messages.
      * @param body

@@ -1,142 +1,115 @@
-const { exec } = require("child_process");
+"use strict";
+
 const fs = require("fs");
 const path = require("path");
 const webpack = require("webpack");
-const webpackConfig = require("./webpack.config");
-webpackConfig.entry = path.resolve(__dirname, "browser/index.js");
-/**
- * Generates a webpack build and put it in browser folder
- */
+const baseConfig = require("./webpack.config");
 
-function addBuffer(dir) {
-  fs.readdirSync(dir).forEach((file) => {
-    let fullPath = path.join(dir, file);
-    if (fs.lstatSync(fullPath).isDirectory()) {
-      addBuffer(fullPath);
-    } else {
-      if (
-        (fullPath.endsWith(".ts") || fullPath.endsWith(".js")) &&
-        (!fullPath.endsWith(".d.ts") ||
-          fullPath.endsWith("api.d.ts") ||
-          fullPath.endsWith("define.d.ts"))
-      ) {
-        const tsFile = fs.readFileSync(fullPath, "utf8");
-        if (tsFile.includes("Buffer")) {
-          const newTsFile = 'import { Buffer } from "buffer/";\n' + tsFile;
-          fs.writeFileSync(fullPath, newTsFile, "utf8");
-        }
-      }
+const root = __dirname;
+const temporaryRoot = fs.mkdtempSync(path.join(root, ".browser-build-"));
+const source = path.join(temporaryRoot, "source");
+const tsconfig = path.join(temporaryRoot, "tsconfig.json");
+
+function applyBrowserVariants(directory) {
+  for (const entry of fs.readdirSync(directory, { withFileTypes: true })) {
+    const absolute = path.join(directory, entry.name);
+    if (entry.isDirectory()) {
+      applyBrowserVariants(absolute);
+    } else if (entry.name.includes("-BROWSER")) {
+      const destination = absolute.replace("-BROWSER", "");
+      fs.rmSync(destination, { force: true });
+      fs.renameSync(absolute, destination);
     }
-  });
-}
-
-function renameFiles(dir, action) {
-  fs.readdirSync(dir).forEach((file) => {
-    let fullPath = path.join(dir, file);
-    if (fs.lstatSync(fullPath).isDirectory()) {
-      renameFiles(fullPath, action);
-    } else {
-      if (fullPath.includes("example")) {
-        fs.unlinkSync(fullPath);
-      }
-
-      if (fullPath.includes("-BROWSER")) {
-        console.log(action, fullPath);
-
-        if (action === "rename") {
-          fs.renameSync(fullPath, fullPath.replace("-BROWSER", ""));
-        } else if (action === "delete") {
-          fs.unlinkSync(fullPath);
-        }
-      }
-    }
-  });
-}
-
-function copyFolderSync(from, to) {
-  fs.mkdirSync(to);
-  fs.readdirSync(from).forEach((element) => {
-    if (fs.lstatSync(path.join(from, element)).isFile()) {
-      fs.copyFileSync(path.join(from, element), path.join(to, element));
-    } else {
-      copyFolderSync(path.join(from, element), path.join(to, element));
-    }
-  });
-}
-
-fs.rmSync("browser", { recursive: true, force: true });
-fs.rmSync("tempBrowser", { recursive: true, force: true });
-copyFolderSync("gramjs", "tempBrowser");
-addBuffer("tempBrowser");
-renameFiles("tempBrowser", "rename");
-
-const tsconfig = fs.readFileSync("tsconfig.json", "utf8");
-let newTsconfig = tsconfig.replace(/\.\/dist/g, "./browser");
-newTsconfig = newTsconfig.replace(/gramjs/g, "tempBrowser");
-fs.writeFileSync("tsconfig.json", newTsconfig, "utf8");
-const packageJSON = JSON.parse(fs.readFileSync("package.json", "utf8"));
-const oldValueStorage = packageJSON.dependencies["node-localstorage"];
-const oldValueSocks = packageJSON.dependencies["socks"];
-delete packageJSON.dependencies["node-localstorage"];
-delete packageJSON.dependencies["socks"];
-fs.writeFileSync(
-  "package.json",
-  JSON.stringify(packageJSON, null, "  "),
-  "utf8"
-);
-
-const npmi = exec("npm i");
-npmi.on("close", (code) => {
-  if (code !== 0) {
-    throw new Error("Error happened " + code);
   }
+}
 
-  const tsc = exec("npx tsc");
-  tsc.stdout.on("data", function (data) {
-    console.log("stdout: " + data.toString());
-  });
+async function main() {
+  fs.cpSync(path.join(root, "gramjs"), source, { recursive: true });
+  applyBrowserVariants(source);
+  fs.writeFileSync(
+    tsconfig,
+    `${JSON.stringify(
+      {
+        extends: path.join(root, "tsconfig.json"),
+        compilerOptions: {
+          outDir: path.join(temporaryRoot, "compiled"),
+          rootDir: source,
+          declaration: false,
+        },
+        include: [path.join(source, "**/*")],
+        exclude: [path.join(root, "node_modules")],
+      },
+      null,
+      2
+    )}\n`
+  );
 
-  tsc.stderr.on("data", function (data) {
-    console.error("stderr: " + data.toString());
-  });
-  tsc.on("close", (code) => {
-    if (code !== 0) {
-      throw new Error("Error happened " + code);
-    }
+  const config = {
+    ...baseConfig,
+    entry: path.join(source, "index.ts"),
+    module: {
+      ...baseConfig.module,
+      rules: baseConfig.module.rules.map((rule) =>
+        String(rule.test) === String(/\.ts$/)
+          ? {
+              ...rule,
+              use: {
+                loader: "ts-loader",
+                options: { configFile: tsconfig },
+              },
+            }
+          : rule
+      ),
+    },
+    resolve: {
+      ...baseConfig.resolve,
+      modules: [path.join(root, "node_modules"), "node_modules"],
+    },
+    resolveLoader: {
+      modules: [path.join(root, "node_modules"), "node_modules"],
+    },
+    output: {
+      ...baseConfig.output,
+      path: path.join(root, "browser"),
+    },
+  };
 
-    fs.copyFileSync("package.json", "browser/package.json");
-    fs.copyFileSync("README.md", "browser/README.md");
-    fs.copyFileSync("LICENSE", "browser/LICENSE");
-    fs.copyFileSync("gramjs/tl/api.d.ts", "browser/tl/api.d.ts");
-    fs.copyFileSync("gramjs/define.d.ts", "browser/define.d.ts");
-    fs.rmSync("tempBrowser", { recursive: true, force: true });
-    const tsconfig = fs.readFileSync("tsconfig.json", "utf8");
-    let newTsconfig = tsconfig.replace(/\.\/browser/g, "./dist");
-    newTsconfig = newTsconfig.replace(/tempBrowser/g, "gramjs");
-    fs.writeFileSync("tsconfig.json", newTsconfig, "utf8");
-    const packageJSON = JSON.parse(fs.readFileSync("package.json", "utf8"));
-    packageJSON.dependencies["node-localstorage"] = oldValueStorage;
-    packageJSON.dependencies["socks"] = oldValueSocks;
-    fs.writeFileSync(
-      "package.json",
-      JSON.stringify(packageJSON, null, "  "),
-      "utf8"
-    );
-
-    webpack(webpackConfig, (err, stats) => {
-      if (err || stats.hasErrors()) {
-        console.log("SOME ERROR HAPPENED");
-        process.exit(0);
+  await new Promise((resolve, reject) => {
+    webpack(config, (error, stats) => {
+      if (error) {
+        reject(error);
+        return;
       }
-      if (process.env.CI) {
-        exec("npm ci");
-      } else {
-        exec("npm i");
+      if (stats.hasErrors()) {
+        reject(
+          new Error(
+            stats.toString({
+              all: false,
+              errors: true,
+              warnings: true,
+            })
+          )
+        );
+        return;
       }
       console.log(
-        "DONE!. File created at ",
-        path.resolve(__dirname, "browser/telegram.js")
+        stats.toString({
+          all: false,
+          assets: true,
+          timings: true,
+          warnings: true,
+        })
       );
+      resolve();
     });
   });
-});
+}
+
+main()
+  .catch((error) => {
+    console.error(error);
+    process.exitCode = 1;
+  })
+  .finally(() => {
+    fs.rmSync(temporaryRoot, { recursive: true, force: true });
+  });

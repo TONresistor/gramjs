@@ -43,18 +43,18 @@ export declare class BinaryReader {
      * @param length {number}
      * @param checkLength {boolean} whether to check if the length overflows or not.
      */
-    read(length?: number, checkLength?: boolean): Buffer;
+    read(length?: number, checkLength?: boolean): Buffer<ArrayBuffer>;
     /**
      * Gets the byte array representing the current buffer as a whole.
      * @returns {Buffer}
      */
-    getBuffer(): Buffer;
+    getBuffer(): Buffer<ArrayBufferLike>;
     /**
      * Reads a Telegram-encoded byte array, without the need of
      * specifying its length.
      * @returns {Buffer}
      */
-    tgReadBytes(): Buffer;
+    tgReadBytes(): Buffer<ArrayBuffer>;
     /**
      * Reads a Telegram-encoded string.
      * @returns {string}

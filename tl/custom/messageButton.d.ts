@@ -14,7 +14,7 @@ export declare class MessageButton {
     constructor(client: TelegramClient, original: ButtonLike, chat: EntityLike, bot: EntityLike | undefined, msgId: MessageIDLike);
     get client(): TelegramClient;
     get text(): string;
-    get data(): Buffer | undefined;
+    get data(): Api.bytes | undefined;
     get inlineQuery(): string | undefined;
     get url(): string | undefined;
     /**
