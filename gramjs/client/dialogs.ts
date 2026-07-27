@@ -102,7 +102,9 @@ export class _DialogsIter extends RequestIter {
         for (const entity of [...r.users, ...r.chats]) {
             if (
                 entity instanceof Api.UserEmpty ||
-                entity instanceof Api.ChatEmpty
+                entity instanceof Api.ChatEmpty ||
+                entity instanceof Api.Community ||
+                entity instanceof Api.CommunityForbidden
             ) {
                 continue;
             }

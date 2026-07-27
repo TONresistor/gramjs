@@ -80,7 +80,9 @@ class _DialogsIter extends requestIter_1.RequestIter {
         const messages = new Map();
         for (const entity of [...r.users, ...r.chats]) {
             if (entity instanceof tl_1.Api.UserEmpty ||
-                entity instanceof tl_1.Api.ChatEmpty) {
+                entity instanceof tl_1.Api.ChatEmpty ||
+                entity instanceof tl_1.Api.Community ||
+                entity instanceof tl_1.Api.CommunityForbidden) {
                 continue;
             }
             entities.set(index_1.utils.getPeerId(entity), entity);

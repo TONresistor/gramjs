@@ -36,7 +36,18 @@ describe("Layer 228 high-level unions", () => {
         community,
       ],
       messages: [],
-      chats: [],
+      chats: [
+        new Api.Community({
+          id: bigInt.one,
+          title: "community",
+          photo: new Api.ChatPhotoEmpty(),
+          date: 0,
+        }),
+        new Api.CommunityForbidden({
+          id: bigInt(2),
+          title: "forbidden community",
+        }),
+      ],
       users: [],
     });
     const client = {
