@@ -21,6 +21,7 @@ interface MessageBaseInterface {
     fromId?: any;
     replyTo?: any;
     message?: any;
+    richMessage?: Api.TypeRichMessage;
     fwdFrom?: any;
     viaBotId?: any;
     media?: any;
@@ -117,7 +118,7 @@ export interface ButtonClickParam {
      */
     data?: Buffer;
     /** When clicking on a keyboard button requesting a phone number
-     (`KeyboardButtonRequestPhone`), this argument must be
+     (`ButtonTypeRequestPhone`), this argument must be
      explicitly set to avoid accidentally sharing the number.
 
      It can be `true` to automatically share the current user's
@@ -128,7 +129,7 @@ export interface ButtonClickParam {
      */
     sharePhone?: boolean | string | Api.InputMediaContact;
     /** When clicking on a keyboard button requesting a geo location
-     (`KeyboardButtonRequestGeoLocation`), this argument must
+     (`ButtonTypeRequestGeoLocation`), this argument must
      be explicitly set to avoid accidentally sharing the location.
 
      It must be a `list` of `float` as ``(longitude, latitude)``,
@@ -247,6 +248,11 @@ export declare class CustomMessage extends SenderGetter {
      */
     message: string;
     /**
+     * The structured Rich Message payload introduced in Telegram Layer 228.
+     * Rich messages normally keep {@link message} empty.
+     */
+    richMessage?: Api.TypeRichMessage;
+    /**
      * The media sent with this message if any (such as photos, videos, documents, gifs, stickers, etc.).
      *
      * You may want to access the `photo`, `document` etc. properties instead.
@@ -344,7 +350,7 @@ export declare class CustomMessage extends SenderGetter {
     [inspect.custom](): {
         [key: string]: any;
     };
-    init({ id, peerId, date, out, mentioned, mediaUnread, silent, post, fromId, replyTo, message, fwdFrom, viaBotId, media, replyMarkup, entities, views, editDate, postAuthor, groupedId, fromScheduled, legacy, editHide, pinned, restrictionReason, forwards, replies, action, reactions, noforwards, ttlPeriod, _entities, }: MessageBaseInterface): void;
+    init({ id, peerId, date, out, mentioned, mediaUnread, silent, post, fromId, replyTo, message, richMessage, fwdFrom, viaBotId, media, replyMarkup, entities, views, editDate, postAuthor, groupedId, fromScheduled, legacy, editHide, pinned, restrictionReason, forwards, replies, action, reactions, noforwards, ttlPeriod, _entities, }: MessageBaseInterface): void;
     constructor(args: MessageBaseInterface);
     _finishInit(client: TelegramClient, entities: Map<string, Entity>, inputChat?: EntityLike): void;
     get client(): TelegramClient | undefined;
@@ -417,7 +423,7 @@ export declare class CustomMessage extends SenderGetter {
     /**
      *Returns the input peer of the bot that's needed for the reply markup.
 
-     This is necessary for `KeyboardButtonSwitchInline` since we need
+     This is necessary for `InlineButtonTypeSwitchInline` since we need
      to know what bot we want to start. Raises ``Error`` if the bot
      cannot be found but is needed. Returns `None` if it's not needed.
      */

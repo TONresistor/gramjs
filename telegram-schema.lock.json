@@ -1,9 +1,9 @@
 {
-  "layer": 228,
+  "layer": 229,
   "source": {
     "repository": "telegramdesktop/tdesktop",
-    "commit": "138b937f01a275000fb2e06b3d5b864f5b78cc81",
-    "committedAt": "2026-07-10T10:04:30Z"
+    "commit": "11d18d829b25d583f2e3058663b522a528fde51a",
+    "committedAt": "2026-08-22T11:13:24Z"
   },
   "history": [
     {
@@ -37,16 +37,23 @@
     {
       "layer": 228,
       "commit": "138b937f01a275000fb2e06b3d5b864f5b78cc81",
-      "path": "gramjs/tl/static/api.tl",
+      "path": "schema-history/api-228.tl",
       "sha256": "bbddd9c4c3f5ff16fd4abbf39f2a864fdac7553e9f05b6bf9ead2aeb9c8eb566",
       "definitionCount": 2449
+    },
+    {
+      "layer": 229,
+      "commit": "11d18d829b25d583f2e3058663b522a528fde51a",
+      "path": "gramjs/tl/static/api.tl",
+      "sha256": "7655504c25a5d3a368e7729d3e9e64afffcacbcb54ec85508c60f0472064b617",
+      "definitionCount": 2471
     }
   ],
   "api": {
     "path": "gramjs/tl/static/api.tl",
     "sourcePath": "Telegram/SourceFiles/mtproto/scheme/api.tl",
-    "sha256": "bbddd9c4c3f5ff16fd4abbf39f2a864fdac7553e9f05b6bf9ead2aeb9c8eb566",
-    "definitionCount": 2449
+    "sha256": "7655504c25a5d3a368e7729d3e9e64afffcacbcb54ec85508c60f0472064b617",
+    "definitionCount": 2471
   },
   "mtproto": {
     "path": "gramjs/tl/static/schema.tl",
@@ -93,17 +100,45 @@
       "modified": 8,
       "changedIds": 5,
       "allowedRemovals": []
+    },
+    {
+      "from": 228,
+      "to": 229,
+      "commit": "11d18d829b25d583f2e3058663b522a528fde51a",
+      "added": 39,
+      "removed": 17,
+      "modified": 17,
+      "changedIds": 11,
+      "allowedRemovals": [
+        "constructor:inputKeyboardButtonRequestPeer",
+        "constructor:inputKeyboardButtonUrlAuth",
+        "constructor:inputKeyboardButtonUserProfile",
+        "constructor:keyboardButtonBuy",
+        "constructor:keyboardButtonCallback",
+        "constructor:keyboardButtonCopy",
+        "constructor:keyboardButtonGame",
+        "constructor:keyboardButtonRequestGeoLocation",
+        "constructor:keyboardButtonRequestPeer",
+        "constructor:keyboardButtonRequestPhone",
+        "constructor:keyboardButtonRequestPoll",
+        "constructor:keyboardButtonSimpleWebView",
+        "constructor:keyboardButtonSwitchInline",
+        "constructor:keyboardButtonUrl",
+        "constructor:keyboardButtonUrlAuth",
+        "constructor:keyboardButtonUserProfile",
+        "constructor:keyboardButtonWebView"
+      ]
     }
   ],
   "cumulativeFrom224": {
-    "added": 120,
-    "removed": 0,
-    "modified": 35,
-    "changedIds": 26
+    "added": 159,
+    "removed": 17,
+    "modified": 45,
+    "changedIds": 32
   },
   "semanticDiff": {
     "baselineLayer": 224,
     "path": "telegram-schema-diff.json",
-    "sha256": "e6b65c5bd20a22d855110fc676321c40d1ad4efa6293ba72c6870defd3a44fa2"
+    "sha256": "22ab0b824639ca4fb17b64db63cf05ed05b1e8c82b4ea03aea7470cdd8b74249"
   }
 }

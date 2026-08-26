@@ -55,7 +55,7 @@ class CustomMessage extends senderGetter_1.SenderGetter {
     [inspect_1.inspect.custom]() {
         return (0, Helpers_1.betterConsoleLog)(this);
     }
-    init({ id, peerId = undefined, date = undefined, out = undefined, mentioned = undefined, mediaUnread = undefined, silent = undefined, post = undefined, fromId = undefined, replyTo = undefined, message = undefined, fwdFrom = undefined, viaBotId = undefined, media = undefined, replyMarkup = undefined, entities = undefined, views = undefined, editDate = undefined, postAuthor = undefined, groupedId = undefined, fromScheduled = undefined, legacy = undefined, editHide = undefined, pinned = undefined, restrictionReason = undefined, forwards = undefined, replies = undefined, action = undefined, reactions = undefined, noforwards = undefined, ttlPeriod = undefined, _entities = new Map(), }) {
+    init({ id, peerId = undefined, date = undefined, out = undefined, mentioned = undefined, mediaUnread = undefined, silent = undefined, post = undefined, fromId = undefined, replyTo = undefined, message = undefined, richMessage = undefined, fwdFrom = undefined, viaBotId = undefined, media = undefined, replyMarkup = undefined, entities = undefined, views = undefined, editDate = undefined, postAuthor = undefined, groupedId = undefined, fromScheduled = undefined, legacy = undefined, editHide = undefined, pinned = undefined, restrictionReason = undefined, forwards = undefined, replies = undefined, action = undefined, reactions = undefined, noforwards = undefined, ttlPeriod = undefined, _entities = new Map(), }) {
         if (!id)
             throw new Error("id is a required attribute for Message");
         let senderId = undefined;
@@ -87,6 +87,7 @@ class CustomMessage extends senderGetter_1.SenderGetter {
         this.replyTo = replyTo;
         this.date = date;
         this.message = message;
+        this.richMessage = richMessage;
         this.media = media instanceof api_1.Api.MessageMediaEmpty ? undefined : media;
         this.replyMarkup = replyMarkup;
         this.entities = entities;
@@ -534,9 +535,9 @@ class CustomMessage extends senderGetter_1.SenderGetter {
             if (!chat) {
                 return;
             }
-            const button = new api_1.Api.KeyboardButtonCallback({
+            const button = new api_1.Api.KeyboardInlineButton({
                 text: "",
-                data: data,
+                type: new api_1.Api.InlineButtonTypeCallback({ data }),
             });
             return await new messageButton_1.MessageButton(this.client, button, chat, undefined, this.id).click({
                 sharePhone: sharePhone,
@@ -667,7 +668,7 @@ class CustomMessage extends senderGetter_1.SenderGetter {
     /**
      *Returns the input peer of the bot that's needed for the reply markup.
 
-     This is necessary for `KeyboardButtonSwitchInline` since we need
+     This is necessary for `InlineButtonTypeSwitchInline` since we need
      to know what bot we want to start. Raises ``Error`` if the bot
      cannot be found but is needed. Returns `None` if it's not needed.
      */
@@ -681,8 +682,9 @@ class CustomMessage extends senderGetter_1.SenderGetter {
         }
         for (const row of this.replyMarkup.rows) {
             for (const button of row.buttons) {
-                if (button instanceof api_1.Api.KeyboardButtonSwitchInline) {
-                    if (button.samePeer || !this.viaBotId) {
+                if (button instanceof api_1.Api.KeyboardInlineButton &&
+                    button.type instanceof api_1.Api.InlineButtonTypeSwitchInline) {
+                    if (button.type.samePeer || !this.viaBotId) {
                         const bot = this._inputSender;
                         if (!bot)
                             throw new Error("No input sender");

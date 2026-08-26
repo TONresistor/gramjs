@@ -166,7 +166,8 @@ function getInputPeer(entity, allowSelf = true, checkHash = true) {
         entity instanceof tl_1.Api.ChatForbidden) {
         return new tl_1.Api.InputPeerChat({ chatId: entity.id });
     }
-    if (entity instanceof tl_1.Api.Channel) {
+    if (entity instanceof tl_1.Api.Channel ||
+        entity instanceof tl_1.Api.Community) {
         if ((entity.accessHash !== undefined && !entity.min) || !checkHash) {
             return new tl_1.Api.InputPeerChannel({
                 channelId: entity.id,
@@ -174,16 +175,18 @@ function getInputPeer(entity, allowSelf = true, checkHash = true) {
             });
         }
         else {
-            throw new TypeError("Channel without accessHash or min info cannot be input");
+            throw new TypeError(`${entity.className} without accessHash or min info cannot be input`);
         }
     }
-    if (entity instanceof tl_1.Api.ChannelForbidden) {
-        // "channelForbidden are never min", and since their hash is
-        // also not optional, we assume that this truly is the case.
-        return new tl_1.Api.InputPeerChannel({
-            channelId: entity.id,
-            accessHash: entity.accessHash,
-        });
+    if (entity instanceof tl_1.Api.ChannelForbidden ||
+        entity instanceof tl_1.Api.CommunityForbidden) {
+        if (entity.accessHash !== undefined || !checkHash) {
+            return new tl_1.Api.InputPeerChannel({
+                channelId: entity.id,
+                accessHash: entity.accessHash || (0, big_integer_1.default)(0),
+            });
+        }
+        throw new TypeError(`${entity.className} without accessHash cannot be input`);
     }
     if (entity instanceof tl_1.Api.InputUser) {
         return new tl_1.Api.InputPeerUser({
@@ -286,7 +289,9 @@ function getInputChannel(entity) {
         return entity;
     }
     if (entity instanceof tl_1.Api.Channel ||
-        entity instanceof tl_1.Api.ChannelForbidden) {
+        entity instanceof tl_1.Api.ChannelForbidden ||
+        entity instanceof tl_1.Api.Community ||
+        entity instanceof tl_1.Api.CommunityForbidden) {
         return new tl_1.Api.InputChannel({
             channelId: entity.id,
             accessHash: entity.accessHash || big_integer_1.default.zero,
@@ -982,7 +987,17 @@ function getPeer(peer) {
             peer instanceof tl_1.Api.DialogPeer) {
             return peer.peer;
         }
-        else if (peer instanceof tl_1.Api.ChannelFull) {
+        else if (peer instanceof tl_1.Api.DialogCommunity ||
+            peer instanceof tl_1.Api.DialogPeerCommunity ||
+            peer instanceof tl_1.Api.NotifyCommunity) {
+            return new tl_1.Api.PeerChannel({ channelId: peer.communityId });
+        }
+        else if (peer instanceof tl_1.Api.InputDialogPeerCommunity ||
+            peer instanceof tl_1.Api.InputNotifyCommunity) {
+            return getPeer(peer.community);
+        }
+        else if (peer instanceof tl_1.Api.ChannelFull ||
+            peer instanceof tl_1.Api.CommunityFull) {
             return new tl_1.Api.PeerChannel({ channelId: peer.id });
         }
         if (peer.SUBCLASS_OF_ID === 0x7d7c6f86 ||
@@ -1225,7 +1240,10 @@ function getDisplayName(entity) {
             return "";
         }
     }
-    else if (entity instanceof tl_1.Api.Chat || entity instanceof tl_1.Api.Channel) {
+    else if (entity instanceof tl_1.Api.Chat ||
+        entity instanceof tl_1.Api.Channel ||
+        entity instanceof tl_1.Api.Community ||
+        entity instanceof tl_1.Api.CommunityForbidden) {
         return entity.title;
     }
     return "";

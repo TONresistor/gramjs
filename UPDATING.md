@@ -29,13 +29,13 @@ reviewed and named explicitly in that transition's `allowedRemovals`; otherwise
 verification fails. The verifier independently recomputes every transition,
 the cumulative diff, all hashes, and the committed report.
 
-For Layer 228 the locked source is:
+For Layer 229 the locked source is:
 
 ```text
-commit: 138b937f01a275000fb2e06b3d5b864f5b78cc81
-api.tl: bbddd9c4c3f5ff16fd4abbf39f2a864fdac7553e9f05b6bf9ead2aeb9c8eb566
+commit: 11d18d829b25d583f2e3058663b522a528fde51a
+api.tl: 7655504c25a5d3a368e7729d3e9e64afffcacbcb54ec85508c60f0472064b617
 mtproto.tl: 40c10255afb6cfcbcfc190a457a53b66ec9e410f6418cd97cc4c276709a739a9
-definitions: 2449
+definitions: 2471
 ```
 
 ## 2. Verify and generate
@@ -113,7 +113,7 @@ The browser build uses temporary source variants and never rewrites
 
 `check:package` verifies the exact tarball manifest, installs the tarball in an
 empty consumer fixture, loads the supported subpath imports, checks every
-changed constructor ID, and serializes a Layer 228 request.
+changed constructor ID, and serializes a Layer 229 request.
 
 `check:git-package` additionally copies the current worktree into an isolated
 temporary repository, creates a temporary commit, installs that exact commit as

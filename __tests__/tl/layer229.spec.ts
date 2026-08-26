@@ -1,5 +1,6 @@
 import bigInt from "big-integer";
 import semanticDiff from "../../telegram-schema-diff.json";
+import { BinaryReader } from "../../gramjs/extensions/BinaryReader";
 import { Api } from "../../gramjs/tl";
 import { LAYER, tlobjects } from "../../gramjs/tl/AllTLObjects";
 
@@ -36,9 +37,9 @@ function getApiClass(definitionName: string): ApiClass {
   return apiClass as unknown as ApiClass;
 }
 
-describe("Telegram API Layer 228", () => {
+describe("Telegram API Layer 229", () => {
   test("exports the expected layer and protocol-critical constructor IDs", () => {
-    expect(LAYER).toBe(228);
+    expect(LAYER).toBe(229);
     expect(Api.User.CONSTRUCTOR_ID >>> 0).toBe(0xb1b8cc83);
     expect(Api.Channel.CONSTRUCTOR_ID >>> 0).toBe(0xd49f34c6);
     expect(Api.Message.CONSTRUCTOR_ID >>> 0).toBe(0x7600b9d3);
@@ -58,12 +59,12 @@ describe("Telegram API Layer 228", () => {
     );
   });
 
-  test("registers all 26 changed definitions only under their Layer 228 IDs", () => {
+  test("registers all 32 changed definitions only under their Layer 229 IDs", () => {
     const changedIds = semanticDiff.cumulative.modified.filter(
       (definition) => definition.before.id !== definition.after.id
     );
 
-    expect(changedIds).toHaveLength(26);
+    expect(changedIds).toHaveLength(32);
     for (const definition of changedIds) {
       const apiClass = getApiClass(definition.name);
       const oldId = Number.parseInt(definition.before.id.slice(2), 16);
@@ -77,7 +78,7 @@ describe("Telegram API Layer 228", () => {
 
   test("serializes search and message requests without new optional fields", () => {
     const search = new Api.messages.SearchGlobal({
-      q: "layer-228",
+      q: "layer-229",
       filter: new Api.InputMessagesFilterEmpty(),
       minDate: 0,
       maxDate: 0,
@@ -124,5 +125,33 @@ describe("Telegram API Layer 228", () => {
     expect(result.updates).toBe(updates);
     expect(result.getBytes().length).toBeGreaterThan(4);
     expect(request.getBytes().length).toBeGreaterThan(4);
+  });
+
+  test("preserves Layer 228 rich messages on the custom Message class", () => {
+    const richMessage = new Api.RichMessage({
+      part: true,
+      blocks: [
+        new Api.PageBlockParagraph({
+          text: new Api.TextPlain({ text: "Rich content" }),
+        }),
+      ],
+      photos: [],
+      documents: [],
+    });
+    const message = new Api.Message({
+      id: 1,
+      peerId: new Api.PeerUser({ userId: bigInt.one }),
+      date: 0,
+      message: "",
+      richMessage,
+    });
+
+    expect(message.richMessage).toBe(richMessage);
+    expect(message.richMessage?.part).toBe(true);
+
+    const decoded = new BinaryReader(message.getBytes()).tgReadObject() as Api.Message;
+    expect(decoded.richMessage).toBeInstanceOf(Api.RichMessage);
+    expect(decoded.richMessage?.part).toBe(true);
+    expect(decoded.richMessage?.blocks[0]).toBeInstanceOf(Api.PageBlockParagraph);
   });
 });

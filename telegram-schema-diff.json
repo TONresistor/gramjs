@@ -1,7 +1,7 @@
 {
   "formatVersion": 1,
   "baselineLayer": 224,
-  "targetLayer": 228,
+  "targetLayer": 229,
   "transitions": [
     {
       "from": 224,
@@ -1461,16 +1461,645 @@
           }
         }
       ]
+    },
+    {
+      "from": 228,
+      "to": 229,
+      "summary": {
+        "added": 39,
+        "removed": 17,
+        "modified": 17,
+        "changedIds": 11
+      },
+      "added": [
+        {
+          "key": "constructor:auth.firebasePnvIntent",
+          "kind": "constructor",
+          "name": "auth.firebasePnvIntent",
+          "id": "0xdf5ac00c",
+          "signature": "auth.firebasePnvIntent#df5ac00c nonce:string digital_credential_payload:string = auth.FirebasePnvIntent;"
+        },
+        {
+          "key": "constructor:buttonTypeDefault",
+          "kind": "constructor",
+          "name": "buttonTypeDefault",
+          "id": "0xc9dd90e9",
+          "signature": "buttonTypeDefault#c9dd90e9 = ButtonType;"
+        },
+        {
+          "key": "constructor:buttonTypeRequestGeoLocation",
+          "kind": "constructor",
+          "name": "buttonTypeRequestGeoLocation",
+          "id": "0x9beee140",
+          "signature": "buttonTypeRequestGeoLocation#9beee140 = ButtonType;"
+        },
+        {
+          "key": "constructor:buttonTypeRequestPeer",
+          "kind": "constructor",
+          "name": "buttonTypeRequestPeer",
+          "id": "0x4f58a237",
+          "signature": "buttonTypeRequestPeer#4f58a237 flags:# button_id:int peer_type:RequestPeerType max_quantity:int = ButtonType;"
+        },
+        {
+          "key": "constructor:buttonTypeRequestPhone",
+          "kind": "constructor",
+          "name": "buttonTypeRequestPhone",
+          "id": "0xdf3d36f9",
+          "signature": "buttonTypeRequestPhone#df3d36f9 = ButtonType;"
+        },
+        {
+          "key": "constructor:buttonTypeRequestPoll",
+          "kind": "constructor",
+          "name": "buttonTypeRequestPoll",
+          "id": "0xaacfff84",
+          "signature": "buttonTypeRequestPoll#aacfff84 flags:# quiz:flags.0?Bool = ButtonType;"
+        },
+        {
+          "key": "constructor:buttonTypeSimpleWebView",
+          "kind": "constructor",
+          "name": "buttonTypeSimpleWebView",
+          "id": "0xc01a597a",
+          "signature": "buttonTypeSimpleWebView#c01a597a url:string = ButtonType;"
+        },
+        {
+          "key": "constructor:ephemeral.welcomeMessages",
+          "kind": "constructor",
+          "name": "ephemeral.welcomeMessages",
+          "id": "0x104fc872",
+          "signature": "ephemeral.welcomeMessages#104fc872 hash:long messages:Vector<EphemeralMessage> = ephemeral.WelcomeMessages;"
+        },
+        {
+          "key": "constructor:ephemeral.welcomeMessagesNotModified",
+          "kind": "constructor",
+          "name": "ephemeral.welcomeMessagesNotModified",
+          "id": "0x59ffdb31",
+          "signature": "ephemeral.welcomeMessagesNotModified#59ffdb31 = ephemeral.WelcomeMessages;"
+        },
+        {
+          "key": "constructor:inlineButtonTypeBuy",
+          "kind": "constructor",
+          "name": "inlineButtonTypeBuy",
+          "id": "0x48bad7a5",
+          "signature": "inlineButtonTypeBuy#48bad7a5 = InlineButtonType;"
+        },
+        {
+          "key": "constructor:inlineButtonTypeCallback",
+          "kind": "constructor",
+          "name": "inlineButtonTypeCallback",
+          "id": "0x2955bc38",
+          "signature": "inlineButtonTypeCallback#2955bc38 flags:# requires_password:flags.0?true data:bytes = InlineButtonType;"
+        },
+        {
+          "key": "constructor:inlineButtonTypeCopy",
+          "kind": "constructor",
+          "name": "inlineButtonTypeCopy",
+          "id": "0xb41d3272",
+          "signature": "inlineButtonTypeCopy#b41d3272 copy_text:string = InlineButtonType;"
+        },
+        {
+          "key": "constructor:inlineButtonTypeDisabled",
+          "kind": "constructor",
+          "name": "inlineButtonTypeDisabled",
+          "id": "0xa438619d",
+          "signature": "inlineButtonTypeDisabled#a438619d = InlineButtonType;"
+        },
+        {
+          "key": "constructor:inlineButtonTypeGame",
+          "kind": "constructor",
+          "name": "inlineButtonTypeGame",
+          "id": "0x5cd3709d",
+          "signature": "inlineButtonTypeGame#5cd3709d = InlineButtonType;"
+        },
+        {
+          "key": "constructor:inlineButtonTypeSwitchInline",
+          "kind": "constructor",
+          "name": "inlineButtonTypeSwitchInline",
+          "id": "0x93773ff5",
+          "signature": "inlineButtonTypeSwitchInline#93773ff5 flags:# same_peer:flags.0?true query:string peer_types:flags.1?Vector<InlineQueryPeerType> = InlineButtonType;"
+        },
+        {
+          "key": "constructor:inlineButtonTypeUrl",
+          "kind": "constructor",
+          "name": "inlineButtonTypeUrl",
+          "id": "0xeca4f8d4",
+          "signature": "inlineButtonTypeUrl#eca4f8d4 url:string = InlineButtonType;"
+        },
+        {
+          "key": "constructor:inlineButtonTypeUrlAuth",
+          "kind": "constructor",
+          "name": "inlineButtonTypeUrlAuth",
+          "id": "0xbfd02da2",
+          "signature": "inlineButtonTypeUrlAuth#bfd02da2 flags:# fwd_text:flags.0?string url:string button_id:int = InlineButtonType;"
+        },
+        {
+          "key": "constructor:inlineButtonTypeUserProfile",
+          "kind": "constructor",
+          "name": "inlineButtonTypeUserProfile",
+          "id": "0x3fa33fcf",
+          "signature": "inlineButtonTypeUserProfile#3fa33fcf user_id:long = InlineButtonType;"
+        },
+        {
+          "key": "constructor:inlineButtonTypeWebView",
+          "kind": "constructor",
+          "name": "inlineButtonTypeWebView",
+          "id": "0x3bcab5b4",
+          "signature": "inlineButtonTypeWebView#3bcab5b4 url:string = InlineButtonType;"
+        },
+        {
+          "key": "constructor:inputButtonTypeRequestPeer",
+          "kind": "constructor",
+          "name": "inputButtonTypeRequestPeer",
+          "id": "0x3fe268fe",
+          "signature": "inputButtonTypeRequestPeer#3fe268fe flags:# name_requested:flags.0?true username_requested:flags.1?true photo_requested:flags.2?true button_id:int peer_type:RequestPeerType max_quantity:int = ButtonType;"
+        },
+        {
+          "key": "constructor:inputInlineButtonTypeUrlAuth",
+          "kind": "constructor",
+          "name": "inputInlineButtonTypeUrlAuth",
+          "id": "0x9961bcb4",
+          "signature": "inputInlineButtonTypeUrlAuth#9961bcb4 flags:# request_write_access:flags.0?true fwd_text:flags.1?string url:string bot:flags.2?InputUser = InlineButtonType;"
+        },
+        {
+          "key": "constructor:inputInlineButtonTypeUserProfile",
+          "kind": "constructor",
+          "name": "inputInlineButtonTypeUserProfile",
+          "id": "0x53f3ce5a",
+          "signature": "inputInlineButtonTypeUserProfile#53f3ce5a user_id:InputUser = InlineButtonType;"
+        },
+        {
+          "key": "constructor:keyboardInlineButton",
+          "kind": "constructor",
+          "name": "keyboardInlineButton",
+          "id": "0x11c1a322",
+          "signature": "keyboardInlineButton#11c1a322 flags:# style:flags.10?KeyboardButtonStyle text:string type:InlineButtonType = KeyboardInlineButton;"
+        },
+        {
+          "key": "constructor:keyboardInlineButtonRow",
+          "kind": "constructor",
+          "name": "keyboardInlineButtonRow",
+          "id": "0x19420af6",
+          "signature": "keyboardInlineButtonRow#19420af6 buttons:Vector<KeyboardInlineButton> = KeyboardInlineButtonRow;"
+        },
+        {
+          "key": "constructor:messageActionChatJoinedViaCommunity",
+          "kind": "constructor",
+          "name": "messageActionChatJoinedViaCommunity",
+          "id": "0x4a8bfe80",
+          "signature": "messageActionChatJoinedViaCommunity#4a8bfe80 community_id:long = MessageAction;"
+        },
+        {
+          "key": "constructor:pageBlockButtonRow",
+          "kind": "constructor",
+          "name": "pageBlockButtonRow",
+          "id": "0x6d640318",
+          "signature": "pageBlockButtonRow#6d640318 flags:# align_left:flags.0?true align_center:flags.1?true align_right:flags.2?true buttons:Vector<PageButton> = PageBlock;"
+        },
+        {
+          "key": "constructor:pageBlockDocument",
+          "kind": "constructor",
+          "name": "pageBlockDocument",
+          "id": "0x38fa3ba3",
+          "signature": "pageBlockDocument#38fa3ba3 document_id:long caption:PageCaption = PageBlock;"
+        },
+        {
+          "key": "constructor:pageButton",
+          "kind": "constructor",
+          "name": "pageButton",
+          "id": "0x692a5488",
+          "signature": "pageButton#692a5488 flags:# text:RichText type:InlineButtonType style:flags.0?RichButtonStyle = PageButton;"
+        },
+        {
+          "key": "constructor:richButtonStyle",
+          "kind": "constructor",
+          "name": "richButtonStyle",
+          "id": "0x03c610bd",
+          "signature": "richButtonStyle#3c610bd flags:# bg_primary:flags.0?true bg_danger:flags.1?true bg_success:flags.2?true link:flags.3?true = RichButtonStyle;"
+        },
+        {
+          "key": "constructor:sendMessageStopDraftAction",
+          "kind": "constructor",
+          "name": "sendMessageStopDraftAction",
+          "id": "0xfbf902b0",
+          "signature": "sendMessageStopDraftAction#fbf902b0 random_id:long = SendMessageAction;"
+        },
+        {
+          "key": "constructor:textButton",
+          "kind": "constructor",
+          "name": "textButton",
+          "id": "0xafc79cd6",
+          "signature": "textButton#afc79cd6 flags:# text:RichText type:InlineButtonType style:flags.0?RichButtonStyle = RichText;"
+        },
+        {
+          "key": "constructor:updateEphemeralBotCallbackQuery",
+          "kind": "constructor",
+          "name": "updateEphemeralBotCallbackQuery",
+          "id": "0x7c1079d6",
+          "signature": "updateEphemeralBotCallbackQuery#7c1079d6 flags:# query_id:long user_id:long peer:flags.0?Peer msg_id:int data:bytes chat_instance:flags.1?long message:EphemeralMessage = Update;"
+        },
+        {
+          "key": "function:auth.finishFirebasePnvLogin",
+          "kind": "function",
+          "name": "auth.finishFirebasePnvLogin",
+          "id": "0x2c85094c",
+          "signature": "auth.finishFirebasePnvLogin#2c85094c google_token:string = auth.Authorization;"
+        },
+        {
+          "key": "function:auth.firebasePnvSignUp",
+          "kind": "function",
+          "name": "auth.firebasePnvSignUp",
+          "id": "0x783f6b56",
+          "signature": "auth.firebasePnvSignUp#783f6b56 flags:# no_joined_notifications:flags.0?true first_name:string last_name:string = auth.Authorization;"
+        },
+        {
+          "key": "function:auth.initFirebasePnvLogin",
+          "kind": "function",
+          "name": "auth.initFirebasePnvLogin",
+          "id": "0x777df37a",
+          "signature": "auth.initFirebasePnvLogin#777df37a api_id:int api_hash:string = auth.FirebasePnvIntent;"
+        },
+        {
+          "key": "function:ephemeral.deleteAllWelcomeMessages",
+          "kind": "function",
+          "name": "ephemeral.deleteAllWelcomeMessages",
+          "id": "0x734f9721",
+          "signature": "ephemeral.deleteAllWelcomeMessages#734f9721 peer:InputPeer = Bool;"
+        },
+        {
+          "key": "function:ephemeral.deleteWelcomeMessage",
+          "kind": "function",
+          "name": "ephemeral.deleteWelcomeMessage",
+          "id": "0xe882a9e1",
+          "signature": "ephemeral.deleteWelcomeMessage#e882a9e1 peer:InputPeer id:int = Bool;"
+        },
+        {
+          "key": "function:ephemeral.editMessage",
+          "kind": "function",
+          "name": "ephemeral.editMessage",
+          "id": "0xcf9c725b",
+          "signature": "ephemeral.editMessage#cf9c725b flags:# invert_media:flags.5?true welcome:flags.6?true peer:flags.7?InputPeer receiver_id:InputUser id:int message:flags.0?string media:flags.3?InputMedia entities:flags.1?Vector<MessageEntity> reply_markup:flags.2?ReplyMarkup rich_message:flags.4?InputRichMessage = Updates;"
+        },
+        {
+          "key": "function:ephemeral.getWelcomeMessages",
+          "kind": "function",
+          "name": "ephemeral.getWelcomeMessages",
+          "id": "0xdb9ac18d",
+          "signature": "ephemeral.getWelcomeMessages#db9ac18d peer:InputPeer hash:long = ephemeral.WelcomeMessages;"
+        }
+      ],
+      "removed": [
+        {
+          "key": "constructor:inputKeyboardButtonRequestPeer",
+          "kind": "constructor",
+          "name": "inputKeyboardButtonRequestPeer",
+          "id": "0x02b78156",
+          "signature": "inputKeyboardButtonRequestPeer#2b78156 flags:# name_requested:flags.0?true username_requested:flags.1?true photo_requested:flags.2?true style:flags.10?KeyboardButtonStyle text:string button_id:int peer_type:RequestPeerType max_quantity:int = KeyboardButton;"
+        },
+        {
+          "key": "constructor:inputKeyboardButtonUrlAuth",
+          "kind": "constructor",
+          "name": "inputKeyboardButtonUrlAuth",
+          "id": "0x68013e72",
+          "signature": "inputKeyboardButtonUrlAuth#68013e72 flags:# request_write_access:flags.0?true style:flags.10?KeyboardButtonStyle text:string fwd_text:flags.1?string url:string bot:InputUser = KeyboardButton;"
+        },
+        {
+          "key": "constructor:inputKeyboardButtonUserProfile",
+          "kind": "constructor",
+          "name": "inputKeyboardButtonUserProfile",
+          "id": "0x7d5e07c7",
+          "signature": "inputKeyboardButtonUserProfile#7d5e07c7 flags:# style:flags.10?KeyboardButtonStyle text:string user_id:InputUser = KeyboardButton;"
+        },
+        {
+          "key": "constructor:keyboardButtonBuy",
+          "kind": "constructor",
+          "name": "keyboardButtonBuy",
+          "id": "0x3fa53905",
+          "signature": "keyboardButtonBuy#3fa53905 flags:# style:flags.10?KeyboardButtonStyle text:string = KeyboardButton;"
+        },
+        {
+          "key": "constructor:keyboardButtonCallback",
+          "kind": "constructor",
+          "name": "keyboardButtonCallback",
+          "id": "0xe62bc960",
+          "signature": "keyboardButtonCallback#e62bc960 flags:# requires_password:flags.0?true style:flags.10?KeyboardButtonStyle text:string data:bytes = KeyboardButton;"
+        },
+        {
+          "key": "constructor:keyboardButtonCopy",
+          "kind": "constructor",
+          "name": "keyboardButtonCopy",
+          "id": "0xbcc4af10",
+          "signature": "keyboardButtonCopy#bcc4af10 flags:# style:flags.10?KeyboardButtonStyle text:string copy_text:string = KeyboardButton;"
+        },
+        {
+          "key": "constructor:keyboardButtonGame",
+          "kind": "constructor",
+          "name": "keyboardButtonGame",
+          "id": "0x89c590f9",
+          "signature": "keyboardButtonGame#89c590f9 flags:# style:flags.10?KeyboardButtonStyle text:string = KeyboardButton;"
+        },
+        {
+          "key": "constructor:keyboardButtonRequestGeoLocation",
+          "kind": "constructor",
+          "name": "keyboardButtonRequestGeoLocation",
+          "id": "0xaa40f94d",
+          "signature": "keyboardButtonRequestGeoLocation#aa40f94d flags:# style:flags.10?KeyboardButtonStyle text:string = KeyboardButton;"
+        },
+        {
+          "key": "constructor:keyboardButtonRequestPeer",
+          "kind": "constructor",
+          "name": "keyboardButtonRequestPeer",
+          "id": "0x5b0f15f5",
+          "signature": "keyboardButtonRequestPeer#5b0f15f5 flags:# style:flags.10?KeyboardButtonStyle text:string button_id:int peer_type:RequestPeerType max_quantity:int = KeyboardButton;"
+        },
+        {
+          "key": "constructor:keyboardButtonRequestPhone",
+          "kind": "constructor",
+          "name": "keyboardButtonRequestPhone",
+          "id": "0x417efd8f",
+          "signature": "keyboardButtonRequestPhone#417efd8f flags:# style:flags.10?KeyboardButtonStyle text:string = KeyboardButton;"
+        },
+        {
+          "key": "constructor:keyboardButtonRequestPoll",
+          "kind": "constructor",
+          "name": "keyboardButtonRequestPoll",
+          "id": "0x7a11d782",
+          "signature": "keyboardButtonRequestPoll#7a11d782 flags:# style:flags.10?KeyboardButtonStyle quiz:flags.0?Bool text:string = KeyboardButton;"
+        },
+        {
+          "key": "constructor:keyboardButtonSimpleWebView",
+          "kind": "constructor",
+          "name": "keyboardButtonSimpleWebView",
+          "id": "0xe15c4370",
+          "signature": "keyboardButtonSimpleWebView#e15c4370 flags:# style:flags.10?KeyboardButtonStyle text:string url:string = KeyboardButton;"
+        },
+        {
+          "key": "constructor:keyboardButtonSwitchInline",
+          "kind": "constructor",
+          "name": "keyboardButtonSwitchInline",
+          "id": "0x991399fc",
+          "signature": "keyboardButtonSwitchInline#991399fc flags:# same_peer:flags.0?true style:flags.10?KeyboardButtonStyle text:string query:string peer_types:flags.1?Vector<InlineQueryPeerType> = KeyboardButton;"
+        },
+        {
+          "key": "constructor:keyboardButtonUrl",
+          "kind": "constructor",
+          "name": "keyboardButtonUrl",
+          "id": "0xd80c25ec",
+          "signature": "keyboardButtonUrl#d80c25ec flags:# style:flags.10?KeyboardButtonStyle text:string url:string = KeyboardButton;"
+        },
+        {
+          "key": "constructor:keyboardButtonUrlAuth",
+          "kind": "constructor",
+          "name": "keyboardButtonUrlAuth",
+          "id": "0xf51006f9",
+          "signature": "keyboardButtonUrlAuth#f51006f9 flags:# style:flags.10?KeyboardButtonStyle text:string fwd_text:flags.0?string url:string button_id:int = KeyboardButton;"
+        },
+        {
+          "key": "constructor:keyboardButtonUserProfile",
+          "kind": "constructor",
+          "name": "keyboardButtonUserProfile",
+          "id": "0xc0fd5d09",
+          "signature": "keyboardButtonUserProfile#c0fd5d09 flags:# style:flags.10?KeyboardButtonStyle text:string user_id:long = KeyboardButton;"
+        },
+        {
+          "key": "constructor:keyboardButtonWebView",
+          "kind": "constructor",
+          "name": "keyboardButtonWebView",
+          "id": "0xe846b1a0",
+          "signature": "keyboardButtonWebView#e846b1a0 flags:# style:flags.10?KeyboardButtonStyle text:string url:string = KeyboardButton;"
+        }
+      ],
+      "modified": [
+        {
+          "key": "constructor:channelFull",
+          "kind": "constructor",
+          "name": "channelFull",
+          "before": {
+            "id": "0xa04e8d3a",
+            "signature": "channelFull#a04e8d3a flags:# can_view_participants:flags.3?true can_set_username:flags.6?true can_set_stickers:flags.7?true hidden_prehistory:flags.10?true can_set_location:flags.16?true has_scheduled:flags.19?true can_view_stats:flags.20?true blocked:flags.22?true flags2:# can_delete_channel:flags2.0?true antispam:flags2.1?true participants_hidden:flags2.2?true translations_disabled:flags2.3?true stories_pinned_available:flags2.5?true view_forum_as_messages:flags2.6?true restricted_sponsored:flags2.11?true can_view_revenue:flags2.12?true paid_media_allowed:flags2.14?true can_view_stars_revenue:flags2.15?true paid_reactions_available:flags2.16?true stargifts_available:flags2.19?true paid_messages_available:flags2.20?true id:long about:string participants_count:flags.0?int admins_count:flags.1?int kicked_count:flags.2?int banned_count:flags.2?int online_count:flags.13?int read_inbox_max_id:int read_outbox_max_id:int unread_count:int chat_photo:Photo notify_settings:PeerNotifySettings exported_invite:flags.23?ExportedChatInvite bot_info:Vector<BotInfo> migrated_from_chat_id:flags.4?long migrated_from_max_id:flags.4?int pinned_msg_id:flags.5?int stickerset:flags.8?StickerSet available_min_id:flags.9?int folder_id:flags.11?int linked_chat_id:flags.14?long location:flags.15?ChannelLocation slowmode_seconds:flags.17?int slowmode_next_send_date:flags.18?int stats_dc:flags.12?int pts:int call:flags.21?InputGroupCall ttl_period:flags.24?int pending_suggestions:flags.25?Vector<string> groupcall_default_join_as:flags.26?Peer theme_emoticon:flags.27?string requests_pending:flags.28?int recent_requesters:flags.28?Vector<long> default_send_as:flags.29?Peer available_reactions:flags.30?ChatReactions reactions_limit:flags2.13?int stories:flags2.4?PeerStories wallpaper:flags2.7?WallPaper boosts_applied:flags2.8?int boosts_unrestrict:flags2.9?int emojiset:flags2.10?StickerSet bot_verification:flags2.17?BotVerification stargifts_count:flags2.18?int send_paid_messages_stars:flags2.21?long main_tab:flags2.22?ProfileTab guard_bot_id:flags2.23?long = ChatFull;"
+          },
+          "after": {
+            "id": "0xa04e8d3a",
+            "signature": "channelFull#a04e8d3a flags:# can_view_participants:flags.3?true can_set_username:flags.6?true can_set_stickers:flags.7?true hidden_prehistory:flags.10?true can_set_location:flags.16?true has_scheduled:flags.19?true can_view_stats:flags.20?true blocked:flags.22?true flags2:# can_delete_channel:flags2.0?true antispam:flags2.1?true participants_hidden:flags2.2?true translations_disabled:flags2.3?true stories_pinned_available:flags2.5?true view_forum_as_messages:flags2.6?true restricted_sponsored:flags2.11?true can_view_revenue:flags2.12?true paid_media_allowed:flags2.14?true can_view_stars_revenue:flags2.15?true paid_reactions_available:flags2.16?true stargifts_available:flags2.19?true paid_messages_available:flags2.20?true has_welcome_messages:flags2.24?true id:long about:string participants_count:flags.0?int admins_count:flags.1?int kicked_count:flags.2?int banned_count:flags.2?int online_count:flags.13?int read_inbox_max_id:int read_outbox_max_id:int unread_count:int chat_photo:Photo notify_settings:PeerNotifySettings exported_invite:flags.23?ExportedChatInvite bot_info:Vector<BotInfo> migrated_from_chat_id:flags.4?long migrated_from_max_id:flags.4?int pinned_msg_id:flags.5?int stickerset:flags.8?StickerSet available_min_id:flags.9?int folder_id:flags.11?int linked_chat_id:flags.14?long location:flags.15?ChannelLocation slowmode_seconds:flags.17?int slowmode_next_send_date:flags.18?int stats_dc:flags.12?int pts:int call:flags.21?InputGroupCall ttl_period:flags.24?int pending_suggestions:flags.25?Vector<string> groupcall_default_join_as:flags.26?Peer theme_emoticon:flags.27?string requests_pending:flags.28?int recent_requesters:flags.28?Vector<long> default_send_as:flags.29?Peer available_reactions:flags.30?ChatReactions reactions_limit:flags2.13?int stories:flags2.4?PeerStories wallpaper:flags2.7?WallPaper boosts_applied:flags2.8?int boosts_unrestrict:flags2.9?int emojiset:flags2.10?StickerSet bot_verification:flags2.17?BotVerification stargifts_count:flags2.18?int send_paid_messages_stars:flags2.21?long main_tab:flags2.22?ProfileTab guard_bot_id:flags2.23?long = ChatFull;"
+          }
+        },
+        {
+          "key": "constructor:chatAdminRights",
+          "kind": "constructor",
+          "name": "chatAdminRights",
+          "before": {
+            "id": "0x5fb224d5",
+            "signature": "chatAdminRights#5fb224d5 flags:# change_info:flags.0?true post_messages:flags.1?true edit_messages:flags.2?true delete_messages:flags.3?true ban_users:flags.4?true invite_users:flags.5?true pin_messages:flags.7?true add_admins:flags.9?true anonymous:flags.10?true manage_call:flags.11?true other:flags.12?true manage_topics:flags.13?true post_stories:flags.14?true edit_stories:flags.15?true delete_stories:flags.16?true manage_direct_messages:flags.17?true manage_ranks:flags.18?true manage_linked_peers:flags.19?true = ChatAdminRights;"
+          },
+          "after": {
+            "id": "0x5fb224d5",
+            "signature": "chatAdminRights#5fb224d5 flags:# change_info:flags.0?true post_messages:flags.1?true edit_messages:flags.2?true delete_messages:flags.3?true ban_users:flags.4?true invite_users:flags.5?true pin_messages:flags.7?true add_admins:flags.9?true anonymous:flags.10?true manage_call:flags.11?true other:flags.12?true manage_topics:flags.13?true post_stories:flags.14?true edit_stories:flags.15?true delete_stories:flags.16?true manage_direct_messages:flags.17?true manage_ranks:flags.18?true manage_linked_peers:flags.19?true manage_welcome_messages:flags.20?true = ChatAdminRights;"
+          }
+        },
+        {
+          "key": "constructor:chatFull",
+          "kind": "constructor",
+          "name": "chatFull",
+          "before": {
+            "id": "0x2633421b",
+            "signature": "chatFull#2633421b flags:# can_set_username:flags.7?true has_scheduled:flags.8?true translations_disabled:flags.19?true id:long about:string participants:ChatParticipants chat_photo:flags.2?Photo notify_settings:PeerNotifySettings exported_invite:flags.13?ExportedChatInvite bot_info:flags.3?Vector<BotInfo> pinned_msg_id:flags.6?int folder_id:flags.11?int call:flags.12?InputGroupCall ttl_period:flags.14?int groupcall_default_join_as:flags.15?Peer theme_emoticon:flags.16?string requests_pending:flags.17?int recent_requesters:flags.17?Vector<long> available_reactions:flags.18?ChatReactions reactions_limit:flags.20?int = ChatFull;"
+          },
+          "after": {
+            "id": "0x2633421b",
+            "signature": "chatFull#2633421b flags:# can_set_username:flags.7?true has_scheduled:flags.8?true translations_disabled:flags.19?true has_welcome_messages:flags.21?true id:long about:string participants:ChatParticipants chat_photo:flags.2?Photo notify_settings:PeerNotifySettings exported_invite:flags.13?ExportedChatInvite bot_info:flags.3?Vector<BotInfo> pinned_msg_id:flags.6?int folder_id:flags.11?int call:flags.12?InputGroupCall ttl_period:flags.14?int groupcall_default_join_as:flags.15?Peer theme_emoticon:flags.16?string requests_pending:flags.17?int recent_requesters:flags.17?Vector<long> available_reactions:flags.18?ChatReactions reactions_limit:flags.20?int = ChatFull;"
+          }
+        },
+        {
+          "key": "constructor:ephemeralMessage",
+          "kind": "constructor",
+          "name": "ephemeralMessage",
+          "before": {
+            "id": "0xd9c6dc1a",
+            "signature": "ephemeralMessage#d9c6dc1a flags:# out:flags.0?true id:int from_id:Peer peer_id:Peer receiver_id:long top_msg_id:flags.1?int date:int message:string entities:flags.2?Vector<MessageEntity> media:flags.3?MessageMedia reply_markup:flags.4?ReplyMarkup reply_to:flags.6?MessageReplyHeader = EphemeralMessage;"
+          },
+          "after": {
+            "id": "0xdd27bee9",
+            "signature": "ephemeralMessage#dd27bee9 flags:# out:flags.0?true welcome_template:flags.5?true invert_media:flags.7?true noforwards:flags.12?true id:int from_id:Peer peer_id:flags.9?Peer receiver_id:long top_msg_id:flags.1?int date:int message:string entities:flags.2?Vector<MessageEntity> media:flags.3?MessageMedia reply_markup:flags.4?ReplyMarkup reply_to:flags.6?MessageReplyHeader rich_message:flags.8?RichMessage chat_instance:flags.10?long anchor_msg_id:flags.11?int = EphemeralMessage;"
+          }
+        },
+        {
+          "key": "constructor:inputInvoiceStarGiftResale",
+          "kind": "constructor",
+          "name": "inputInvoiceStarGiftResale",
+          "before": {
+            "id": "0xc39f5324",
+            "signature": "inputInvoiceStarGiftResale#c39f5324 flags:# ton:flags.0?true slug:string to_id:InputPeer = InputInvoice;"
+          },
+          "after": {
+            "id": "0xe9b0c658",
+            "signature": "inputInvoiceStarGiftResale#e9b0c658 flags:# ton:flags.0?true show_name:flags.2?true slug:string to_id:InputPeer message:flags.1?TextWithEntities = InputInvoice;"
+          }
+        },
+        {
+          "key": "constructor:inputSendMessageRichMessageDraftAction",
+          "kind": "constructor",
+          "name": "inputSendMessageRichMessageDraftAction",
+          "before": {
+            "id": "0xe2b23b51",
+            "signature": "inputSendMessageRichMessageDraftAction#e2b23b51 random_id:long rich_message:InputRichMessage = SendMessageAction;"
+          },
+          "after": {
+            "id": "0xa937c7be",
+            "signature": "inputSendMessageRichMessageDraftAction#a937c7be flags:# can_stop:flags.0?true keep_on_stop:flags.1?true random_id:long rich_message:InputRichMessage = SendMessageAction;"
+          }
+        },
+        {
+          "key": "constructor:keyboardButton",
+          "kind": "constructor",
+          "name": "keyboardButton",
+          "before": {
+            "id": "0x7d170cff",
+            "signature": "keyboardButton#7d170cff flags:# style:flags.10?KeyboardButtonStyle text:string = KeyboardButton;"
+          },
+          "after": {
+            "id": "0x2f67a72f",
+            "signature": "keyboardButton#2f67a72f flags:# style:flags.10?KeyboardButtonStyle text:string type:ButtonType = KeyboardButton;"
+          }
+        },
+        {
+          "key": "constructor:messageActionStarGiftUnique",
+          "kind": "constructor",
+          "name": "messageActionStarGiftUnique",
+          "before": {
+            "id": "0xe6c31522",
+            "signature": "messageActionStarGiftUnique#e6c31522 flags:# upgrade:flags.0?true transferred:flags.1?true saved:flags.2?true refunded:flags.5?true prepaid_upgrade:flags.11?true assigned:flags.13?true from_offer:flags.14?true craft:flags.16?true gift:StarGift can_export_at:flags.3?int transfer_stars:flags.4?long from_id:flags.6?Peer peer:flags.7?Peer saved_id:flags.7?long resale_amount:flags.8?StarsAmount can_transfer_at:flags.9?int can_resell_at:flags.10?int drop_original_details_stars:flags.12?long can_craft_at:flags.15?int = MessageAction;"
+          },
+          "after": {
+            "id": "0x7e1c1187",
+            "signature": "messageActionStarGiftUnique#7e1c1187 flags:# upgrade:flags.0?true transferred:flags.1?true saved:flags.2?true refunded:flags.5?true prepaid_upgrade:flags.11?true assigned:flags.13?true from_offer:flags.14?true craft:flags.16?true name_hidden:flags.17?true gift:StarGift can_export_at:flags.3?int transfer_stars:flags.4?long from_id:flags.6?Peer peer:flags.7?Peer saved_id:flags.7?long resale_amount:flags.8?StarsAmount can_transfer_at:flags.9?int can_resell_at:flags.10?int drop_original_details_stars:flags.12?long can_craft_at:flags.15?int message:flags.18?TextWithEntities = MessageAction;"
+          }
+        },
+        {
+          "key": "constructor:pageBlockBlockquote",
+          "kind": "constructor",
+          "name": "pageBlockBlockquote",
+          "before": {
+            "id": "0x263d7c26",
+            "signature": "pageBlockBlockquote#263d7c26 text:RichText caption:RichText = PageBlock;"
+          },
+          "after": {
+            "id": "0x66d1670b",
+            "signature": "pageBlockBlockquote#66d1670b flags:# collapsed:flags.0?true text:RichText caption:RichText = PageBlock;"
+          }
+        },
+        {
+          "key": "constructor:pageBlockTable",
+          "kind": "constructor",
+          "name": "pageBlockTable",
+          "before": {
+            "id": "0xbf4dea82",
+            "signature": "pageBlockTable#bf4dea82 flags:# bordered:flags.0?true striped:flags.1?true title:RichText rows:Vector<PageTableRow> = PageBlock;"
+          },
+          "after": {
+            "id": "0xbf4dea82",
+            "signature": "pageBlockTable#bf4dea82 flags:# bordered:flags.0?true striped:flags.1?true compact:flags.2?true title:RichText rows:Vector<PageTableRow> = PageBlock;"
+          }
+        },
+        {
+          "key": "constructor:replyInlineMarkup",
+          "kind": "constructor",
+          "name": "replyInlineMarkup",
+          "before": {
+            "id": "0x48a30254",
+            "signature": "replyInlineMarkup#48a30254 rows:Vector<KeyboardButtonRow> = ReplyMarkup;"
+          },
+          "after": {
+            "id": "0xb2b15770",
+            "signature": "replyInlineMarkup#b2b15770 flags:# force_reply:flags.5?true rows:Vector<KeyboardInlineButtonRow> = ReplyMarkup;"
+          }
+        },
+        {
+          "key": "constructor:replyKeyboardMarkup",
+          "kind": "constructor",
+          "name": "replyKeyboardMarkup",
+          "before": {
+            "id": "0x85dd99d1",
+            "signature": "replyKeyboardMarkup#85dd99d1 flags:# resize:flags.0?true single_use:flags.1?true selective:flags.2?true persistent:flags.4?true rows:Vector<KeyboardButtonRow> placeholder:flags.3?string = ReplyMarkup;"
+          },
+          "after": {
+            "id": "0x85dd99d1",
+            "signature": "replyKeyboardMarkup#85dd99d1 flags:# resize:flags.0?true single_use:flags.1?true selective:flags.2?true persistent:flags.4?true force_reply:flags.5?true rows:Vector<KeyboardButtonRow> placeholder:flags.3?string = ReplyMarkup;"
+          }
+        },
+        {
+          "key": "constructor:sendMessageRichMessageDraftAction",
+          "kind": "constructor",
+          "name": "sendMessageRichMessageDraftAction",
+          "before": {
+            "id": "0xa2cb24f9",
+            "signature": "sendMessageRichMessageDraftAction#a2cb24f9 random_id:long rich_message:RichMessage = SendMessageAction;"
+          },
+          "after": {
+            "id": "0x52564893",
+            "signature": "sendMessageRichMessageDraftAction#52564893 flags:# can_stop:flags.0?true keep_on_stop:flags.1?true random_id:long rich_message:RichMessage = SendMessageAction;"
+          }
+        },
+        {
+          "key": "constructor:sendMessageTextDraftAction",
+          "kind": "constructor",
+          "name": "sendMessageTextDraftAction",
+          "before": {
+            "id": "0x376d975c",
+            "signature": "sendMessageTextDraftAction#376d975c random_id:long text:TextWithEntities = SendMessageAction;"
+          },
+          "after": {
+            "id": "0x3630b85a",
+            "signature": "sendMessageTextDraftAction#3630b85a flags:# can_stop:flags.0?true keep_on_stop:flags.1?true random_id:long text:TextWithEntities = SendMessageAction;"
+          }
+        },
+        {
+          "key": "function:ephemeral.deleteMessage",
+          "kind": "function",
+          "name": "ephemeral.deleteMessage",
+          "before": {
+            "id": "0xa3c0d511",
+            "signature": "ephemeral.deleteMessage#a3c0d511 peer:InputPeer receiver_id:InputUser id:int = Bool;"
+          },
+          "after": {
+            "id": "0x92f6e797",
+            "signature": "ephemeral.deleteMessage#92f6e797 flags:# peer:flags.0?InputPeer receiver_id:InputUser id:int = Bool;"
+          }
+        },
+        {
+          "key": "function:ephemeral.sendMessage",
+          "kind": "function",
+          "name": "ephemeral.sendMessage",
+          "before": {
+            "id": "0x68cbd09f",
+            "signature": "ephemeral.sendMessage#68cbd09f flags:# peer:InputPeer receiver_id:InputUser query_id:flags.0?long message:string entities:flags.1?Vector<MessageEntity> media:flags.2?InputMedia reply_markup:flags.3?ReplyMarkup rich_message:flags.4?InputRichMessage random_id:long reply_to:flags.5?InputReplyTo = Updates;"
+          },
+          "after": {
+            "id": "0xba8d5f35",
+            "signature": "ephemeral.sendMessage#ba8d5f35 flags:# invert_media:flags.6?true welcome:flags.7?true anchor:flags.9?true noforwards:flags.10?true peer:flags.8?InputPeer receiver_id:InputUser query_id:flags.0?long message:string entities:flags.1?Vector<MessageEntity> media:flags.2?InputMedia reply_markup:flags.3?ReplyMarkup rich_message:flags.4?InputRichMessage random_id:long reply_to:flags.5?InputReplyTo = Updates;"
+          }
+        },
+        {
+          "key": "function:messages.forwardMessages",
+          "kind": "function",
+          "name": "messages.forwardMessages",
+          "before": {
+            "id": "0x13704a7c",
+            "signature": "messages.forwardMessages#13704a7c flags:# silent:flags.5?true background:flags.6?true with_my_score:flags.8?true drop_author:flags.11?true drop_media_captions:flags.12?true noforwards:flags.14?true allow_paid_floodskip:flags.19?true from_peer:InputPeer id:Vector<int> random_id:Vector<long> to_peer:InputPeer top_msg_id:flags.9?int reply_to:flags.22?InputReplyTo schedule_date:flags.10?int schedule_repeat_period:flags.24?int send_as:flags.13?InputPeer quick_reply_shortcut:flags.17?InputQuickReplyShortcut effect:flags.18?long video_timestamp:flags.20?int allow_paid_stars:flags.21?long suggested_post:flags.23?SuggestedPost = Updates;"
+          },
+          "after": {
+            "id": "0x13704a7c",
+            "signature": "messages.forwardMessages#13704a7c flags:# silent:flags.5?true background:flags.6?true with_my_score:flags.8?true drop_author:flags.11?true drop_media_captions:flags.12?true noforwards:flags.14?true allow_paid_floodskip:flags.19?true from_ephemeral:flags.25?true from_peer:InputPeer id:Vector<int> random_id:Vector<long> to_peer:InputPeer top_msg_id:flags.9?int reply_to:flags.22?InputReplyTo schedule_date:flags.10?int schedule_repeat_period:flags.24?int send_as:flags.13?InputPeer quick_reply_shortcut:flags.17?InputQuickReplyShortcut effect:flags.18?long video_timestamp:flags.20?int allow_paid_stars:flags.21?long suggested_post:flags.23?SuggestedPost = Updates;"
+          }
+        }
+      ]
     }
   ],
   "cumulative": {
     "from": 224,
-    "to": 228,
+    "to": 229,
     "summary": {
-      "added": 120,
-      "removed": 0,
-      "modified": 35,
-      "changedIds": 26
+      "added": 159,
+      "removed": 17,
+      "modified": 45,
+      "changedIds": 32
     },
     "added": [
       {
@@ -1523,6 +2152,13 @@
         "signature": "aiComposeToneExample#f1d628ec from:TextWithEntities to:TextWithEntities = AiComposeToneExample;"
       },
       {
+        "key": "constructor:auth.firebasePnvIntent",
+        "kind": "constructor",
+        "name": "auth.firebasePnvIntent",
+        "id": "0xdf5ac00c",
+        "signature": "auth.firebasePnvIntent#df5ac00c nonce:string digital_credential_payload:string = auth.FirebasePnvIntent;"
+      },
+      {
         "key": "constructor:botInlineMessageRichMessage",
         "kind": "constructor",
         "name": "botInlineMessageRichMessage",
@@ -1535,6 +2171,48 @@
         "name": "bots.accessSettings",
         "id": "0xdd1fbf93",
         "signature": "bots.accessSettings#dd1fbf93 flags:# restricted:flags.0?true add_users:flags.1?Vector<User> = bots.AccessSettings;"
+      },
+      {
+        "key": "constructor:buttonTypeDefault",
+        "kind": "constructor",
+        "name": "buttonTypeDefault",
+        "id": "0xc9dd90e9",
+        "signature": "buttonTypeDefault#c9dd90e9 = ButtonType;"
+      },
+      {
+        "key": "constructor:buttonTypeRequestGeoLocation",
+        "kind": "constructor",
+        "name": "buttonTypeRequestGeoLocation",
+        "id": "0x9beee140",
+        "signature": "buttonTypeRequestGeoLocation#9beee140 = ButtonType;"
+      },
+      {
+        "key": "constructor:buttonTypeRequestPeer",
+        "kind": "constructor",
+        "name": "buttonTypeRequestPeer",
+        "id": "0x4f58a237",
+        "signature": "buttonTypeRequestPeer#4f58a237 flags:# button_id:int peer_type:RequestPeerType max_quantity:int = ButtonType;"
+      },
+      {
+        "key": "constructor:buttonTypeRequestPhone",
+        "kind": "constructor",
+        "name": "buttonTypeRequestPhone",
+        "id": "0xdf3d36f9",
+        "signature": "buttonTypeRequestPhone#df3d36f9 = ButtonType;"
+      },
+      {
+        "key": "constructor:buttonTypeRequestPoll",
+        "kind": "constructor",
+        "name": "buttonTypeRequestPoll",
+        "id": "0xaacfff84",
+        "signature": "buttonTypeRequestPoll#aacfff84 flags:# quiz:flags.0?Bool = ButtonType;"
+      },
+      {
+        "key": "constructor:buttonTypeSimpleWebView",
+        "kind": "constructor",
+        "name": "buttonTypeSimpleWebView",
+        "id": "0xc01a597a",
+        "signature": "buttonTypeSimpleWebView#c01a597a url:string = ButtonType;"
       },
       {
         "key": "constructor:communities.participantJoinedChats",
@@ -1600,11 +2278,95 @@
         "signature": "dialogPeerCommunity#2f65c8e4 community_id:long = DialogPeer;"
       },
       {
+        "key": "constructor:ephemeral.welcomeMessages",
+        "kind": "constructor",
+        "name": "ephemeral.welcomeMessages",
+        "id": "0x104fc872",
+        "signature": "ephemeral.welcomeMessages#104fc872 hash:long messages:Vector<EphemeralMessage> = ephemeral.WelcomeMessages;"
+      },
+      {
+        "key": "constructor:ephemeral.welcomeMessagesNotModified",
+        "kind": "constructor",
+        "name": "ephemeral.welcomeMessagesNotModified",
+        "id": "0x59ffdb31",
+        "signature": "ephemeral.welcomeMessagesNotModified#59ffdb31 = ephemeral.WelcomeMessages;"
+      },
+      {
         "key": "constructor:ephemeralMessage",
         "kind": "constructor",
         "name": "ephemeralMessage",
-        "id": "0xd9c6dc1a",
-        "signature": "ephemeralMessage#d9c6dc1a flags:# out:flags.0?true id:int from_id:Peer peer_id:Peer receiver_id:long top_msg_id:flags.1?int date:int message:string entities:flags.2?Vector<MessageEntity> media:flags.3?MessageMedia reply_markup:flags.4?ReplyMarkup reply_to:flags.6?MessageReplyHeader = EphemeralMessage;"
+        "id": "0xdd27bee9",
+        "signature": "ephemeralMessage#dd27bee9 flags:# out:flags.0?true welcome_template:flags.5?true invert_media:flags.7?true noforwards:flags.12?true id:int from_id:Peer peer_id:flags.9?Peer receiver_id:long top_msg_id:flags.1?int date:int message:string entities:flags.2?Vector<MessageEntity> media:flags.3?MessageMedia reply_markup:flags.4?ReplyMarkup reply_to:flags.6?MessageReplyHeader rich_message:flags.8?RichMessage chat_instance:flags.10?long anchor_msg_id:flags.11?int = EphemeralMessage;"
+      },
+      {
+        "key": "constructor:inlineButtonTypeBuy",
+        "kind": "constructor",
+        "name": "inlineButtonTypeBuy",
+        "id": "0x48bad7a5",
+        "signature": "inlineButtonTypeBuy#48bad7a5 = InlineButtonType;"
+      },
+      {
+        "key": "constructor:inlineButtonTypeCallback",
+        "kind": "constructor",
+        "name": "inlineButtonTypeCallback",
+        "id": "0x2955bc38",
+        "signature": "inlineButtonTypeCallback#2955bc38 flags:# requires_password:flags.0?true data:bytes = InlineButtonType;"
+      },
+      {
+        "key": "constructor:inlineButtonTypeCopy",
+        "kind": "constructor",
+        "name": "inlineButtonTypeCopy",
+        "id": "0xb41d3272",
+        "signature": "inlineButtonTypeCopy#b41d3272 copy_text:string = InlineButtonType;"
+      },
+      {
+        "key": "constructor:inlineButtonTypeDisabled",
+        "kind": "constructor",
+        "name": "inlineButtonTypeDisabled",
+        "id": "0xa438619d",
+        "signature": "inlineButtonTypeDisabled#a438619d = InlineButtonType;"
+      },
+      {
+        "key": "constructor:inlineButtonTypeGame",
+        "kind": "constructor",
+        "name": "inlineButtonTypeGame",
+        "id": "0x5cd3709d",
+        "signature": "inlineButtonTypeGame#5cd3709d = InlineButtonType;"
+      },
+      {
+        "key": "constructor:inlineButtonTypeSwitchInline",
+        "kind": "constructor",
+        "name": "inlineButtonTypeSwitchInline",
+        "id": "0x93773ff5",
+        "signature": "inlineButtonTypeSwitchInline#93773ff5 flags:# same_peer:flags.0?true query:string peer_types:flags.1?Vector<InlineQueryPeerType> = InlineButtonType;"
+      },
+      {
+        "key": "constructor:inlineButtonTypeUrl",
+        "kind": "constructor",
+        "name": "inlineButtonTypeUrl",
+        "id": "0xeca4f8d4",
+        "signature": "inlineButtonTypeUrl#eca4f8d4 url:string = InlineButtonType;"
+      },
+      {
+        "key": "constructor:inlineButtonTypeUrlAuth",
+        "kind": "constructor",
+        "name": "inlineButtonTypeUrlAuth",
+        "id": "0xbfd02da2",
+        "signature": "inlineButtonTypeUrlAuth#bfd02da2 flags:# fwd_text:flags.0?string url:string button_id:int = InlineButtonType;"
+      },
+      {
+        "key": "constructor:inlineButtonTypeUserProfile",
+        "kind": "constructor",
+        "name": "inlineButtonTypeUserProfile",
+        "id": "0x3fa33fcf",
+        "signature": "inlineButtonTypeUserProfile#3fa33fcf user_id:long = InlineButtonType;"
+      },
+      {
+        "key": "constructor:inlineButtonTypeWebView",
+        "kind": "constructor",
+        "name": "inlineButtonTypeWebView",
+        "id": "0x3bcab5b4",
+        "signature": "inlineButtonTypeWebView#3bcab5b4 url:string = InlineButtonType;"
       },
       {
         "key": "constructor:inputAiComposeToneDefault",
@@ -1642,11 +2404,32 @@
         "signature": "inputBotInlineMessageRichMessage#b43df56c flags:# reply_markup:flags.2?ReplyMarkup rich_message:InputRichMessage = InputBotInlineMessage;"
       },
       {
+        "key": "constructor:inputButtonTypeRequestPeer",
+        "kind": "constructor",
+        "name": "inputButtonTypeRequestPeer",
+        "id": "0x3fe268fe",
+        "signature": "inputButtonTypeRequestPeer#3fe268fe flags:# name_requested:flags.0?true username_requested:flags.1?true photo_requested:flags.2?true button_id:int peer_type:RequestPeerType max_quantity:int = ButtonType;"
+      },
+      {
         "key": "constructor:inputDialogPeerCommunity",
         "kind": "constructor",
         "name": "inputDialogPeerCommunity",
         "id": "0x69ef72c4",
         "signature": "inputDialogPeerCommunity#69ef72c4 community:InputChannel = InputDialogPeer;"
+      },
+      {
+        "key": "constructor:inputInlineButtonTypeUrlAuth",
+        "kind": "constructor",
+        "name": "inputInlineButtonTypeUrlAuth",
+        "id": "0x9961bcb4",
+        "signature": "inputInlineButtonTypeUrlAuth#9961bcb4 flags:# request_write_access:flags.0?true fwd_text:flags.1?string url:string bot:flags.2?InputUser = InlineButtonType;"
+      },
+      {
+        "key": "constructor:inputInlineButtonTypeUserProfile",
+        "kind": "constructor",
+        "name": "inputInlineButtonTypeUserProfile",
+        "id": "0x53f3ce5a",
+        "signature": "inputInlineButtonTypeUserProfile#53f3ce5a user_id:InputUser = InlineButtonType;"
       },
       {
         "key": "constructor:inputNotifyCommunity",
@@ -1708,8 +2491,8 @@
         "key": "constructor:inputSendMessageRichMessageDraftAction",
         "kind": "constructor",
         "name": "inputSendMessageRichMessageDraftAction",
-        "id": "0xe2b23b51",
-        "signature": "inputSendMessageRichMessageDraftAction#e2b23b51 random_id:long rich_message:InputRichMessage = SendMessageAction;"
+        "id": "0xa937c7be",
+        "signature": "inputSendMessageRichMessageDraftAction#a937c7be flags:# can_stop:flags.0?true keep_on_stop:flags.1?true random_id:long rich_message:InputRichMessage = SendMessageAction;"
       },
       {
         "key": "constructor:joinChatBotResultApproved",
@@ -1740,11 +2523,32 @@
         "signature": "joinChatBotResultWebView#d6e3b813 url:string = JoinChatBotResult;"
       },
       {
+        "key": "constructor:keyboardInlineButton",
+        "kind": "constructor",
+        "name": "keyboardInlineButton",
+        "id": "0x11c1a322",
+        "signature": "keyboardInlineButton#11c1a322 flags:# style:flags.10?KeyboardButtonStyle text:string type:InlineButtonType = KeyboardInlineButton;"
+      },
+      {
+        "key": "constructor:keyboardInlineButtonRow",
+        "kind": "constructor",
+        "name": "keyboardInlineButtonRow",
+        "id": "0x19420af6",
+        "signature": "keyboardInlineButtonRow#19420af6 buttons:Vector<KeyboardInlineButton> = KeyboardInlineButtonRow;"
+      },
+      {
         "key": "constructor:messageActionChangeCommunity",
         "kind": "constructor",
         "name": "messageActionChangeCommunity",
         "id": "0x5d20bae8",
         "signature": "messageActionChangeCommunity#5d20bae8 flags:# community_id:flags.0?long = MessageAction;"
+      },
+      {
+        "key": "constructor:messageActionChatJoinedViaCommunity",
+        "kind": "constructor",
+        "name": "messageActionChatJoinedViaCommunity",
+        "id": "0x4a8bfe80",
+        "signature": "messageActionChatJoinedViaCommunity#4a8bfe80 community_id:long = MessageAction;"
       },
       {
         "key": "constructor:messages.chatInviteJoinResultOk",
@@ -1787,6 +2591,20 @@
         "name": "pageBlockBlockquoteBlocks",
         "id": "0x0e6e47c4",
         "signature": "pageBlockBlockquoteBlocks#e6e47c4 blocks:Vector<PageBlock> caption:RichText = PageBlock;"
+      },
+      {
+        "key": "constructor:pageBlockButtonRow",
+        "kind": "constructor",
+        "name": "pageBlockButtonRow",
+        "id": "0x6d640318",
+        "signature": "pageBlockButtonRow#6d640318 flags:# align_left:flags.0?true align_center:flags.1?true align_right:flags.2?true buttons:Vector<PageButton> = PageBlock;"
+      },
+      {
+        "key": "constructor:pageBlockDocument",
+        "kind": "constructor",
+        "name": "pageBlockDocument",
+        "id": "0x38fa3ba3",
+        "signature": "pageBlockDocument#38fa3ba3 document_id:long caption:PageCaption = PageBlock;"
       },
       {
         "key": "constructor:pageBlockHeading1",
@@ -1845,6 +2663,20 @@
         "signature": "pageBlockThinking#3c29a3e2 text:RichText = PageBlock;"
       },
       {
+        "key": "constructor:pageButton",
+        "kind": "constructor",
+        "name": "pageButton",
+        "id": "0x692a5488",
+        "signature": "pageButton#692a5488 flags:# text:RichText type:InlineButtonType style:flags.0?RichButtonStyle = PageButton;"
+      },
+      {
+        "key": "constructor:richButtonStyle",
+        "kind": "constructor",
+        "name": "richButtonStyle",
+        "id": "0x03c610bd",
+        "signature": "richButtonStyle#3c610bd flags:# bg_primary:flags.0?true bg_danger:flags.1?true bg_success:flags.2?true link:flags.3?true = RichButtonStyle;"
+      },
+      {
         "key": "constructor:richMessage",
         "kind": "constructor",
         "name": "richMessage",
@@ -1855,8 +2687,15 @@
         "key": "constructor:sendMessageRichMessageDraftAction",
         "kind": "constructor",
         "name": "sendMessageRichMessageDraftAction",
-        "id": "0xa2cb24f9",
-        "signature": "sendMessageRichMessageDraftAction#a2cb24f9 random_id:long rich_message:RichMessage = SendMessageAction;"
+        "id": "0x52564893",
+        "signature": "sendMessageRichMessageDraftAction#52564893 flags:# can_stop:flags.0?true keep_on_stop:flags.1?true random_id:long rich_message:RichMessage = SendMessageAction;"
+      },
+      {
+        "key": "constructor:sendMessageStopDraftAction",
+        "kind": "constructor",
+        "name": "sendMessageStopDraftAction",
+        "id": "0xfbf902b0",
+        "signature": "sendMessageStopDraftAction#fbf902b0 random_id:long = SendMessageAction;"
       },
       {
         "key": "constructor:stats.pollStats",
@@ -1899,6 +2738,13 @@
         "name": "textBotCommand",
         "id": "0x02ff29d3",
         "signature": "textBotCommand#2ff29d3 text:RichText = RichText;"
+      },
+      {
+        "key": "constructor:textButton",
+        "kind": "constructor",
+        "name": "textButton",
+        "id": "0xafc79cd6",
+        "signature": "textButton#afc79cd6 flags:# text:RichText type:InlineButtonType style:flags.0?RichButtonStyle = RichText;"
       },
       {
         "key": "constructor:textCashtag",
@@ -2004,6 +2850,13 @@
         "name": "updateEditEphemeralMessage",
         "id": "0x4bbb8f01",
         "signature": "updateEditEphemeralMessage#4bbb8f01 message:EphemeralMessage = Update;"
+      },
+      {
+        "key": "constructor:updateEphemeralBotCallbackQuery",
+        "kind": "constructor",
+        "name": "updateEphemeralBotCallbackQuery",
+        "id": "0x7c1079d6",
+        "signature": "updateEphemeralBotCallbackQuery#7c1079d6 flags:# query_id:long user_id:long peer:flags.0?Peer msg_id:int data:bytes chat_instance:flags.1?long message:EphemeralMessage = Update;"
       },
       {
         "key": "constructor:updateJoinChatWebViewDecision",
@@ -2139,6 +2992,27 @@
         "signature": "aicompose.updateTone#903bcf59 flags:# tone:InputAiComposeTone display_author:flags.0?Bool emoji_id:flags.1?long title:flags.2?string prompt:flags.3?string = AiComposeTone;"
       },
       {
+        "key": "function:auth.finishFirebasePnvLogin",
+        "kind": "function",
+        "name": "auth.finishFirebasePnvLogin",
+        "id": "0x2c85094c",
+        "signature": "auth.finishFirebasePnvLogin#2c85094c google_token:string = auth.Authorization;"
+      },
+      {
+        "key": "function:auth.firebasePnvSignUp",
+        "kind": "function",
+        "name": "auth.firebasePnvSignUp",
+        "id": "0x783f6b56",
+        "signature": "auth.firebasePnvSignUp#783f6b56 flags:# no_joined_notifications:flags.0?true first_name:string last_name:string = auth.Authorization;"
+      },
+      {
+        "key": "function:auth.initFirebasePnvLogin",
+        "kind": "function",
+        "name": "auth.initFirebasePnvLogin",
+        "id": "0x777df37a",
+        "signature": "auth.initFirebasePnvLogin#777df37a api_id:int api_hash:string = auth.FirebasePnvIntent;"
+      },
+      {
         "key": "function:bots.editAccessSettings",
         "kind": "function",
         "name": "bots.editAccessSettings",
@@ -2223,11 +3097,32 @@
         "signature": "communities.togglePeerLinkRequestApproval#8c8219a8 flags:# reject:flags.0?true community:InputChannel peer:InputPeer = Bool;"
       },
       {
+        "key": "function:ephemeral.deleteAllWelcomeMessages",
+        "kind": "function",
+        "name": "ephemeral.deleteAllWelcomeMessages",
+        "id": "0x734f9721",
+        "signature": "ephemeral.deleteAllWelcomeMessages#734f9721 peer:InputPeer = Bool;"
+      },
+      {
         "key": "function:ephemeral.deleteMessage",
         "kind": "function",
         "name": "ephemeral.deleteMessage",
-        "id": "0xa3c0d511",
-        "signature": "ephemeral.deleteMessage#a3c0d511 peer:InputPeer receiver_id:InputUser id:int = Bool;"
+        "id": "0x92f6e797",
+        "signature": "ephemeral.deleteMessage#92f6e797 flags:# peer:flags.0?InputPeer receiver_id:InputUser id:int = Bool;"
+      },
+      {
+        "key": "function:ephemeral.deleteWelcomeMessage",
+        "kind": "function",
+        "name": "ephemeral.deleteWelcomeMessage",
+        "id": "0xe882a9e1",
+        "signature": "ephemeral.deleteWelcomeMessage#e882a9e1 peer:InputPeer id:int = Bool;"
+      },
+      {
+        "key": "function:ephemeral.editMessage",
+        "kind": "function",
+        "name": "ephemeral.editMessage",
+        "id": "0xcf9c725b",
+        "signature": "ephemeral.editMessage#cf9c725b flags:# invert_media:flags.5?true welcome:flags.6?true peer:flags.7?InputPeer receiver_id:InputUser id:int message:flags.0?string media:flags.3?InputMedia entities:flags.1?Vector<MessageEntity> reply_markup:flags.2?ReplyMarkup rich_message:flags.4?InputRichMessage = Updates;"
       },
       {
         "key": "function:ephemeral.getCallbackAnswer",
@@ -2235,6 +3130,13 @@
         "name": "ephemeral.getCallbackAnswer",
         "id": "0x3fa464c8",
         "signature": "ephemeral.getCallbackAnswer#3fa464c8 flags:# peer:InputPeer id:int data:flags.1?bytes = messages.BotCallbackAnswer;"
+      },
+      {
+        "key": "function:ephemeral.getWelcomeMessages",
+        "kind": "function",
+        "name": "ephemeral.getWelcomeMessages",
+        "id": "0xdb9ac18d",
+        "signature": "ephemeral.getWelcomeMessages#db9ac18d peer:InputPeer hash:long = ephemeral.WelcomeMessages;"
       },
       {
         "key": "function:ephemeral.reportMessage",
@@ -2247,8 +3149,8 @@
         "key": "function:ephemeral.sendMessage",
         "kind": "function",
         "name": "ephemeral.sendMessage",
-        "id": "0x68cbd09f",
-        "signature": "ephemeral.sendMessage#68cbd09f flags:# peer:InputPeer receiver_id:InputUser query_id:flags.0?long message:string entities:flags.1?Vector<MessageEntity> media:flags.2?InputMedia reply_markup:flags.3?ReplyMarkup rich_message:flags.4?InputRichMessage random_id:long reply_to:flags.5?InputReplyTo = Updates;"
+        "id": "0xba8d5f35",
+        "signature": "ephemeral.sendMessage#ba8d5f35 flags:# invert_media:flags.6?true welcome:flags.7?true anchor:flags.9?true noforwards:flags.10?true peer:flags.8?InputPeer receiver_id:InputUser query_id:flags.0?long message:string entities:flags.1?Vector<MessageEntity> media:flags.2?InputMedia reply_markup:flags.3?ReplyMarkup rich_message:flags.4?InputRichMessage random_id:long reply_to:flags.5?InputReplyTo = Updates;"
       },
       {
         "key": "function:messages.composeRichMessageWithAI",
@@ -2314,7 +3216,127 @@
         "signature": "stats.getPollStats#c27dfa68 flags:# dark:flags.0?true peer:InputPeer msg_id:int = stats.PollStats;"
       }
     ],
-    "removed": [],
+    "removed": [
+      {
+        "key": "constructor:inputKeyboardButtonRequestPeer",
+        "kind": "constructor",
+        "name": "inputKeyboardButtonRequestPeer",
+        "id": "0x02b78156",
+        "signature": "inputKeyboardButtonRequestPeer#2b78156 flags:# name_requested:flags.0?true username_requested:flags.1?true photo_requested:flags.2?true style:flags.10?KeyboardButtonStyle text:string button_id:int peer_type:RequestPeerType max_quantity:int = KeyboardButton;"
+      },
+      {
+        "key": "constructor:inputKeyboardButtonUrlAuth",
+        "kind": "constructor",
+        "name": "inputKeyboardButtonUrlAuth",
+        "id": "0x68013e72",
+        "signature": "inputKeyboardButtonUrlAuth#68013e72 flags:# request_write_access:flags.0?true style:flags.10?KeyboardButtonStyle text:string fwd_text:flags.1?string url:string bot:InputUser = KeyboardButton;"
+      },
+      {
+        "key": "constructor:inputKeyboardButtonUserProfile",
+        "kind": "constructor",
+        "name": "inputKeyboardButtonUserProfile",
+        "id": "0x7d5e07c7",
+        "signature": "inputKeyboardButtonUserProfile#7d5e07c7 flags:# style:flags.10?KeyboardButtonStyle text:string user_id:InputUser = KeyboardButton;"
+      },
+      {
+        "key": "constructor:keyboardButtonBuy",
+        "kind": "constructor",
+        "name": "keyboardButtonBuy",
+        "id": "0x3fa53905",
+        "signature": "keyboardButtonBuy#3fa53905 flags:# style:flags.10?KeyboardButtonStyle text:string = KeyboardButton;"
+      },
+      {
+        "key": "constructor:keyboardButtonCallback",
+        "kind": "constructor",
+        "name": "keyboardButtonCallback",
+        "id": "0xe62bc960",
+        "signature": "keyboardButtonCallback#e62bc960 flags:# requires_password:flags.0?true style:flags.10?KeyboardButtonStyle text:string data:bytes = KeyboardButton;"
+      },
+      {
+        "key": "constructor:keyboardButtonCopy",
+        "kind": "constructor",
+        "name": "keyboardButtonCopy",
+        "id": "0xbcc4af10",
+        "signature": "keyboardButtonCopy#bcc4af10 flags:# style:flags.10?KeyboardButtonStyle text:string copy_text:string = KeyboardButton;"
+      },
+      {
+        "key": "constructor:keyboardButtonGame",
+        "kind": "constructor",
+        "name": "keyboardButtonGame",
+        "id": "0x89c590f9",
+        "signature": "keyboardButtonGame#89c590f9 flags:# style:flags.10?KeyboardButtonStyle text:string = KeyboardButton;"
+      },
+      {
+        "key": "constructor:keyboardButtonRequestGeoLocation",
+        "kind": "constructor",
+        "name": "keyboardButtonRequestGeoLocation",
+        "id": "0xaa40f94d",
+        "signature": "keyboardButtonRequestGeoLocation#aa40f94d flags:# style:flags.10?KeyboardButtonStyle text:string = KeyboardButton;"
+      },
+      {
+        "key": "constructor:keyboardButtonRequestPeer",
+        "kind": "constructor",
+        "name": "keyboardButtonRequestPeer",
+        "id": "0x5b0f15f5",
+        "signature": "keyboardButtonRequestPeer#5b0f15f5 flags:# style:flags.10?KeyboardButtonStyle text:string button_id:int peer_type:RequestPeerType max_quantity:int = KeyboardButton;"
+      },
+      {
+        "key": "constructor:keyboardButtonRequestPhone",
+        "kind": "constructor",
+        "name": "keyboardButtonRequestPhone",
+        "id": "0x417efd8f",
+        "signature": "keyboardButtonRequestPhone#417efd8f flags:# style:flags.10?KeyboardButtonStyle text:string = KeyboardButton;"
+      },
+      {
+        "key": "constructor:keyboardButtonRequestPoll",
+        "kind": "constructor",
+        "name": "keyboardButtonRequestPoll",
+        "id": "0x7a11d782",
+        "signature": "keyboardButtonRequestPoll#7a11d782 flags:# style:flags.10?KeyboardButtonStyle quiz:flags.0?Bool text:string = KeyboardButton;"
+      },
+      {
+        "key": "constructor:keyboardButtonSimpleWebView",
+        "kind": "constructor",
+        "name": "keyboardButtonSimpleWebView",
+        "id": "0xe15c4370",
+        "signature": "keyboardButtonSimpleWebView#e15c4370 flags:# style:flags.10?KeyboardButtonStyle text:string url:string = KeyboardButton;"
+      },
+      {
+        "key": "constructor:keyboardButtonSwitchInline",
+        "kind": "constructor",
+        "name": "keyboardButtonSwitchInline",
+        "id": "0x991399fc",
+        "signature": "keyboardButtonSwitchInline#991399fc flags:# same_peer:flags.0?true style:flags.10?KeyboardButtonStyle text:string query:string peer_types:flags.1?Vector<InlineQueryPeerType> = KeyboardButton;"
+      },
+      {
+        "key": "constructor:keyboardButtonUrl",
+        "kind": "constructor",
+        "name": "keyboardButtonUrl",
+        "id": "0xd80c25ec",
+        "signature": "keyboardButtonUrl#d80c25ec flags:# style:flags.10?KeyboardButtonStyle text:string url:string = KeyboardButton;"
+      },
+      {
+        "key": "constructor:keyboardButtonUrlAuth",
+        "kind": "constructor",
+        "name": "keyboardButtonUrlAuth",
+        "id": "0xf51006f9",
+        "signature": "keyboardButtonUrlAuth#f51006f9 flags:# style:flags.10?KeyboardButtonStyle text:string fwd_text:flags.0?string url:string button_id:int = KeyboardButton;"
+      },
+      {
+        "key": "constructor:keyboardButtonUserProfile",
+        "kind": "constructor",
+        "name": "keyboardButtonUserProfile",
+        "id": "0xc0fd5d09",
+        "signature": "keyboardButtonUserProfile#c0fd5d09 flags:# style:flags.10?KeyboardButtonStyle text:string user_id:long = KeyboardButton;"
+      },
+      {
+        "key": "constructor:keyboardButtonWebView",
+        "kind": "constructor",
+        "name": "keyboardButtonWebView",
+        "id": "0xe846b1a0",
+        "signature": "keyboardButtonWebView#e846b1a0 flags:# style:flags.10?KeyboardButtonStyle text:string url:string = KeyboardButton;"
+      }
+    ],
     "modified": [
       {
         "key": "constructor:auth.sentCodePaymentRequired",
@@ -2365,7 +3387,7 @@
         },
         "after": {
           "id": "0xa04e8d3a",
-          "signature": "channelFull#a04e8d3a flags:# can_view_participants:flags.3?true can_set_username:flags.6?true can_set_stickers:flags.7?true hidden_prehistory:flags.10?true can_set_location:flags.16?true has_scheduled:flags.19?true can_view_stats:flags.20?true blocked:flags.22?true flags2:# can_delete_channel:flags2.0?true antispam:flags2.1?true participants_hidden:flags2.2?true translations_disabled:flags2.3?true stories_pinned_available:flags2.5?true view_forum_as_messages:flags2.6?true restricted_sponsored:flags2.11?true can_view_revenue:flags2.12?true paid_media_allowed:flags2.14?true can_view_stars_revenue:flags2.15?true paid_reactions_available:flags2.16?true stargifts_available:flags2.19?true paid_messages_available:flags2.20?true id:long about:string participants_count:flags.0?int admins_count:flags.1?int kicked_count:flags.2?int banned_count:flags.2?int online_count:flags.13?int read_inbox_max_id:int read_outbox_max_id:int unread_count:int chat_photo:Photo notify_settings:PeerNotifySettings exported_invite:flags.23?ExportedChatInvite bot_info:Vector<BotInfo> migrated_from_chat_id:flags.4?long migrated_from_max_id:flags.4?int pinned_msg_id:flags.5?int stickerset:flags.8?StickerSet available_min_id:flags.9?int folder_id:flags.11?int linked_chat_id:flags.14?long location:flags.15?ChannelLocation slowmode_seconds:flags.17?int slowmode_next_send_date:flags.18?int stats_dc:flags.12?int pts:int call:flags.21?InputGroupCall ttl_period:flags.24?int pending_suggestions:flags.25?Vector<string> groupcall_default_join_as:flags.26?Peer theme_emoticon:flags.27?string requests_pending:flags.28?int recent_requesters:flags.28?Vector<long> default_send_as:flags.29?Peer available_reactions:flags.30?ChatReactions reactions_limit:flags2.13?int stories:flags2.4?PeerStories wallpaper:flags2.7?WallPaper boosts_applied:flags2.8?int boosts_unrestrict:flags2.9?int emojiset:flags2.10?StickerSet bot_verification:flags2.17?BotVerification stargifts_count:flags2.18?int send_paid_messages_stars:flags2.21?long main_tab:flags2.22?ProfileTab guard_bot_id:flags2.23?long = ChatFull;"
+          "signature": "channelFull#a04e8d3a flags:# can_view_participants:flags.3?true can_set_username:flags.6?true can_set_stickers:flags.7?true hidden_prehistory:flags.10?true can_set_location:flags.16?true has_scheduled:flags.19?true can_view_stats:flags.20?true blocked:flags.22?true flags2:# can_delete_channel:flags2.0?true antispam:flags2.1?true participants_hidden:flags2.2?true translations_disabled:flags2.3?true stories_pinned_available:flags2.5?true view_forum_as_messages:flags2.6?true restricted_sponsored:flags2.11?true can_view_revenue:flags2.12?true paid_media_allowed:flags2.14?true can_view_stars_revenue:flags2.15?true paid_reactions_available:flags2.16?true stargifts_available:flags2.19?true paid_messages_available:flags2.20?true has_welcome_messages:flags2.24?true id:long about:string participants_count:flags.0?int admins_count:flags.1?int kicked_count:flags.2?int banned_count:flags.2?int online_count:flags.13?int read_inbox_max_id:int read_outbox_max_id:int unread_count:int chat_photo:Photo notify_settings:PeerNotifySettings exported_invite:flags.23?ExportedChatInvite bot_info:Vector<BotInfo> migrated_from_chat_id:flags.4?long migrated_from_max_id:flags.4?int pinned_msg_id:flags.5?int stickerset:flags.8?StickerSet available_min_id:flags.9?int folder_id:flags.11?int linked_chat_id:flags.14?long location:flags.15?ChannelLocation slowmode_seconds:flags.17?int slowmode_next_send_date:flags.18?int stats_dc:flags.12?int pts:int call:flags.21?InputGroupCall ttl_period:flags.24?int pending_suggestions:flags.25?Vector<string> groupcall_default_join_as:flags.26?Peer theme_emoticon:flags.27?string requests_pending:flags.28?int recent_requesters:flags.28?Vector<long> default_send_as:flags.29?Peer available_reactions:flags.30?ChatReactions reactions_limit:flags2.13?int stories:flags2.4?PeerStories wallpaper:flags2.7?WallPaper boosts_applied:flags2.8?int boosts_unrestrict:flags2.9?int emojiset:flags2.10?StickerSet bot_verification:flags2.17?BotVerification stargifts_count:flags2.18?int send_paid_messages_stars:flags2.21?long main_tab:flags2.22?ProfileTab guard_bot_id:flags2.23?long = ChatFull;"
         }
       },
       {
@@ -2378,7 +3400,7 @@
         },
         "after": {
           "id": "0x5fb224d5",
-          "signature": "chatAdminRights#5fb224d5 flags:# change_info:flags.0?true post_messages:flags.1?true edit_messages:flags.2?true delete_messages:flags.3?true ban_users:flags.4?true invite_users:flags.5?true pin_messages:flags.7?true add_admins:flags.9?true anonymous:flags.10?true manage_call:flags.11?true other:flags.12?true manage_topics:flags.13?true post_stories:flags.14?true edit_stories:flags.15?true delete_stories:flags.16?true manage_direct_messages:flags.17?true manage_ranks:flags.18?true manage_linked_peers:flags.19?true = ChatAdminRights;"
+          "signature": "chatAdminRights#5fb224d5 flags:# change_info:flags.0?true post_messages:flags.1?true edit_messages:flags.2?true delete_messages:flags.3?true ban_users:flags.4?true invite_users:flags.5?true pin_messages:flags.7?true add_admins:flags.9?true anonymous:flags.10?true manage_call:flags.11?true other:flags.12?true manage_topics:flags.13?true post_stories:flags.14?true edit_stories:flags.15?true delete_stories:flags.16?true manage_direct_messages:flags.17?true manage_ranks:flags.18?true manage_linked_peers:flags.19?true manage_welcome_messages:flags.20?true = ChatAdminRights;"
         }
       },
       {
@@ -2392,6 +3414,19 @@
         "after": {
           "id": "0x9f120418",
           "signature": "chatBannedRights#9f120418 flags:# view_messages:flags.0?true send_messages:flags.1?true send_media:flags.2?true send_stickers:flags.3?true send_gifs:flags.4?true send_games:flags.5?true send_inline:flags.6?true embed_links:flags.7?true send_polls:flags.8?true change_info:flags.10?true invite_users:flags.15?true pin_messages:flags.17?true manage_topics:flags.18?true send_photos:flags.19?true send_videos:flags.20?true send_roundvideos:flags.21?true send_audios:flags.22?true send_voices:flags.23?true send_docs:flags.24?true send_plain:flags.25?true edit_rank:flags.26?true send_reactions:flags.27?true manage_linked_peers:flags.28?true until_date:int = ChatBannedRights;"
+        }
+      },
+      {
+        "key": "constructor:chatFull",
+        "kind": "constructor",
+        "name": "chatFull",
+        "before": {
+          "id": "0x2633421b",
+          "signature": "chatFull#2633421b flags:# can_set_username:flags.7?true has_scheduled:flags.8?true translations_disabled:flags.19?true id:long about:string participants:ChatParticipants chat_photo:flags.2?Photo notify_settings:PeerNotifySettings exported_invite:flags.13?ExportedChatInvite bot_info:flags.3?Vector<BotInfo> pinned_msg_id:flags.6?int folder_id:flags.11?int call:flags.12?InputGroupCall ttl_period:flags.14?int groupcall_default_join_as:flags.15?Peer theme_emoticon:flags.16?string requests_pending:flags.17?int recent_requesters:flags.17?Vector<long> available_reactions:flags.18?ChatReactions reactions_limit:flags.20?int = ChatFull;"
+        },
+        "after": {
+          "id": "0x2633421b",
+          "signature": "chatFull#2633421b flags:# can_set_username:flags.7?true has_scheduled:flags.8?true translations_disabled:flags.19?true has_welcome_messages:flags.21?true id:long about:string participants:ChatParticipants chat_photo:flags.2?Photo notify_settings:PeerNotifySettings exported_invite:flags.13?ExportedChatInvite bot_info:flags.3?Vector<BotInfo> pinned_msg_id:flags.6?int folder_id:flags.11?int call:flags.12?InputGroupCall ttl_period:flags.14?int groupcall_default_join_as:flags.15?Peer theme_emoticon:flags.16?string requests_pending:flags.17?int recent_requesters:flags.17?Vector<long> available_reactions:flags.18?ChatReactions reactions_limit:flags.20?int = ChatFull;"
         }
       },
       {
@@ -2421,6 +3456,19 @@
         }
       },
       {
+        "key": "constructor:inputInvoiceStarGiftResale",
+        "kind": "constructor",
+        "name": "inputInvoiceStarGiftResale",
+        "before": {
+          "id": "0xc39f5324",
+          "signature": "inputInvoiceStarGiftResale#c39f5324 flags:# ton:flags.0?true slug:string to_id:InputPeer = InputInvoice;"
+        },
+        "after": {
+          "id": "0xe9b0c658",
+          "signature": "inputInvoiceStarGiftResale#e9b0c658 flags:# ton:flags.0?true show_name:flags.2?true slug:string to_id:InputPeer message:flags.1?TextWithEntities = InputInvoice;"
+        }
+      },
+      {
         "key": "constructor:inputStorePaymentAuthCode",
         "kind": "constructor",
         "name": "inputStorePaymentAuthCode",
@@ -2431,6 +3479,19 @@
         "after": {
           "id": "0x3fc18057",
           "signature": "inputStorePaymentAuthCode#3fc18057 flags:# restore:flags.0?true phone_number:string phone_code_hash:string premium_days:int currency:string amount:long = InputStorePaymentPurpose;"
+        }
+      },
+      {
+        "key": "constructor:keyboardButton",
+        "kind": "constructor",
+        "name": "keyboardButton",
+        "before": {
+          "id": "0x7d170cff",
+          "signature": "keyboardButton#7d170cff flags:# style:flags.10?KeyboardButtonStyle text:string = KeyboardButton;"
+        },
+        "after": {
+          "id": "0x2f67a72f",
+          "signature": "keyboardButton#2f67a72f flags:# style:flags.10?KeyboardButtonStyle text:string type:ButtonType = KeyboardButton;"
         }
       },
       {
@@ -2447,6 +3508,19 @@
         }
       },
       {
+        "key": "constructor:messageActionStarGiftUnique",
+        "kind": "constructor",
+        "name": "messageActionStarGiftUnique",
+        "before": {
+          "id": "0xe6c31522",
+          "signature": "messageActionStarGiftUnique#e6c31522 flags:# upgrade:flags.0?true transferred:flags.1?true saved:flags.2?true refunded:flags.5?true prepaid_upgrade:flags.11?true assigned:flags.13?true from_offer:flags.14?true craft:flags.16?true gift:StarGift can_export_at:flags.3?int transfer_stars:flags.4?long from_id:flags.6?Peer peer:flags.7?Peer saved_id:flags.7?long resale_amount:flags.8?StarsAmount can_transfer_at:flags.9?int can_resell_at:flags.10?int drop_original_details_stars:flags.12?long can_craft_at:flags.15?int = MessageAction;"
+        },
+        "after": {
+          "id": "0x7e1c1187",
+          "signature": "messageActionStarGiftUnique#7e1c1187 flags:# upgrade:flags.0?true transferred:flags.1?true saved:flags.2?true refunded:flags.5?true prepaid_upgrade:flags.11?true assigned:flags.13?true from_offer:flags.14?true craft:flags.16?true name_hidden:flags.17?true gift:StarGift can_export_at:flags.3?int transfer_stars:flags.4?long from_id:flags.6?Peer peer:flags.7?Peer saved_id:flags.7?long resale_amount:flags.8?StarsAmount can_transfer_at:flags.9?int can_resell_at:flags.10?int drop_original_details_stars:flags.12?long can_craft_at:flags.15?int message:flags.18?TextWithEntities = MessageAction;"
+        }
+      },
+      {
         "key": "constructor:messageReplyHeader",
         "kind": "constructor",
         "name": "messageReplyHeader",
@@ -2457,6 +3531,19 @@
         "after": {
           "id": "0x1b97dd66",
           "signature": "messageReplyHeader#1b97dd66 flags:# reply_to_scheduled:flags.2?true forum_topic:flags.3?true quote:flags.9?true reply_to_ephemeral:flags.13?true reply_to_msg_id:flags.4?int reply_to_peer_id:flags.0?Peer reply_from:flags.5?MessageFwdHeader reply_media:flags.8?MessageMedia reply_to_top_id:flags.1?int quote_text:flags.6?string quote_entities:flags.7?Vector<MessageEntity> quote_offset:flags.10?int todo_item_id:flags.11?int poll_option:flags.12?bytes = MessageReplyHeader;"
+        }
+      },
+      {
+        "key": "constructor:pageBlockBlockquote",
+        "kind": "constructor",
+        "name": "pageBlockBlockquote",
+        "before": {
+          "id": "0x263d7c26",
+          "signature": "pageBlockBlockquote#263d7c26 text:RichText caption:RichText = PageBlock;"
+        },
+        "after": {
+          "id": "0x66d1670b",
+          "signature": "pageBlockBlockquote#66d1670b flags:# collapsed:flags.0?true text:RichText caption:RichText = PageBlock;"
         }
       },
       {
@@ -2483,6 +3570,19 @@
         "after": {
           "id": "0x1759c560",
           "signature": "pageBlockPhoto#1759c560 flags:# spoiler:flags.1?true photo_id:long caption:PageCaption url:flags.0?string webpage_id:flags.0?long = PageBlock;"
+        }
+      },
+      {
+        "key": "constructor:pageBlockTable",
+        "kind": "constructor",
+        "name": "pageBlockTable",
+        "before": {
+          "id": "0xbf4dea82",
+          "signature": "pageBlockTable#bf4dea82 flags:# bordered:flags.0?true striped:flags.1?true title:RichText rows:Vector<PageTableRow> = PageBlock;"
+        },
+        "after": {
+          "id": "0xbf4dea82",
+          "signature": "pageBlockTable#bf4dea82 flags:# bordered:flags.0?true striped:flags.1?true compact:flags.2?true title:RichText rows:Vector<PageTableRow> = PageBlock;"
         }
       },
       {
@@ -2574,6 +3674,45 @@
         "after": {
           "id": "0xba7bb15e",
           "signature": "pollResults#ba7bb15e flags:# min:flags.0?true has_unread_votes:flags.6?true can_view_stats:flags.7?true results:flags.1?Vector<PollAnswerVoters> total_voters:flags.2?int recent_voters:flags.3?Vector<Peer> solution:flags.4?string solution_entities:flags.4?Vector<MessageEntity> solution_media:flags.5?MessageMedia = PollResults;"
+        }
+      },
+      {
+        "key": "constructor:replyInlineMarkup",
+        "kind": "constructor",
+        "name": "replyInlineMarkup",
+        "before": {
+          "id": "0x48a30254",
+          "signature": "replyInlineMarkup#48a30254 rows:Vector<KeyboardButtonRow> = ReplyMarkup;"
+        },
+        "after": {
+          "id": "0xb2b15770",
+          "signature": "replyInlineMarkup#b2b15770 flags:# force_reply:flags.5?true rows:Vector<KeyboardInlineButtonRow> = ReplyMarkup;"
+        }
+      },
+      {
+        "key": "constructor:replyKeyboardMarkup",
+        "kind": "constructor",
+        "name": "replyKeyboardMarkup",
+        "before": {
+          "id": "0x85dd99d1",
+          "signature": "replyKeyboardMarkup#85dd99d1 flags:# resize:flags.0?true single_use:flags.1?true selective:flags.2?true persistent:flags.4?true rows:Vector<KeyboardButtonRow> placeholder:flags.3?string = ReplyMarkup;"
+        },
+        "after": {
+          "id": "0x85dd99d1",
+          "signature": "replyKeyboardMarkup#85dd99d1 flags:# resize:flags.0?true single_use:flags.1?true selective:flags.2?true persistent:flags.4?true force_reply:flags.5?true rows:Vector<KeyboardButtonRow> placeholder:flags.3?string = ReplyMarkup;"
+        }
+      },
+      {
+        "key": "constructor:sendMessageTextDraftAction",
+        "kind": "constructor",
+        "name": "sendMessageTextDraftAction",
+        "before": {
+          "id": "0x376d975c",
+          "signature": "sendMessageTextDraftAction#376d975c random_id:long text:TextWithEntities = SendMessageAction;"
+        },
+        "after": {
+          "id": "0x3630b85a",
+          "signature": "sendMessageTextDraftAction#3630b85a flags:# can_stop:flags.0?true keep_on_stop:flags.1?true random_id:long text:TextWithEntities = SendMessageAction;"
         }
       },
       {
@@ -2717,6 +3856,19 @@
         "after": {
           "id": "0xb106e66c",
           "signature": "messages.editMessage#b106e66c flags:# no_webpage:flags.1?true invert_media:flags.16?true peer:InputPeer id:int message:flags.11?string media:flags.14?InputMedia reply_markup:flags.2?ReplyMarkup entities:flags.3?Vector<MessageEntity> schedule_date:flags.15?int schedule_repeat_period:flags.18?int quick_reply_shortcut_id:flags.17?int rich_message:flags.23?InputRichMessage = Updates;"
+        }
+      },
+      {
+        "key": "function:messages.forwardMessages",
+        "kind": "function",
+        "name": "messages.forwardMessages",
+        "before": {
+          "id": "0x13704a7c",
+          "signature": "messages.forwardMessages#13704a7c flags:# silent:flags.5?true background:flags.6?true with_my_score:flags.8?true drop_author:flags.11?true drop_media_captions:flags.12?true noforwards:flags.14?true allow_paid_floodskip:flags.19?true from_peer:InputPeer id:Vector<int> random_id:Vector<long> to_peer:InputPeer top_msg_id:flags.9?int reply_to:flags.22?InputReplyTo schedule_date:flags.10?int schedule_repeat_period:flags.24?int send_as:flags.13?InputPeer quick_reply_shortcut:flags.17?InputQuickReplyShortcut effect:flags.18?long video_timestamp:flags.20?int allow_paid_stars:flags.21?long suggested_post:flags.23?SuggestedPost = Updates;"
+        },
+        "after": {
+          "id": "0x13704a7c",
+          "signature": "messages.forwardMessages#13704a7c flags:# silent:flags.5?true background:flags.6?true with_my_score:flags.8?true drop_author:flags.11?true drop_media_captions:flags.12?true noforwards:flags.14?true allow_paid_floodskip:flags.19?true from_ephemeral:flags.25?true from_peer:InputPeer id:Vector<int> random_id:Vector<long> to_peer:InputPeer top_msg_id:flags.9?int reply_to:flags.22?InputReplyTo schedule_date:flags.10?int schedule_repeat_period:flags.24?int send_as:flags.13?InputPeer quick_reply_shortcut:flags.17?InputQuickReplyShortcut effect:flags.18?long video_timestamp:flags.20?int allow_paid_stars:flags.21?long suggested_post:flags.23?SuggestedPost = Updates;"
         }
       },
       {

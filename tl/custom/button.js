@@ -16,11 +16,7 @@ class Button {
         this.selective = selective;
     }
     static _isInline(button) {
-        return (button instanceof api_1.Api.KeyboardButtonCallback ||
-            button instanceof api_1.Api.KeyboardButtonSwitchInline ||
-            button instanceof api_1.Api.KeyboardButtonUrl ||
-            button instanceof api_1.Api.KeyboardButtonUrlAuth ||
-            button instanceof api_1.Api.InputKeyboardButtonUrlAuth);
+        return button instanceof api_1.Api.KeyboardInlineButton;
     }
     static inline(text, data) {
         if (!data) {
@@ -29,44 +25,57 @@ class Button {
         if (data.length > 64) {
             throw new Error("Too many bytes for the data");
         }
-        return new api_1.Api.KeyboardButtonCallback({
-            text: text,
-            data: data,
+        return new api_1.Api.KeyboardInlineButton({
+            text,
+            type: new api_1.Api.InlineButtonTypeCallback({ data }),
         });
     }
     static switchInline(text, query = "", samePeer = false) {
-        return new api_1.Api.KeyboardButtonSwitchInline({
+        return new api_1.Api.KeyboardInlineButton({
             text,
-            query,
-            samePeer,
+            type: new api_1.Api.InlineButtonTypeSwitchInline({ query, samePeer }),
         });
     }
     static url(text, url) {
-        return new api_1.Api.KeyboardButtonUrl({
-            text: text,
-            url: url || text,
+        return new api_1.Api.KeyboardInlineButton({
+            text,
+            type: new api_1.Api.InlineButtonTypeUrl({ url: url || text }),
         });
     }
     static auth(text, url, bot, writeAccess, fwdText) {
-        return new api_1.Api.InputKeyboardButtonUrlAuth({
+        return new api_1.Api.KeyboardInlineButton({
             text,
-            url: url || text,
-            bot: __1.utils.getInputUser(bot || new api_1.Api.InputUserSelf()),
-            requestWriteAccess: writeAccess,
-            fwdText: fwdText,
+            type: new api_1.Api.InputInlineButtonTypeUrlAuth({
+                url: url || text,
+                bot: __1.utils.getInputUser(bot || new api_1.Api.InputUserSelf()),
+                requestWriteAccess: writeAccess,
+                fwdText,
+            }),
         });
     }
     static text(text, resize, singleUse, selective) {
-        return new this(new api_1.Api.KeyboardButton({ text }), resize, singleUse, selective);
+        return new this(new api_1.Api.KeyboardButton({
+            text,
+            type: new api_1.Api.ButtonTypeDefault(),
+        }), resize, singleUse, selective);
     }
     static requestLocation(text, resize, singleUse, selective) {
-        return new this(new api_1.Api.KeyboardButtonRequestGeoLocation({ text }), resize, singleUse, selective);
+        return new this(new api_1.Api.KeyboardButton({
+            text,
+            type: new api_1.Api.ButtonTypeRequestGeoLocation(),
+        }), resize, singleUse, selective);
     }
     static requestPhone(text, resize, singleUse, selective) {
-        return new this(new api_1.Api.KeyboardButtonRequestPhone({ text }), resize, singleUse, selective);
+        return new this(new api_1.Api.KeyboardButton({
+            text,
+            type: new api_1.Api.ButtonTypeRequestPhone(),
+        }), resize, singleUse, selective);
     }
     static requestPoll(text, resize, singleUse, selective) {
-        return new this(new api_1.Api.KeyboardButtonRequestPoll({ text }), resize, singleUse, selective);
+        return new this(new api_1.Api.KeyboardButton({
+            text,
+            type: new api_1.Api.ButtonTypeRequestPoll({}),
+        }), resize, singleUse, selective);
     }
     static clear() {
         return new api_1.Api.ReplyKeyboardHide({});

@@ -17,7 +17,8 @@ type FullEntity =
     | Api.UserFull
     | Api.messages.ChatFull
     | Api.ChatFull
-    | Api.ChannelFull;
+    | Api.ChannelFull
+    | Api.CommunityFull;
 type PeerLike = Api.TypePeer | Api.TypeInputPeer | Entity | FullEntity;
 type EntityLike =
     | bigInt.BigInteger
@@ -67,7 +68,10 @@ type ProgressCallback = (
     downloaded: bigInt.BigInteger,
     total: bigInt.BigInteger
 ) => void;
-type ButtonLike = Api.TypeKeyboardButton | Button;
+type ButtonLike =
+    | Api.TypeKeyboardButton
+    | Api.TypeKeyboardInlineButton
+    | Button;
 
 type MarkupLike =
     | Api.TypeReplyMarkup

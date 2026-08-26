@@ -31,7 +31,7 @@ function getChangedIds(semanticDiff) {
 }
 
 function validateChangedIds(Api, tlobjects, changedIds) {
-  assert.strictEqual(changedIds.length, 26);
+  assert.strictEqual(changedIds.length, 32);
   for (const definition of changedIds) {
     const apiClass = getApiClass(Api, definition.name);
     const oldId = Number.parseInt(definition.before.slice(2), 16);

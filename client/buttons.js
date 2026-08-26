@@ -26,22 +26,24 @@ function buildReplyMarkup(buttons, inlineOnly = false) {
     let isInline = false;
     let isNormal = false;
     let resize = undefined;
-    const singleUse = false;
-    const selective = false;
-    const rows = [];
+    let singleUse = false;
+    let selective = false;
+    const inlineRows = [];
+    const normalRows = [];
     // @ts-ignore
     for (const row of buttons) {
-        const current = [];
+        const inlineButtons = [];
+        const normalButtons = [];
         for (let button of row) {
             if (button instanceof button_1.Button) {
                 if (button.resize != undefined) {
                     resize = button.resize;
                 }
                 if (button.singleUse != undefined) {
-                    resize = button.singleUse;
+                    singleUse = button.singleUse;
                 }
                 if (button.selective != undefined) {
-                    resize = button.selective;
+                    selective = button.selective;
                 }
                 button = button.button;
             }
@@ -49,21 +51,20 @@ function buildReplyMarkup(buttons, inlineOnly = false) {
                 button = button.button;
             }
             const inline = button_1.Button._isInline(button);
-            if (!isInline && inline) {
+            if (inline) {
                 isInline = true;
+                inlineButtons.push(button);
             }
-            if (!isNormal && inline) {
-                isNormal = false;
-            }
-            if (button.SUBCLASS_OF_ID == 0xbad74a3) {
-                // 0xbad74a3 == crc32(b'KeyboardButton')
-                current.push(button);
+            else if (button instanceof tl_1.Api.KeyboardButton) {
+                isNormal = true;
+                normalButtons.push(button);
             }
         }
-        if (current) {
-            rows.push(new tl_1.Api.KeyboardButtonRow({
-                buttons: current,
-            }));
+        if (inlineButtons.length) {
+            inlineRows.push(new tl_1.Api.KeyboardInlineButtonRow({ buttons: inlineButtons }));
+        }
+        if (normalButtons.length) {
+            normalRows.push(new tl_1.Api.KeyboardButtonRow({ buttons: normalButtons }));
         }
     }
     if (inlineOnly && isNormal) {
@@ -74,11 +75,11 @@ function buildReplyMarkup(buttons, inlineOnly = false) {
     }
     else if (isInline) {
         return new tl_1.Api.ReplyInlineMarkup({
-            rows: rows,
+            rows: inlineRows,
         });
     }
     return new tl_1.Api.ReplyKeyboardMarkup({
-        rows: rows,
+        rows: normalRows,
         resize: resize,
         singleUse: singleUse,
         selective: selective,

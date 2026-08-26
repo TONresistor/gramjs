@@ -1,6 +1,30 @@
 # Changelog
 
-## 2.32.0 - Unreleased
+## 2.33.0 - Unreleased
+
+### Added
+
+- Telegram API Layer 229 from immutable Telegram Desktop schema commit
+  `11d18d829b25d583f2e3058663b522a528fde51a`.
+- Protocol coverage for Layer 229 constructor changes and typed keyboard and
+  inline button wrappers.
+
+### Fixed
+
+- Public button helpers, reply markup construction, message button accessors,
+  and button clicks use the Layer 229 button model.
+- Community entities resolve through public peer, dialog, notification, and
+  cache helpers.
+- Custom messages retain Layer 228 Rich Message payloads.
+- Compatible dependency updates remove all reported audit findings and the
+  temporary development exception.
+
+### Changed
+
+- Package and runtime versions are aligned at `2.33.0`.
+- Inline and keyboard rows now use their distinct Layer 229 constructors.
+
+## 2.32.0 - 2026-07-27
 
 ### Added
 

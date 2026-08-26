@@ -7,10 +7,10 @@ an immutable Git dependency.
 ## Current release
 
 - Package: `telegram`
-- Fork version: `2.32.0`
-- Telegram API layer: `228`
+- Fork version: `2.33.0`
+- Telegram API layer: `229`
 - Schema source: Telegram Desktop commit
-  `138b937f01a275000fb2e06b3d5b864f5b78cc81`
+  `11d18d829b25d583f2e3058663b522a528fde51a`
 - Supported maintenance runtimes: Node.js 20 and 24
 
 The fork keeps the existing `telegram` package name and GramJS import paths. The
@@ -34,7 +34,7 @@ npm run build:browser
 
 `telegram-schema.lock.json` records the exact first-party schema commits, paths,
 hashes, layers, and definition counts. The immutable snapshots in
-`schema-history/` let `verify:schema` recompute every Layer 224→228 transition
+`schema-history/` let `verify:schema` recompute every Layer 224→229 transition
 offline. `telegram-schema-diff.json` is the reviewable generated report; any
 unapproved removal, stale report, changed ID count, or snapshot drift fails the
 gate. Generated files must not be edited manually.
@@ -53,12 +53,8 @@ gate. `npm run audit:exceptions` checks the complete audit and fails if a new
 high/critical advisory appears, an exception expires, or an obsolete exception
 is left behind.
 
-As of 2026-07-27, the full audit reports the high-severity
-`brace-expansion` CVE-2026-14257 through Jest's build/test-only `glob` chain.
-There is no production path and the production audit is clean. npm's proposed
-forced fix downgrades Jest to 25 and is not accepted. This temporary exception
-expires on 2026-08-31: recheck for a compatible Jest/glob release before then,
-or remove the exception. The expiry is enforced from `audit-exceptions.json`.
+As of 2026-08-26, both the full dependency audit and the production dependency
+audit are clean. `audit-exceptions.json` contains no active exceptions.
 
 ## Teleton usage
 

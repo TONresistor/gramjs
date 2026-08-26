@@ -9,12 +9,12 @@ export declare class Button {
     [inspect.custom](): {
         [key: string]: any;
     };
-    constructor(button: Api.TypeKeyboardButton, resize?: boolean, singleUse?: boolean, selective?: boolean);
-    static _isInline(button: ButtonLike): button is Api.KeyboardButtonUrl | Api.KeyboardButtonCallback | Api.KeyboardButtonSwitchInline | Api.KeyboardButtonUrlAuth | Api.InputKeyboardButtonUrlAuth;
-    static inline(text: string, data?: Buffer): Api.KeyboardButtonCallback;
-    static switchInline(text: string, query?: string, samePeer?: boolean): Api.KeyboardButtonSwitchInline;
-    static url(text: string, url?: string): Api.KeyboardButtonUrl;
-    static auth(text: string, url?: string, bot?: EntityLike, writeAccess?: boolean, fwdText?: string): Api.InputKeyboardButtonUrlAuth;
+    constructor(button: Api.TypeKeyboardButton | Api.TypeKeyboardInlineButton, resize?: boolean, singleUse?: boolean, selective?: boolean);
+    static _isInline(button: ButtonLike): button is Api.TypeKeyboardInlineButton;
+    static inline(text: string, data?: Buffer): Api.KeyboardInlineButton;
+    static switchInline(text: string, query?: string, samePeer?: boolean): Api.KeyboardInlineButton;
+    static url(text: string, url?: string): Api.KeyboardInlineButton;
+    static auth(text: string, url?: string, bot?: EntityLike, writeAccess?: boolean, fwdText?: string): Api.KeyboardInlineButton;
     static text(text: string, resize?: boolean, singleUse?: boolean, selective?: boolean): Button;
     static requestLocation(text: string, resize?: boolean, singleUse?: boolean, selective?: boolean): Button;
     static requestPhone(text: string, resize?: boolean, singleUse?: boolean, selective?: boolean): Button;

@@ -14,6 +14,8 @@ export declare class MessageButton {
     constructor(client: TelegramClient, original: ButtonLike, chat: EntityLike, bot: EntityLike | undefined, msgId: MessageIDLike);
     get client(): TelegramClient;
     get text(): string;
+    private get _inlineType();
+    private get _keyboardType();
     get data(): Api.bytes | undefined;
     get inlineQuery(): string | undefined;
     get url(): string | undefined;
@@ -23,24 +25,24 @@ export declare class MessageButton {
      If it's a normal `KeyboardButton` with text, a message will be
      sent, and the sent `Message <Message>` returned.
 
-     If it's an inline `KeyboardButtonCallback` with text and data,
+     If it's an `InlineButtonTypeCallback` with text and data,
      it will be "clicked" and the `BotCallbackAnswer` returned.
 
-     If it's an inline `KeyboardButtonSwitchInline` button, the
+     If it's an `InlineButtonTypeSwitchInline` button, the
      `StartBot` will be invoked and the resulting updates
      returned.
 
-     If it's a `KeyboardButtonUrl`, the URL of the button will
+     If it's an `InlineButtonTypeUrl`, the URL of the button will
      be returned.
 
-     If it's a `KeyboardButtonRequestPhone`, you must indicate that you
+     If it's a `ButtonTypeRequestPhone`, you must indicate that you
      want to ``sharePhone=True`` in order to share it. Sharing it is not a
      default because it is a privacy concern and could happen accidentally.
 
      You may also use ``sharePhone=phone`` to share a specific number, in
      which case either `str` or `InputMediaContact` should be used.
 
-     If it's a `KeyboardButtonRequestGeoLocation`, you must pass a
+     If it's a `ButtonTypeRequestGeoLocation`, you must pass a
      tuple in ``shareGeo=[longitude, latitude]``. Note that Telegram seems
      to have some heuristics to determine impossible locations, so changing
      this value a lot quickly may not work as expected. You may also pass a

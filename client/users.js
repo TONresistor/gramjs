@@ -459,35 +459,49 @@ async function _getPeer(client, peer) {
 }
 /** @hidden */
 async function _getInputDialog(client, dialog) {
-    try {
-        if (dialog.SUBCLASS_OF_ID == 0xa21c9795) {
-            // crc32(b'InputDialogPeer')
-            dialog.peer = await client.getInputEntity(dialog.peer);
-            return dialog;
-        }
-        else if (dialog.SUBCLASS_OF_ID == 0xc91c90b6) {
-            //crc32(b'InputPeer')
-            return new tl_1.Api.InputDialogPeer({
-                peer: dialog,
-            });
-        }
+    if (dialog instanceof tl_1.Api.Community ||
+        dialog instanceof tl_1.Api.CommunityForbidden) {
+        return new tl_1.Api.InputDialogPeerCommunity({
+            community: __1.utils.getInputChannel(await client.getInputEntity(dialog)),
+        });
     }
-    catch (e) { }
+    if ((dialog === null || dialog === void 0 ? void 0 : dialog.SUBCLASS_OF_ID) == 0xa21c9795) {
+        // crc32(b'InputDialogPeer')
+        if (dialog instanceof tl_1.Api.InputDialogPeer) {
+            dialog.peer = await client.getInputEntity(dialog.peer);
+        }
+        else if (dialog instanceof tl_1.Api.InputDialogPeerCommunity) {
+            dialog.community = __1.utils.getInputChannel(await client.getInputEntity(dialog.community));
+        }
+        return dialog;
+    }
+    if ((dialog === null || dialog === void 0 ? void 0 : dialog.SUBCLASS_OF_ID) == 0xc91c90b6) {
+        // crc32(b'InputPeer')
+        return new tl_1.Api.InputDialogPeer({
+            peer: dialog,
+        });
+    }
     return new tl_1.Api.InputDialogPeer({
-        peer: dialog,
+        peer: await client.getInputEntity(dialog),
     });
 }
 /** @hidden */
 async function _getInputNotify(client, notify) {
-    try {
-        if (notify.SUBCLASS_OF_ID == 0x58981615) {
-            if (notify instanceof tl_1.Api.InputNotifyPeer) {
-                notify.peer = await client.getInputEntity(notify.peer);
-            }
-            return notify;
-        }
+    if (notify instanceof tl_1.Api.Community ||
+        notify instanceof tl_1.Api.CommunityForbidden) {
+        return new tl_1.Api.InputNotifyCommunity({
+            community: __1.utils.getInputChannel(await client.getInputEntity(notify)),
+        });
     }
-    catch (e) { }
+    if ((notify === null || notify === void 0 ? void 0 : notify.SUBCLASS_OF_ID) == 0x58981615) {
+        if (notify instanceof tl_1.Api.InputNotifyPeer) {
+            notify.peer = await client.getInputEntity(notify.peer);
+        }
+        else if (notify instanceof tl_1.Api.InputNotifyCommunity) {
+            notify.community = __1.utils.getInputChannel(await client.getInputEntity(notify.community));
+        }
+        return notify;
+    }
     return new tl_1.Api.InputNotifyPeer({
         peer: await client.getInputEntity(notify),
     });

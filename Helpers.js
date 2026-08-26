@@ -469,6 +469,9 @@ function _entityType(entity) {
     if (name.includes("User")) {
         return exports._EntityType.USER;
     }
+    else if (name.includes("Community")) {
+        return exports._EntityType.CHANNEL;
+    }
     else if (name.includes("Chat")) {
         return exports._EntityType.CHAT;
     }

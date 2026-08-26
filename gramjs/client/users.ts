@@ -527,33 +527,60 @@ export async function _getPeer(client: TelegramClient, peer: EntityLike) {
 
 /** @hidden */
 export async function _getInputDialog(client: TelegramClient, dialog: any) {
-    try {
-        if (dialog.SUBCLASS_OF_ID == 0xa21c9795) {
-            // crc32(b'InputDialogPeer')
+    if (
+        dialog instanceof Api.Community ||
+        dialog instanceof Api.CommunityForbidden
+    ) {
+        return new Api.InputDialogPeerCommunity({
+            community: utils.getInputChannel(
+                await client.getInputEntity(dialog)
+            ),
+        });
+    }
+    if (dialog?.SUBCLASS_OF_ID == 0xa21c9795) {
+        // crc32(b'InputDialogPeer')
+        if (dialog instanceof Api.InputDialogPeer) {
             dialog.peer = await client.getInputEntity(dialog.peer);
-            return dialog;
-        } else if (dialog.SUBCLASS_OF_ID == 0xc91c90b6) {
-            //crc32(b'InputPeer')
-            return new Api.InputDialogPeer({
-                peer: dialog,
-            });
+        } else if (dialog instanceof Api.InputDialogPeerCommunity) {
+            dialog.community = utils.getInputChannel(
+                await client.getInputEntity(dialog.community)
+            );
         }
-    } catch (e) { }
+        return dialog;
+    }
+    if (dialog?.SUBCLASS_OF_ID == 0xc91c90b6) {
+        // crc32(b'InputPeer')
+        return new Api.InputDialogPeer({
+            peer: dialog,
+        });
+    }
     return new Api.InputDialogPeer({
-        peer: dialog,
+        peer: await client.getInputEntity(dialog),
     });
 }
 
 /** @hidden */
 export async function _getInputNotify(client: TelegramClient, notify: any) {
-    try {
-        if (notify.SUBCLASS_OF_ID == 0x58981615) {
-            if (notify instanceof Api.InputNotifyPeer) {
-                notify.peer = await client.getInputEntity(notify.peer);
-            }
-            return notify;
+    if (
+        notify instanceof Api.Community ||
+        notify instanceof Api.CommunityForbidden
+    ) {
+        return new Api.InputNotifyCommunity({
+            community: utils.getInputChannel(
+                await client.getInputEntity(notify)
+            ),
+        });
+    }
+    if (notify?.SUBCLASS_OF_ID == 0x58981615) {
+        if (notify instanceof Api.InputNotifyPeer) {
+            notify.peer = await client.getInputEntity(notify.peer);
+        } else if (notify instanceof Api.InputNotifyCommunity) {
+            notify.community = utils.getInputChannel(
+                await client.getInputEntity(notify.community)
+            );
         }
-    } catch (e) { }
+        return notify;
+    }
     return new Api.InputNotifyPeer({
         peer: await client.getInputEntity(notify),
     });

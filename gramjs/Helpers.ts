@@ -519,6 +519,8 @@ export function _entityType(entity: EntityLike) {
     const name = entity.className;
     if (name.includes("User")) {
         return _EntityType.USER;
+    } else if (name.includes("Community")) {
+        return _EntityType.CHANNEL;
     } else if (name.includes("Chat")) {
         return _EntityType.CHAT;
     } else if (name.includes("Channel")) {
