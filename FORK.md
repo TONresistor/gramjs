@@ -7,10 +7,10 @@ an immutable Git dependency.
 ## Current release
 
 - Package: `telegram`
-- Fork version: `2.33.0`
-- Telegram API layer: `229`
+- Fork version: `2.34.0`
+- Telegram API layer: `230`
 - Schema source: Telegram Desktop commit
-  `11d18d829b25d583f2e3058663b522a528fde51a`
+  `d36272b193057a114ef3a9fe7f15a8f8b587c489`
 - Supported maintenance runtimes: Node.js 20 and 24
 
 The fork keeps the existing `telegram` package name and GramJS import paths. The
@@ -34,7 +34,7 @@ npm run build:browser
 
 `telegram-schema.lock.json` records the exact first-party schema commits, paths,
 hashes, layers, and definition counts. The immutable snapshots in
-`schema-history/` let `verify:schema` recompute every Layer 224→229 transition
+`schema-history/` let `verify:schema` recompute every Layer 224→230 transition
 offline. `telegram-schema-diff.json` is the reviewable generated report; any
 unapproved removal, stale report, changed ID count, or snapshot drift fails the
 gate. Generated files must not be edited manually.

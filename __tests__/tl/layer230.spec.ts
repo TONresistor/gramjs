@@ -37,9 +37,34 @@ function getApiClass(definitionName: string): ApiClass {
   return apiClass as unknown as ApiClass;
 }
 
-describe("Telegram API Layer 229", () => {
+describe("Telegram API Layer 230", () => {
+  test("round-trips formatted bot verification and wallet protocol payloads", () => {
+    const verification = new Api.BotVerification({
+      botId: bigInt.one,
+      icon: bigInt(2),
+      description: new Api.TextWithEntities({
+        text: "Verified",
+        entities: [new Api.MessageEntityBold({ offset: 0, length: 8 })],
+      }),
+    });
+    const decoded = new BinaryReader(verification.getBytes()).tgReadObject() as Api.BotVerification;
+    expect(decoded.description.text).toBe("Verified");
+    expect(decoded.description.entities[0]).toBeInstanceOf(Api.MessageEntityBold);
+    expect(Api.BotVerification.CONSTRUCTOR_ID >>> 0).toBe(0xf72e0ed9);
+    expect(Api.bots.SetCustomVerification.CONSTRUCTOR_ID >>> 0).toBe(0xf4946757);
+    expect(Api.wallet.GetState.CONSTRUCTOR_ID >>> 0).toBe(0xab83b33a);
+    const session = new Api.wallet.TonConnectCreateSession({
+      dappClientId: "test-client",
+      manifestUrl: "https://example.com/manifest.json",
+    });
+    const decodedSession = new BinaryReader(session.getBytes()).tgReadObject() as Api.wallet.TonConnectCreateSession;
+    expect(decodedSession.dappClientId).toBe("test-client");
+    expect(decodedSession.manifestUrl).toBe("https://example.com/manifest.json");
+    expect(tlobjects[0x5b1ccb28]).toBeUndefined();
+  });
+
   test("exports the expected layer and protocol-critical constructor IDs", () => {
-    expect(LAYER).toBe(229);
+    expect(LAYER).toBe(230);
     expect(Api.User.CONSTRUCTOR_ID >>> 0).toBe(0xb1b8cc83);
     expect(Api.Channel.CONSTRUCTOR_ID >>> 0).toBe(0xd49f34c6);
     expect(Api.Message.CONSTRUCTOR_ID >>> 0).toBe(0x7600b9d3);
@@ -59,12 +84,12 @@ describe("Telegram API Layer 229", () => {
     );
   });
 
-  test("registers all 32 changed definitions only under their Layer 229 IDs", () => {
+  test("registers all 36 changed definitions only under their Layer 230 IDs", () => {
     const changedIds = semanticDiff.cumulative.modified.filter(
       (definition) => definition.before.id !== definition.after.id
     );
 
-    expect(changedIds).toHaveLength(32);
+    expect(changedIds).toHaveLength(36);
     for (const definition of changedIds) {
       const apiClass = getApiClass(definition.name);
       const oldId = Number.parseInt(definition.before.id.slice(2), 16);
@@ -78,7 +103,7 @@ describe("Telegram API Layer 229", () => {
 
   test("serializes search and message requests without new optional fields", () => {
     const search = new Api.messages.SearchGlobal({
-      q: "layer-229",
+      q: "layer-230",
       filter: new Api.InputMessagesFilterEmpty(),
       minDate: 0,
       maxDate: 0,

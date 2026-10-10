@@ -1,7 +1,7 @@
 {
   "formatVersion": 1,
   "baselineLayer": 224,
-  "targetLayer": 229,
+  "targetLayer": 230,
   "transitions": [
     {
       "from": 224,
@@ -2090,16 +2090,705 @@
           }
         }
       ]
+    },
+    {
+      "from": 229,
+      "to": 230,
+      "summary": {
+        "added": 84,
+        "removed": 1,
+        "modified": 6,
+        "changedIds": 5
+      },
+      "added": [
+        {
+          "key": "constructor:currencyRate",
+          "kind": "constructor",
+          "name": "currencyRate",
+          "id": "0x30d9743c",
+          "signature": "currencyRate#30d9743c currency:string rate:double = CurrencyRate;"
+        },
+        {
+          "key": "constructor:inputWalletImported",
+          "kind": "constructor",
+          "name": "inputWalletImported",
+          "id": "0x66a66a3b",
+          "signature": "inputWalletImported#66a66a3b flags:# public_key:bytes anchor_public_key:flags.0?bytes proof:WalletOwnershipProof = InputWalletReplacement;"
+        },
+        {
+          "key": "constructor:inputWalletNew",
+          "kind": "constructor",
+          "name": "inputWalletNew",
+          "id": "0x63a440dc",
+          "signature": "inputWalletNew#63a440dc = InputWalletReplacement;"
+        },
+        {
+          "key": "constructor:messageActionGramTransfer",
+          "kind": "constructor",
+          "name": "messageActionGramTransfer",
+          "id": "0x9329ea33",
+          "signature": "messageActionGramTransfer#9329ea33 flags:# comment_encrypted:flags.1?true amount:long peer_address:string transaction_id:string comment:flags.0?string = MessageAction;"
+        },
+        {
+          "key": "constructor:messageActionWalletTonConnectRequest",
+          "kind": "constructor",
+          "name": "messageActionWalletTonConnectRequest",
+          "id": "0x69b8c4bf",
+          "signature": "messageActionWalletTonConnectRequest#69b8c4bf flags:# accepted:flags.2?true declined:flags.3?true session_id:long expires:int topic:flags.0?string trace_id:flags.1?string dapp_name:flags.4?string = MessageAction;"
+        },
+        {
+          "key": "constructor:messageEntityTonAddress",
+          "kind": "constructor",
+          "name": "messageEntityTonAddress",
+          "id": "0xfdabbfcd",
+          "signature": "messageEntityTonAddress#fdabbfcd offset:int length:int = MessageEntity;"
+        },
+        {
+          "key": "constructor:onrampAvailability",
+          "kind": "constructor",
+          "name": "onrampAvailability",
+          "id": "0xf9c84973",
+          "signature": "onrampAvailability#f9c84973 flags:# allowed:flags.0?true buy_allowed:flags.1?true country_code:string state:flags.2?string methods:Vector<OnrampMethodAvailability> = OnrampAvailability;"
+        },
+        {
+          "key": "constructor:onrampLimits",
+          "kind": "constructor",
+          "name": "onrampLimits",
+          "id": "0x7be2677e",
+          "signature": "onrampLimits#7be2677e base_currency:string base_min_amount:string base_max_amount:string crypto_min_amount:string crypto_max_amount:string payment_method:string = OnrampLimits;"
+        },
+        {
+          "key": "constructor:onrampMethodAvailability",
+          "kind": "constructor",
+          "name": "onrampMethodAvailability",
+          "id": "0x9ec8c6a8",
+          "signature": "onrampMethodAvailability#9ec8c6a8 flags:# available:flags.0?true payment_method:string = OnrampMethodAvailability;"
+        },
+        {
+          "key": "constructor:onrampProviderInfo",
+          "kind": "constructor",
+          "name": "onrampProviderInfo",
+          "id": "0x0dc27582",
+          "signature": "onrampProviderInfo#dc27582 flags:# supports_base_currencies:flags.0?true supports_limits:flags.1?true supports_quote:flags.2?true id:string name:string crypto_currencies:Vector<string> = OnrampProviderInfo;"
+        },
+        {
+          "key": "constructor:onrampQuote",
+          "kind": "constructor",
+          "name": "onrampQuote",
+          "id": "0x7a8011e9",
+          "signature": "onrampQuote#7a8011e9 base_currency:string base_amount:string crypto_currency:string crypto_amount:string crypto_price:string fee_amount:string extra_fee_amount:string network_fee_amount:string total_amount:string payment_method:string expires_date:int = OnrampQuote;"
+        },
+        {
+          "key": "constructor:onrampSession",
+          "kind": "constructor",
+          "name": "onrampSession",
+          "id": "0xd1e42e24",
+          "signature": "onrampSession#d1e42e24 provider:string session_id:string url:string expires_date:int = OnrampSession;"
+        },
+        {
+          "key": "constructor:payments.currencyRates",
+          "kind": "constructor",
+          "name": "payments.currencyRates",
+          "id": "0xbbcce4c2",
+          "signature": "payments.currencyRates#bbcce4c2 rates:Vector<CurrencyRate> = payments.CurrencyRates;"
+        },
+        {
+          "key": "constructor:textTonAddress",
+          "kind": "constructor",
+          "name": "textTonAddress",
+          "id": "0x3cd2a36a",
+          "signature": "textTonAddress#3cd2a36a text:RichText = RichText;"
+        },
+        {
+          "key": "constructor:toncenter.apiResponse",
+          "kind": "constructor",
+          "name": "toncenter.apiResponse",
+          "id": "0xac8dfe19",
+          "signature": "toncenter.apiResponse#ac8dfe19 response:DataJSON = toncenter.ApiResponse;"
+        },
+        {
+          "key": "constructor:toncenter.streamingUrl",
+          "kind": "constructor",
+          "name": "toncenter.streamingUrl",
+          "id": "0x19887601",
+          "signature": "toncenter.streamingUrl#19887601 url:string expires:int = toncenter.StreamingUrl;"
+        },
+        {
+          "key": "constructor:tonConnectManifest",
+          "kind": "constructor",
+          "name": "tonConnectManifest",
+          "id": "0x12229264",
+          "signature": "tonConnectManifest#12229264 flags:# url:string name:string icon:flags.0?WebDocument = TonConnectManifest;"
+        },
+        {
+          "key": "constructor:tonConnectNextEventId",
+          "kind": "constructor",
+          "name": "tonConnectNextEventId",
+          "id": "0x582464e3",
+          "signature": "tonConnectNextEventId#582464e3 event_id:long = TonConnectNextEventId;"
+        },
+        {
+          "key": "constructor:tonConnectRequest",
+          "kind": "constructor",
+          "name": "tonConnectRequest",
+          "id": "0xa15f8513",
+          "signature": "tonConnectRequest#a15f8513 flags:# session_id:long msg_id:int body:bytes expires:int topic:flags.0?string trace_id:flags.1?string = TonConnectRequest;"
+        },
+        {
+          "key": "constructor:tonConnectSession",
+          "kind": "constructor",
+          "name": "tonConnectSession",
+          "id": "0x126556c6",
+          "signature": "tonConnectSession#126556c6 flags:# pending:flags.0?true closing:flags.1?true closed:flags.2?true id:long dapp_client_id:string client_id:flags.3?string nonce:bytes manifest:flags.4?TonConnectManifest manifest_error:flags.5?int date:int = TonConnectSession;"
+        },
+        {
+          "key": "constructor:updateSentWalletTransaction",
+          "kind": "constructor",
+          "name": "updateSentWalletTransaction",
+          "id": "0xb1434d4a",
+          "signature": "updateSentWalletTransaction#b1434d4a flags:# gasless:flags.0?true msg_hash:string transaction:flags.1?WalletTransaction = Update;"
+        },
+        {
+          "key": "constructor:updateWalletGaslessInfo",
+          "kind": "constructor",
+          "name": "updateWalletGaslessInfo",
+          "id": "0xa8ae1cac",
+          "signature": "updateWalletGaslessInfo#a8ae1cac flags:# available:flags.0?true left:int reset_at:int min_amount:long relayer_address:string = Update;"
+        },
+        {
+          "key": "constructor:updateWalletState",
+          "kind": "constructor",
+          "name": "updateWalletState",
+          "id": "0x6ac3f2aa",
+          "signature": "updateWalletState#6ac3f2aa state:WalletState = Update;"
+        },
+        {
+          "key": "constructor:updateWalletTonConnectPendingDisconnect",
+          "kind": "constructor",
+          "name": "updateWalletTonConnectPendingDisconnect",
+          "id": "0xd1ee8199",
+          "signature": "updateWalletTonConnectPendingDisconnect#d1ee8199 session_ids:Vector<long> = Update;"
+        },
+        {
+          "key": "constructor:updateWalletTonConnectSession",
+          "kind": "constructor",
+          "name": "updateWalletTonConnectSession",
+          "id": "0x50a38e0e",
+          "signature": "updateWalletTonConnectSession#50a38e0e session:TonConnectSession = Update;"
+        },
+        {
+          "key": "constructor:wallet.encryptedSecretPhrasePart",
+          "kind": "constructor",
+          "name": "wallet.encryptedSecretPhrasePart",
+          "id": "0x18e82537",
+          "signature": "wallet.encryptedSecretPhrasePart#18e82537 data:bytes = wallet.EncryptedSecretPhrasePart;"
+        },
+        {
+          "key": "constructor:wallet.existingBalance",
+          "kind": "constructor",
+          "name": "wallet.existingBalance",
+          "id": "0xbde90a8d",
+          "signature": "wallet.existingBalance#bde90a8d flags:# has_balance:flags.0?true url:string = wallet.ExistingBalance;"
+        },
+        {
+          "key": "constructor:wallet.holderDc",
+          "kind": "constructor",
+          "name": "wallet.holderDc",
+          "id": "0xf9d612ef",
+          "signature": "wallet.holderDc#f9d612ef dc:int public_key:bytes = wallet.HolderDc;"
+        },
+        {
+          "key": "constructor:wallet.nftAttribute",
+          "kind": "constructor",
+          "name": "wallet.nftAttribute",
+          "id": "0x4c1ef10e",
+          "signature": "wallet.nftAttribute#4c1ef10e trait_type:string value:string = wallet.NftAttribute;"
+        },
+        {
+          "key": "constructor:wallet.nftItem",
+          "kind": "constructor",
+          "name": "wallet.nftItem",
+          "id": "0x3441fd1c",
+          "signature": "wallet.nftItem#3441fd1c flags:# collection_address:flags.0?string address:string owner_address:string index:string name:flags.1?string description:flags.2?string image:flags.3?WebDocument image_small:flags.4?WebDocument content_url:flags.5?WebDocument lottie:flags.6?WebDocument attributes:flags.7?Vector<wallet.NftAttribute> extra:flags.8?DataJSON = wallet.NftItem;"
+        },
+        {
+          "key": "constructor:wallet.nftItems",
+          "kind": "constructor",
+          "name": "wallet.nftItems",
+          "id": "0x794d486f",
+          "signature": "wallet.nftItems#794d486f flags:# items:Vector<wallet.NftItem> next_offset:flags.0?string = wallet.NftItems;"
+        },
+        {
+          "key": "constructor:wallet.proofChallenge",
+          "kind": "constructor",
+          "name": "wallet.proofChallenge",
+          "id": "0x99e41707",
+          "signature": "wallet.proofChallenge#99e41707 payload:string expires:int domain:string = wallet.ProofChallenge;"
+        },
+        {
+          "key": "constructor:wallet.secretPhraseParts",
+          "kind": "constructor",
+          "name": "wallet.secretPhraseParts",
+          "id": "0xe6d0ef01",
+          "signature": "wallet.secretPhraseParts#e6d0ef01 token:string dcs:Vector<int> = wallet.SecretPhraseParts;"
+        },
+        {
+          "key": "constructor:wallet.tonConnectChallenge",
+          "kind": "constructor",
+          "name": "wallet.tonConnectChallenge",
+          "id": "0x4bc89693",
+          "signature": "wallet.tonConnectChallenge#4bc89693 challenge:bytes event_id:long = wallet.TonConnectChallenge;"
+        },
+        {
+          "key": "constructor:wallet.tonConnectPending",
+          "kind": "constructor",
+          "name": "wallet.tonConnectPending",
+          "id": "0x85c0f124",
+          "signature": "wallet.tonConnectPending#85c0f124 session:TonConnectSession requests:Vector<TonConnectRequest> = wallet.TonConnectPending;"
+        },
+        {
+          "key": "constructor:wallet.tonConnectSessions",
+          "kind": "constructor",
+          "name": "wallet.tonConnectSessions",
+          "id": "0x0e1f6896",
+          "signature": "wallet.tonConnectSessions#e1f6896 sessions:Vector<TonConnectSession> = wallet.TonConnectSessions;"
+        },
+        {
+          "key": "constructor:wallet.transactions",
+          "kind": "constructor",
+          "name": "wallet.transactions",
+          "id": "0x4322d5a5",
+          "signature": "wallet.transactions#4322d5a5 flags:# balance:long transactions:Vector<WalletTransaction> next_offset:flags.0?string chats:Vector<Chat> users:Vector<User> = wallet.Transactions;"
+        },
+        {
+          "key": "constructor:wallet.userAddresses",
+          "kind": "constructor",
+          "name": "wallet.userAddresses",
+          "id": "0x928e7b55",
+          "signature": "wallet.userAddresses#928e7b55 addresses:Vector<WalletUserAddress> users:Vector<User> = wallet.UserAddresses;"
+        },
+        {
+          "key": "constructor:walletOwnershipProof",
+          "kind": "constructor",
+          "name": "walletOwnershipProof",
+          "id": "0x60bccb0d",
+          "signature": "walletOwnershipProof#60bccb0d timestamp:int signature:bytes = WalletOwnershipProof;"
+        },
+        {
+          "key": "constructor:walletState",
+          "kind": "constructor",
+          "name": "walletState",
+          "id": "0x95c5346b",
+          "signature": "walletState#95c5346b flags:# backup_enabled:flags.0?true can_export_phrase:flags.1?true can_enable_backup:flags.2?true address:string public_key:bytes balance:long = WalletState;"
+        },
+        {
+          "key": "constructor:walletStateEmpty",
+          "kind": "constructor",
+          "name": "walletStateEmpty",
+          "id": "0x9cb9b2ec",
+          "signature": "walletStateEmpty#9cb9b2ec flags:# creating:flags.0?true = WalletState;"
+        },
+        {
+          "key": "constructor:walletTransaction",
+          "kind": "constructor",
+          "name": "walletTransaction",
+          "id": "0x952dc143",
+          "signature": "walletTransaction#952dc143 flags:# incoming:flags.0?true gasless:flags.1?true failed:flags.2?true key_change:flags.5?true comment_encrypted:flags.6?true id:string amount:long fee:long date:int peer:WalletTransactionPeer comment:flags.3?string tx_hash:flags.4?string nft:flags.7?wallet.NftItem = WalletTransaction;"
+        },
+        {
+          "key": "constructor:walletTransactionPeerAddress",
+          "kind": "constructor",
+          "name": "walletTransactionPeerAddress",
+          "id": "0x062cc1bc",
+          "signature": "walletTransactionPeerAddress#62cc1bc flags:# address:string domain:flags.0?string = WalletTransactionPeer;"
+        },
+        {
+          "key": "constructor:walletTransactionPeerOnramp",
+          "kind": "constructor",
+          "name": "walletTransactionPeerOnramp",
+          "id": "0xe595186e",
+          "signature": "walletTransactionPeerOnramp#e595186e flags:# address:string domain:flags.0?string provider_name:string = WalletTransactionPeer;"
+        },
+        {
+          "key": "constructor:walletTransactionPeerUnsupported",
+          "kind": "constructor",
+          "name": "walletTransactionPeerUnsupported",
+          "id": "0x728bed5a",
+          "signature": "walletTransactionPeerUnsupported#728bed5a = WalletTransactionPeer;"
+        },
+        {
+          "key": "constructor:walletTransactionPeerUser",
+          "kind": "constructor",
+          "name": "walletTransactionPeerUser",
+          "id": "0xd4ea706d",
+          "signature": "walletTransactionPeerUser#d4ea706d flags:# user_id:long address:string domain:flags.0?string = WalletTransactionPeer;"
+        },
+        {
+          "key": "constructor:walletUserAddress",
+          "kind": "constructor",
+          "name": "walletUserAddress",
+          "id": "0xfe78eecc",
+          "signature": "walletUserAddress#fe78eecc flags:# user_id:flags.0?long address:string public_key:bytes = WalletUserAddress;"
+        },
+        {
+          "key": "function:auth.cancelWebTokenAuthorization",
+          "kind": "function",
+          "name": "auth.cancelWebTokenAuthorization",
+          "id": "0x490dada1",
+          "signature": "auth.cancelWebTokenAuthorization#490dada1 web_auth_token:string = Bool;"
+        },
+        {
+          "key": "function:bots.addUsername",
+          "kind": "function",
+          "name": "bots.addUsername",
+          "id": "0x3501c08a",
+          "signature": "bots.addUsername#3501c08a bot:InputUser username:string = Bool;"
+        },
+        {
+          "key": "function:bots.removeUsername",
+          "kind": "function",
+          "name": "bots.removeUsername",
+          "id": "0xc704147d",
+          "signature": "bots.removeUsername#c704147d bot:InputUser username:string = Bool;"
+        },
+        {
+          "key": "function:payments.createOnrampSession",
+          "kind": "function",
+          "name": "payments.createOnrampSession",
+          "id": "0xa2197cf6",
+          "signature": "payments.createOnrampSession#a2197cf6 flags:# provider:string crypto_currency:string address:string payment_method:flags.0?string base_currency:flags.1?string base_amount:flags.2?string memo:flags.3?string theme:flags.4?string success_return_url:flags.5?string fail_return_url:flags.6?string crypto_amount:flags.7?string = OnrampSession;"
+        },
+        {
+          "key": "function:payments.getCurrencyRates",
+          "kind": "function",
+          "name": "payments.getCurrencyRates",
+          "id": "0xd35983e8",
+          "signature": "payments.getCurrencyRates#d35983e8 = payments.CurrencyRates;"
+        },
+        {
+          "key": "function:payments.getOnrampAvailability",
+          "kind": "function",
+          "name": "payments.getOnrampAvailability",
+          "id": "0x2ec29951",
+          "signature": "payments.getOnrampAvailability#2ec29951 flags:# provider:string crypto_currency:string base_currency:flags.0?string = OnrampAvailability;"
+        },
+        {
+          "key": "function:payments.getOnrampBaseCurrencies",
+          "kind": "function",
+          "name": "payments.getOnrampBaseCurrencies",
+          "id": "0x1c8bedf3",
+          "signature": "payments.getOnrampBaseCurrencies#1c8bedf3 provider:string crypto_currency:string = Vector<string>;"
+        },
+        {
+          "key": "function:payments.getOnrampLimits",
+          "kind": "function",
+          "name": "payments.getOnrampLimits",
+          "id": "0x80e851fd",
+          "signature": "payments.getOnrampLimits#80e851fd flags:# provider:string crypto_currency:string base_currency:string payment_method:flags.0?string = OnrampLimits;"
+        },
+        {
+          "key": "function:payments.getOnrampProviders",
+          "kind": "function",
+          "name": "payments.getOnrampProviders",
+          "id": "0x3f3e00dc",
+          "signature": "payments.getOnrampProviders#3f3e00dc flags:# crypto_currency:flags.0?string = Vector<OnrampProviderInfo>;"
+        },
+        {
+          "key": "function:payments.getOnrampQuote",
+          "kind": "function",
+          "name": "payments.getOnrampQuote",
+          "id": "0xe06645fa",
+          "signature": "payments.getOnrampQuote#e06645fa flags:# provider:string crypto_currency:string base_currency:string base_amount:flags.0?string crypto_amount:flags.1?string payment_method:flags.2?string = OnrampQuote;"
+        },
+        {
+          "key": "function:toncenter.getStreamingUrl",
+          "kind": "function",
+          "name": "toncenter.getStreamingUrl",
+          "id": "0xcdaf63c7",
+          "signature": "toncenter.getStreamingUrl#cdaf63c7 = toncenter.StreamingUrl;"
+        },
+        {
+          "key": "function:toncenter.performApiRequest",
+          "kind": "function",
+          "name": "toncenter.performApiRequest",
+          "id": "0x8d7bdd61",
+          "signature": "toncenter.performApiRequest#8d7bdd61 flags:# post:flags.0?true endpoint:string query:flags.1?string payload:flags.2?string = toncenter.ApiResponse;"
+        },
+        {
+          "key": "function:wallet.disableBackup",
+          "kind": "function",
+          "name": "wallet.disableBackup",
+          "id": "0x0b0bf0da",
+          "signature": "wallet.disableBackup#b0bf0da flags:# password:flags.0?InputCheckPasswordSRP new_public_key:flags.1?bytes proof:flags.2?WalletOwnershipProof = WalletState;"
+        },
+        {
+          "key": "function:wallet.enableBackup",
+          "kind": "function",
+          "name": "wallet.enableBackup",
+          "id": "0x4500c525",
+          "signature": "wallet.enableBackup#4500c525 flags:# parts:Vector<bytes> new_public_key:flags.1?bytes proof:flags.2?WalletOwnershipProof = WalletState;"
+        },
+        {
+          "key": "function:wallet.exportSecretPhrase",
+          "kind": "function",
+          "name": "wallet.exportSecretPhrase",
+          "id": "0x9077c9ac",
+          "signature": "wallet.exportSecretPhrase#9077c9ac flags:# password:flags.0?InputCheckPasswordSRP = wallet.SecretPhraseParts;"
+        },
+        {
+          "key": "function:wallet.fetchEncryptedSecretPhrasePart",
+          "kind": "function",
+          "name": "wallet.fetchEncryptedSecretPhrasePart",
+          "id": "0xf53925cf",
+          "signature": "wallet.fetchEncryptedSecretPhrasePart#f53925cf token:string public_key:bytes = wallet.EncryptedSecretPhrasePart;"
+        },
+        {
+          "key": "function:wallet.getBackupHolderDcs",
+          "kind": "function",
+          "name": "wallet.getBackupHolderDcs",
+          "id": "0xd179d494",
+          "signature": "wallet.getBackupHolderDcs#d179d494 = Vector<wallet.HolderDc>;"
+        },
+        {
+          "key": "function:wallet.getExistingWaltBalance",
+          "kind": "function",
+          "name": "wallet.getExistingWaltBalance",
+          "id": "0x691f4360",
+          "signature": "wallet.getExistingWaltBalance#691f4360 = wallet.ExistingBalance;"
+        },
+        {
+          "key": "function:wallet.getGaslessInfo",
+          "kind": "function",
+          "name": "wallet.getGaslessInfo",
+          "id": "0x742df0a1",
+          "signature": "wallet.getGaslessInfo#742df0a1 = Updates;"
+        },
+        {
+          "key": "function:wallet.getNfts",
+          "kind": "function",
+          "name": "wallet.getNfts",
+          "id": "0x8c12f3a4",
+          "signature": "wallet.getNfts#8c12f3a4 offset:string limit:int = wallet.NftItems;"
+        },
+        {
+          "key": "function:wallet.getProofChallenge",
+          "kind": "function",
+          "name": "wallet.getProofChallenge",
+          "id": "0x2025e697",
+          "signature": "wallet.getProofChallenge#2025e697 = wallet.ProofChallenge;"
+        },
+        {
+          "key": "function:wallet.getState",
+          "kind": "function",
+          "name": "wallet.getState",
+          "id": "0xab83b33a",
+          "signature": "wallet.getState#ab83b33a = WalletState;"
+        },
+        {
+          "key": "function:wallet.getTransactions",
+          "kind": "function",
+          "name": "wallet.getTransactions",
+          "id": "0xa8830a83",
+          "signature": "wallet.getTransactions#a8830a83 flags:# inbound:flags.0?true outbound:flags.1?true offset:string limit:int = wallet.Transactions;"
+        },
+        {
+          "key": "function:wallet.getTransactionsByIDs",
+          "kind": "function",
+          "name": "wallet.getTransactionsByIDs",
+          "id": "0x811ceab6",
+          "signature": "wallet.getTransactionsByIDs#811ceab6 id:Vector<string> = wallet.Transactions;"
+        },
+        {
+          "key": "function:wallet.getTransactionsByMsgHash",
+          "kind": "function",
+          "name": "wallet.getTransactionsByMsgHash",
+          "id": "0xa6bb795d",
+          "signature": "wallet.getTransactionsByMsgHash#a6bb795d msg_hash:Vector<string> = wallet.Transactions;"
+        },
+        {
+          "key": "function:wallet.getUserAddresses",
+          "kind": "function",
+          "name": "wallet.getUserAddresses",
+          "id": "0x5275dfdd",
+          "signature": "wallet.getUserAddresses#5275dfdd flags:# force:flags.0?true id:Vector<InputUser> addresses:Vector<string> = wallet.UserAddresses;"
+        },
+        {
+          "key": "function:wallet.replaceWallet",
+          "kind": "function",
+          "name": "wallet.replaceWallet",
+          "id": "0xd8c72eec",
+          "signature": "wallet.replaceWallet#d8c72eec flags:# wallet:InputWalletReplacement password:flags.0?InputCheckPasswordSRP = WalletState;"
+        },
+        {
+          "key": "function:wallet.sendTransfer",
+          "kind": "function",
+          "name": "wallet.sendTransfer",
+          "id": "0xd9e5d9e2",
+          "signature": "wallet.sendTransfer#d9e5d9e2 flags:# data_normal:bytes data_gasless:flags.0?bytes user_id:InputUser random_id:long = Updates;"
+        },
+        {
+          "key": "function:wallet.tonConnectClaimRequest",
+          "kind": "function",
+          "name": "wallet.tonConnectClaimRequest",
+          "id": "0x66b57b41",
+          "signature": "wallet.tonConnectClaimRequest#66b57b41 flags:# declined:flags.1?true session_id:long msg_id:int app_request_id:string challenge_answer:flags.0?bytes = Bool;"
+        },
+        {
+          "key": "function:wallet.tonConnectCloseSession",
+          "kind": "function",
+          "name": "wallet.tonConnectCloseSession",
+          "id": "0xd63f61ce",
+          "signature": "wallet.tonConnectCloseSession#d63f61ce flags:# session_id:long body:flags.0?bytes = Bool;"
+        },
+        {
+          "key": "function:wallet.tonConnectCreateSession",
+          "kind": "function",
+          "name": "wallet.tonConnectCreateSession",
+          "id": "0xcc931046",
+          "signature": "wallet.tonConnectCreateSession#cc931046 dapp_client_id:string manifest_url:string = TonConnectSession;"
+        },
+        {
+          "key": "function:wallet.tonConnectGetPending",
+          "kind": "function",
+          "name": "wallet.tonConnectGetPending",
+          "id": "0x11aee065",
+          "signature": "wallet.tonConnectGetPending#11aee065 flags:# dapp_client_id:flags.0?string session_id:flags.1?long = wallet.TonConnectPending;"
+        },
+        {
+          "key": "function:wallet.tonConnectGetSessions",
+          "kind": "function",
+          "name": "wallet.tonConnectGetSessions",
+          "id": "0xa7ffb56e",
+          "signature": "wallet.tonConnectGetSessions#a7ffb56e = wallet.TonConnectSessions;"
+        },
+        {
+          "key": "function:wallet.tonConnectNextEventId",
+          "kind": "function",
+          "name": "wallet.tonConnectNextEventId",
+          "id": "0x775d7244",
+          "signature": "wallet.tonConnectNextEventId#775d7244 session_id:long = TonConnectNextEventId;"
+        },
+        {
+          "key": "function:wallet.tonConnectRegisterKey",
+          "kind": "function",
+          "name": "wallet.tonConnectRegisterKey",
+          "id": "0x338bcf1c",
+          "signature": "wallet.tonConnectRegisterKey#338bcf1c session_id:long client_id:string = wallet.TonConnectChallenge;"
+        },
+        {
+          "key": "function:wallet.tonConnectSubmitConnectResult",
+          "kind": "function",
+          "name": "wallet.tonConnectSubmitConnectResult",
+          "id": "0xc2c00779",
+          "signature": "wallet.tonConnectSubmitConnectResult#c2c00779 flags:# error:flags.0?true session_id:long challenge_answer:bytes body:bytes trace_id:flags.1?string = Bool;"
+        },
+        {
+          "key": "function:wallet.tonConnectSubmitResponse",
+          "kind": "function",
+          "name": "wallet.tonConnectSubmitResponse",
+          "id": "0xfac67d3c",
+          "signature": "wallet.tonConnectSubmitResponse#fac67d3c flags:# session_id:long msg_id:int body:bytes trace_id:flags.0?string = Bool;"
+        }
+      ],
+      "removed": [
+        {
+          "key": "constructor:inputPasskeyCredentialFirebasePNV",
+          "kind": "constructor",
+          "name": "inputPasskeyCredentialFirebasePNV",
+          "id": "0x5b1ccb28",
+          "signature": "inputPasskeyCredentialFirebasePNV#5b1ccb28 pnv_token:string = InputPasskeyCredential;"
+        }
+      ],
+      "modified": [
+        {
+          "key": "constructor:botVerification",
+          "kind": "constructor",
+          "name": "botVerification",
+          "before": {
+            "id": "0xf93cd45c",
+            "signature": "botVerification#f93cd45c bot_id:long icon:long description:string = BotVerification;"
+          },
+          "after": {
+            "id": "0xf72e0ed9",
+            "signature": "botVerification#f72e0ed9 bot_id:long icon:long description:TextWithEntities = BotVerification;"
+          }
+        },
+        {
+          "key": "constructor:botVerifierSettings",
+          "kind": "constructor",
+          "name": "botVerifierSettings",
+          "before": {
+            "id": "0xb0cd6617",
+            "signature": "botVerifierSettings#b0cd6617 flags:# can_modify_custom_description:flags.1?true icon:long company:string custom_description:flags.0?string = BotVerifierSettings;"
+          },
+          "after": {
+            "id": "0xa12aefff",
+            "signature": "botVerifierSettings#a12aefff flags:# can_modify_custom_description:flags.1?true icon:long company:string custom_description:flags.0?TextWithEntities = BotVerifierSettings;"
+          }
+        },
+        {
+          "key": "constructor:username",
+          "kind": "constructor",
+          "name": "username",
+          "before": {
+            "id": "0xb4073647",
+            "signature": "username#b4073647 flags:# editable:flags.0?true active:flags.1?true username:string = Username;"
+          },
+          "after": {
+            "id": "0xb4073647",
+            "signature": "username#b4073647 flags:# editable:flags.0?true active:flags.1?true deletable:flags.2?true expired:flags.3?true username:string = Username;"
+          }
+        },
+        {
+          "key": "function:auth.initFirebasePnvLogin",
+          "kind": "function",
+          "name": "auth.initFirebasePnvLogin",
+          "before": {
+            "id": "0x777df37a",
+            "signature": "auth.initFirebasePnvLogin#777df37a api_id:int api_hash:string = auth.FirebasePnvIntent;"
+          },
+          "after": {
+            "id": "0x644f15c0",
+            "signature": "auth.initFirebasePnvLogin#644f15c0 flags:# except_ids:flags.0?Vector<long> api_id:int api_hash:string = auth.FirebasePnvIntent;"
+          }
+        },
+        {
+          "key": "function:bots.checkUsername",
+          "kind": "function",
+          "name": "bots.checkUsername",
+          "before": {
+            "id": "0x87f2219b",
+            "signature": "bots.checkUsername#87f2219b username:string = Bool;"
+          },
+          "after": {
+            "id": "0xe3ac4c61",
+            "signature": "bots.checkUsername#e3ac4c61 flags:# additional:flags.0?true username:string = Bool;"
+          }
+        },
+        {
+          "key": "function:bots.setCustomVerification",
+          "kind": "function",
+          "name": "bots.setCustomVerification",
+          "before": {
+            "id": "0x8b89dfbd",
+            "signature": "bots.setCustomVerification#8b89dfbd flags:# enabled:flags.1?true bot:flags.0?InputUser peer:InputPeer custom_description:flags.2?string = Bool;"
+          },
+          "after": {
+            "id": "0xf4946757",
+            "signature": "bots.setCustomVerification#f4946757 flags:# enabled:flags.1?true bot:flags.0?InputUser peer:InputPeer custom_description:flags.2?TextWithEntities = Bool;"
+          }
+        }
+      ]
     }
   ],
   "cumulative": {
     "from": 224,
-    "to": 229,
+    "to": 230,
     "summary": {
-      "added": 159,
-      "removed": 17,
-      "modified": 45,
-      "changedIds": 32
+      "added": 243,
+      "removed": 18,
+      "modified": 50,
+      "changedIds": 36
     },
     "added": [
       {
@@ -2262,6 +2951,13 @@
         "name": "communityPeerRequest",
         "id": "0x7beafa85",
         "signature": "communityPeerRequest#7beafa85 flags:# visible:flags.0?true peer:Peer requested_by:long date:int = CommunityPeerRequest;"
+      },
+      {
+        "key": "constructor:currencyRate",
+        "kind": "constructor",
+        "name": "currencyRate",
+        "id": "0x30d9743c",
+        "signature": "currencyRate#30d9743c currency:string rate:double = CurrencyRate;"
       },
       {
         "key": "constructor:dialogCommunity",
@@ -2495,6 +3191,20 @@
         "signature": "inputSendMessageRichMessageDraftAction#a937c7be flags:# can_stop:flags.0?true keep_on_stop:flags.1?true random_id:long rich_message:InputRichMessage = SendMessageAction;"
       },
       {
+        "key": "constructor:inputWalletImported",
+        "kind": "constructor",
+        "name": "inputWalletImported",
+        "id": "0x66a66a3b",
+        "signature": "inputWalletImported#66a66a3b flags:# public_key:bytes anchor_public_key:flags.0?bytes proof:WalletOwnershipProof = InputWalletReplacement;"
+      },
+      {
+        "key": "constructor:inputWalletNew",
+        "kind": "constructor",
+        "name": "inputWalletNew",
+        "id": "0x63a440dc",
+        "signature": "inputWalletNew#63a440dc = InputWalletReplacement;"
+      },
+      {
         "key": "constructor:joinChatBotResultApproved",
         "kind": "constructor",
         "name": "joinChatBotResultApproved",
@@ -2551,6 +3261,27 @@
         "signature": "messageActionChatJoinedViaCommunity#4a8bfe80 community_id:long = MessageAction;"
       },
       {
+        "key": "constructor:messageActionGramTransfer",
+        "kind": "constructor",
+        "name": "messageActionGramTransfer",
+        "id": "0x9329ea33",
+        "signature": "messageActionGramTransfer#9329ea33 flags:# comment_encrypted:flags.1?true amount:long peer_address:string transaction_id:string comment:flags.0?string = MessageAction;"
+      },
+      {
+        "key": "constructor:messageActionWalletTonConnectRequest",
+        "kind": "constructor",
+        "name": "messageActionWalletTonConnectRequest",
+        "id": "0x69b8c4bf",
+        "signature": "messageActionWalletTonConnectRequest#69b8c4bf flags:# accepted:flags.2?true declined:flags.3?true session_id:long expires:int topic:flags.0?string trace_id:flags.1?string dapp_name:flags.4?string = MessageAction;"
+      },
+      {
+        "key": "constructor:messageEntityTonAddress",
+        "kind": "constructor",
+        "name": "messageEntityTonAddress",
+        "id": "0xfdabbfcd",
+        "signature": "messageEntityTonAddress#fdabbfcd offset:int length:int = MessageEntity;"
+      },
+      {
         "key": "constructor:messages.chatInviteJoinResultOk",
         "kind": "constructor",
         "name": "messages.chatInviteJoinResultOk",
@@ -2584,6 +3315,48 @@
         "name": "notifyCommunity",
         "id": "0xbe376999",
         "signature": "notifyCommunity#be376999 community_id:long = NotifyPeer;"
+      },
+      {
+        "key": "constructor:onrampAvailability",
+        "kind": "constructor",
+        "name": "onrampAvailability",
+        "id": "0xf9c84973",
+        "signature": "onrampAvailability#f9c84973 flags:# allowed:flags.0?true buy_allowed:flags.1?true country_code:string state:flags.2?string methods:Vector<OnrampMethodAvailability> = OnrampAvailability;"
+      },
+      {
+        "key": "constructor:onrampLimits",
+        "kind": "constructor",
+        "name": "onrampLimits",
+        "id": "0x7be2677e",
+        "signature": "onrampLimits#7be2677e base_currency:string base_min_amount:string base_max_amount:string crypto_min_amount:string crypto_max_amount:string payment_method:string = OnrampLimits;"
+      },
+      {
+        "key": "constructor:onrampMethodAvailability",
+        "kind": "constructor",
+        "name": "onrampMethodAvailability",
+        "id": "0x9ec8c6a8",
+        "signature": "onrampMethodAvailability#9ec8c6a8 flags:# available:flags.0?true payment_method:string = OnrampMethodAvailability;"
+      },
+      {
+        "key": "constructor:onrampProviderInfo",
+        "kind": "constructor",
+        "name": "onrampProviderInfo",
+        "id": "0x0dc27582",
+        "signature": "onrampProviderInfo#dc27582 flags:# supports_base_currencies:flags.0?true supports_limits:flags.1?true supports_quote:flags.2?true id:string name:string crypto_currencies:Vector<string> = OnrampProviderInfo;"
+      },
+      {
+        "key": "constructor:onrampQuote",
+        "kind": "constructor",
+        "name": "onrampQuote",
+        "id": "0x7a8011e9",
+        "signature": "onrampQuote#7a8011e9 base_currency:string base_amount:string crypto_currency:string crypto_amount:string crypto_price:string fee_amount:string extra_fee_amount:string network_fee_amount:string total_amount:string payment_method:string expires_date:int = OnrampQuote;"
+      },
+      {
+        "key": "constructor:onrampSession",
+        "kind": "constructor",
+        "name": "onrampSession",
+        "id": "0xd1e42e24",
+        "signature": "onrampSession#d1e42e24 provider:string session_id:string url:string expires_date:int = OnrampSession;"
       },
       {
         "key": "constructor:pageBlockBlockquoteBlocks",
@@ -2668,6 +3441,13 @@
         "name": "pageButton",
         "id": "0x692a5488",
         "signature": "pageButton#692a5488 flags:# text:RichText type:InlineButtonType style:flags.0?RichButtonStyle = PageButton;"
+      },
+      {
+        "key": "constructor:payments.currencyRates",
+        "kind": "constructor",
+        "name": "payments.currencyRates",
+        "id": "0xbbcce4c2",
+        "signature": "payments.currencyRates#bbcce4c2 rates:Vector<CurrencyRate> = payments.CurrencyRates;"
       },
       {
         "key": "constructor:richButtonStyle",
@@ -2810,6 +3590,55 @@
         "signature": "textSpoiler#4c2a5d62 text:RichText = RichText;"
       },
       {
+        "key": "constructor:textTonAddress",
+        "kind": "constructor",
+        "name": "textTonAddress",
+        "id": "0x3cd2a36a",
+        "signature": "textTonAddress#3cd2a36a text:RichText = RichText;"
+      },
+      {
+        "key": "constructor:toncenter.apiResponse",
+        "kind": "constructor",
+        "name": "toncenter.apiResponse",
+        "id": "0xac8dfe19",
+        "signature": "toncenter.apiResponse#ac8dfe19 response:DataJSON = toncenter.ApiResponse;"
+      },
+      {
+        "key": "constructor:toncenter.streamingUrl",
+        "kind": "constructor",
+        "name": "toncenter.streamingUrl",
+        "id": "0x19887601",
+        "signature": "toncenter.streamingUrl#19887601 url:string expires:int = toncenter.StreamingUrl;"
+      },
+      {
+        "key": "constructor:tonConnectManifest",
+        "kind": "constructor",
+        "name": "tonConnectManifest",
+        "id": "0x12229264",
+        "signature": "tonConnectManifest#12229264 flags:# url:string name:string icon:flags.0?WebDocument = TonConnectManifest;"
+      },
+      {
+        "key": "constructor:tonConnectNextEventId",
+        "kind": "constructor",
+        "name": "tonConnectNextEventId",
+        "id": "0x582464e3",
+        "signature": "tonConnectNextEventId#582464e3 event_id:long = TonConnectNextEventId;"
+      },
+      {
+        "key": "constructor:tonConnectRequest",
+        "kind": "constructor",
+        "name": "tonConnectRequest",
+        "id": "0xa15f8513",
+        "signature": "tonConnectRequest#a15f8513 flags:# session_id:long msg_id:int body:bytes expires:int topic:flags.0?string trace_id:flags.1?string = TonConnectRequest;"
+      },
+      {
+        "key": "constructor:tonConnectSession",
+        "kind": "constructor",
+        "name": "tonConnectSession",
+        "id": "0x126556c6",
+        "signature": "tonConnectSession#126556c6 flags:# pending:flags.0?true closing:flags.1?true closed:flags.2?true id:long dapp_client_id:string client_id:flags.3?string nonce:bytes manifest:flags.4?TonConnectManifest manifest_error:flags.5?int date:int = TonConnectSession;"
+      },
+      {
         "key": "constructor:topPeerCategoryBotsGuestChat",
         "kind": "constructor",
         "name": "topPeerCategoryBotsGuestChat",
@@ -2880,6 +3709,41 @@
         "signature": "updateNewEphemeralMessage#20bcbba1 message:EphemeralMessage = Update;"
       },
       {
+        "key": "constructor:updateSentWalletTransaction",
+        "kind": "constructor",
+        "name": "updateSentWalletTransaction",
+        "id": "0xb1434d4a",
+        "signature": "updateSentWalletTransaction#b1434d4a flags:# gasless:flags.0?true msg_hash:string transaction:flags.1?WalletTransaction = Update;"
+      },
+      {
+        "key": "constructor:updateWalletGaslessInfo",
+        "kind": "constructor",
+        "name": "updateWalletGaslessInfo",
+        "id": "0xa8ae1cac",
+        "signature": "updateWalletGaslessInfo#a8ae1cac flags:# available:flags.0?true left:int reset_at:int min_amount:long relayer_address:string = Update;"
+      },
+      {
+        "key": "constructor:updateWalletState",
+        "kind": "constructor",
+        "name": "updateWalletState",
+        "id": "0x6ac3f2aa",
+        "signature": "updateWalletState#6ac3f2aa state:WalletState = Update;"
+      },
+      {
+        "key": "constructor:updateWalletTonConnectPendingDisconnect",
+        "kind": "constructor",
+        "name": "updateWalletTonConnectPendingDisconnect",
+        "id": "0xd1ee8199",
+        "signature": "updateWalletTonConnectPendingDisconnect#d1ee8199 session_ids:Vector<long> = Update;"
+      },
+      {
+        "key": "constructor:updateWalletTonConnectSession",
+        "kind": "constructor",
+        "name": "updateWalletTonConnectSession",
+        "id": "0x50a38e0e",
+        "signature": "updateWalletTonConnectSession#50a38e0e session:TonConnectSession = Update;"
+      },
+      {
         "key": "constructor:updateWebBrowserException",
         "kind": "constructor",
         "name": "updateWebBrowserException",
@@ -2892,6 +3756,160 @@
         "name": "updateWebBrowserSettings",
         "id": "0xc39a2ade",
         "signature": "updateWebBrowserSettings#c39a2ade flags:# open_external_browser:flags.0?true display_close_button:flags.1?true = Update;"
+      },
+      {
+        "key": "constructor:wallet.encryptedSecretPhrasePart",
+        "kind": "constructor",
+        "name": "wallet.encryptedSecretPhrasePart",
+        "id": "0x18e82537",
+        "signature": "wallet.encryptedSecretPhrasePart#18e82537 data:bytes = wallet.EncryptedSecretPhrasePart;"
+      },
+      {
+        "key": "constructor:wallet.existingBalance",
+        "kind": "constructor",
+        "name": "wallet.existingBalance",
+        "id": "0xbde90a8d",
+        "signature": "wallet.existingBalance#bde90a8d flags:# has_balance:flags.0?true url:string = wallet.ExistingBalance;"
+      },
+      {
+        "key": "constructor:wallet.holderDc",
+        "kind": "constructor",
+        "name": "wallet.holderDc",
+        "id": "0xf9d612ef",
+        "signature": "wallet.holderDc#f9d612ef dc:int public_key:bytes = wallet.HolderDc;"
+      },
+      {
+        "key": "constructor:wallet.nftAttribute",
+        "kind": "constructor",
+        "name": "wallet.nftAttribute",
+        "id": "0x4c1ef10e",
+        "signature": "wallet.nftAttribute#4c1ef10e trait_type:string value:string = wallet.NftAttribute;"
+      },
+      {
+        "key": "constructor:wallet.nftItem",
+        "kind": "constructor",
+        "name": "wallet.nftItem",
+        "id": "0x3441fd1c",
+        "signature": "wallet.nftItem#3441fd1c flags:# collection_address:flags.0?string address:string owner_address:string index:string name:flags.1?string description:flags.2?string image:flags.3?WebDocument image_small:flags.4?WebDocument content_url:flags.5?WebDocument lottie:flags.6?WebDocument attributes:flags.7?Vector<wallet.NftAttribute> extra:flags.8?DataJSON = wallet.NftItem;"
+      },
+      {
+        "key": "constructor:wallet.nftItems",
+        "kind": "constructor",
+        "name": "wallet.nftItems",
+        "id": "0x794d486f",
+        "signature": "wallet.nftItems#794d486f flags:# items:Vector<wallet.NftItem> next_offset:flags.0?string = wallet.NftItems;"
+      },
+      {
+        "key": "constructor:wallet.proofChallenge",
+        "kind": "constructor",
+        "name": "wallet.proofChallenge",
+        "id": "0x99e41707",
+        "signature": "wallet.proofChallenge#99e41707 payload:string expires:int domain:string = wallet.ProofChallenge;"
+      },
+      {
+        "key": "constructor:wallet.secretPhraseParts",
+        "kind": "constructor",
+        "name": "wallet.secretPhraseParts",
+        "id": "0xe6d0ef01",
+        "signature": "wallet.secretPhraseParts#e6d0ef01 token:string dcs:Vector<int> = wallet.SecretPhraseParts;"
+      },
+      {
+        "key": "constructor:wallet.tonConnectChallenge",
+        "kind": "constructor",
+        "name": "wallet.tonConnectChallenge",
+        "id": "0x4bc89693",
+        "signature": "wallet.tonConnectChallenge#4bc89693 challenge:bytes event_id:long = wallet.TonConnectChallenge;"
+      },
+      {
+        "key": "constructor:wallet.tonConnectPending",
+        "kind": "constructor",
+        "name": "wallet.tonConnectPending",
+        "id": "0x85c0f124",
+        "signature": "wallet.tonConnectPending#85c0f124 session:TonConnectSession requests:Vector<TonConnectRequest> = wallet.TonConnectPending;"
+      },
+      {
+        "key": "constructor:wallet.tonConnectSessions",
+        "kind": "constructor",
+        "name": "wallet.tonConnectSessions",
+        "id": "0x0e1f6896",
+        "signature": "wallet.tonConnectSessions#e1f6896 sessions:Vector<TonConnectSession> = wallet.TonConnectSessions;"
+      },
+      {
+        "key": "constructor:wallet.transactions",
+        "kind": "constructor",
+        "name": "wallet.transactions",
+        "id": "0x4322d5a5",
+        "signature": "wallet.transactions#4322d5a5 flags:# balance:long transactions:Vector<WalletTransaction> next_offset:flags.0?string chats:Vector<Chat> users:Vector<User> = wallet.Transactions;"
+      },
+      {
+        "key": "constructor:wallet.userAddresses",
+        "kind": "constructor",
+        "name": "wallet.userAddresses",
+        "id": "0x928e7b55",
+        "signature": "wallet.userAddresses#928e7b55 addresses:Vector<WalletUserAddress> users:Vector<User> = wallet.UserAddresses;"
+      },
+      {
+        "key": "constructor:walletOwnershipProof",
+        "kind": "constructor",
+        "name": "walletOwnershipProof",
+        "id": "0x60bccb0d",
+        "signature": "walletOwnershipProof#60bccb0d timestamp:int signature:bytes = WalletOwnershipProof;"
+      },
+      {
+        "key": "constructor:walletState",
+        "kind": "constructor",
+        "name": "walletState",
+        "id": "0x95c5346b",
+        "signature": "walletState#95c5346b flags:# backup_enabled:flags.0?true can_export_phrase:flags.1?true can_enable_backup:flags.2?true address:string public_key:bytes balance:long = WalletState;"
+      },
+      {
+        "key": "constructor:walletStateEmpty",
+        "kind": "constructor",
+        "name": "walletStateEmpty",
+        "id": "0x9cb9b2ec",
+        "signature": "walletStateEmpty#9cb9b2ec flags:# creating:flags.0?true = WalletState;"
+      },
+      {
+        "key": "constructor:walletTransaction",
+        "kind": "constructor",
+        "name": "walletTransaction",
+        "id": "0x952dc143",
+        "signature": "walletTransaction#952dc143 flags:# incoming:flags.0?true gasless:flags.1?true failed:flags.2?true key_change:flags.5?true comment_encrypted:flags.6?true id:string amount:long fee:long date:int peer:WalletTransactionPeer comment:flags.3?string tx_hash:flags.4?string nft:flags.7?wallet.NftItem = WalletTransaction;"
+      },
+      {
+        "key": "constructor:walletTransactionPeerAddress",
+        "kind": "constructor",
+        "name": "walletTransactionPeerAddress",
+        "id": "0x062cc1bc",
+        "signature": "walletTransactionPeerAddress#62cc1bc flags:# address:string domain:flags.0?string = WalletTransactionPeer;"
+      },
+      {
+        "key": "constructor:walletTransactionPeerOnramp",
+        "kind": "constructor",
+        "name": "walletTransactionPeerOnramp",
+        "id": "0xe595186e",
+        "signature": "walletTransactionPeerOnramp#e595186e flags:# address:string domain:flags.0?string provider_name:string = WalletTransactionPeer;"
+      },
+      {
+        "key": "constructor:walletTransactionPeerUnsupported",
+        "kind": "constructor",
+        "name": "walletTransactionPeerUnsupported",
+        "id": "0x728bed5a",
+        "signature": "walletTransactionPeerUnsupported#728bed5a = WalletTransactionPeer;"
+      },
+      {
+        "key": "constructor:walletTransactionPeerUser",
+        "kind": "constructor",
+        "name": "walletTransactionPeerUser",
+        "id": "0xd4ea706d",
+        "signature": "walletTransactionPeerUser#d4ea706d flags:# user_id:long address:string domain:flags.0?string = WalletTransactionPeer;"
+      },
+      {
+        "key": "constructor:walletUserAddress",
+        "kind": "constructor",
+        "name": "walletUserAddress",
+        "id": "0xfe78eecc",
+        "signature": "walletUserAddress#fe78eecc flags:# user_id:flags.0?long address:string public_key:bytes = WalletUserAddress;"
       },
       {
         "key": "constructor:webDomainException",
@@ -2992,6 +4010,13 @@
         "signature": "aicompose.updateTone#903bcf59 flags:# tone:InputAiComposeTone display_author:flags.0?Bool emoji_id:flags.1?long title:flags.2?string prompt:flags.3?string = AiComposeTone;"
       },
       {
+        "key": "function:auth.cancelWebTokenAuthorization",
+        "kind": "function",
+        "name": "auth.cancelWebTokenAuthorization",
+        "id": "0x490dada1",
+        "signature": "auth.cancelWebTokenAuthorization#490dada1 web_auth_token:string = Bool;"
+      },
+      {
         "key": "function:auth.finishFirebasePnvLogin",
         "kind": "function",
         "name": "auth.finishFirebasePnvLogin",
@@ -3009,8 +4034,15 @@
         "key": "function:auth.initFirebasePnvLogin",
         "kind": "function",
         "name": "auth.initFirebasePnvLogin",
-        "id": "0x777df37a",
-        "signature": "auth.initFirebasePnvLogin#777df37a api_id:int api_hash:string = auth.FirebasePnvIntent;"
+        "id": "0x644f15c0",
+        "signature": "auth.initFirebasePnvLogin#644f15c0 flags:# except_ids:flags.0?Vector<long> api_id:int api_hash:string = auth.FirebasePnvIntent;"
+      },
+      {
+        "key": "function:bots.addUsername",
+        "kind": "function",
+        "name": "bots.addUsername",
+        "id": "0x3501c08a",
+        "signature": "bots.addUsername#3501c08a bot:InputUser username:string = Bool;"
       },
       {
         "key": "function:bots.editAccessSettings",
@@ -3025,6 +4057,13 @@
         "name": "bots.getAccessSettings",
         "id": "0x213853a3",
         "signature": "bots.getAccessSettings#213853a3 bot:InputUser = bots.AccessSettings;"
+      },
+      {
+        "key": "function:bots.removeUsername",
+        "kind": "function",
+        "name": "bots.removeUsername",
+        "id": "0xc704147d",
+        "signature": "bots.removeUsername#c704147d bot:InputUser username:string = Bool;"
       },
       {
         "key": "function:bots.setJoinChatResults",
@@ -3209,11 +4248,249 @@
         "signature": "messages.translateRichMessage#1a542004 flags:# peer:flags.0?InputPeer id:flags.0?Vector<int> text:flags.1?Vector<InputRichMessage> to_lang:string tone:flags.2?string = messages.TranslatedRichMessage;"
       },
       {
+        "key": "function:payments.createOnrampSession",
+        "kind": "function",
+        "name": "payments.createOnrampSession",
+        "id": "0xa2197cf6",
+        "signature": "payments.createOnrampSession#a2197cf6 flags:# provider:string crypto_currency:string address:string payment_method:flags.0?string base_currency:flags.1?string base_amount:flags.2?string memo:flags.3?string theme:flags.4?string success_return_url:flags.5?string fail_return_url:flags.6?string crypto_amount:flags.7?string = OnrampSession;"
+      },
+      {
+        "key": "function:payments.getCurrencyRates",
+        "kind": "function",
+        "name": "payments.getCurrencyRates",
+        "id": "0xd35983e8",
+        "signature": "payments.getCurrencyRates#d35983e8 = payments.CurrencyRates;"
+      },
+      {
+        "key": "function:payments.getOnrampAvailability",
+        "kind": "function",
+        "name": "payments.getOnrampAvailability",
+        "id": "0x2ec29951",
+        "signature": "payments.getOnrampAvailability#2ec29951 flags:# provider:string crypto_currency:string base_currency:flags.0?string = OnrampAvailability;"
+      },
+      {
+        "key": "function:payments.getOnrampBaseCurrencies",
+        "kind": "function",
+        "name": "payments.getOnrampBaseCurrencies",
+        "id": "0x1c8bedf3",
+        "signature": "payments.getOnrampBaseCurrencies#1c8bedf3 provider:string crypto_currency:string = Vector<string>;"
+      },
+      {
+        "key": "function:payments.getOnrampLimits",
+        "kind": "function",
+        "name": "payments.getOnrampLimits",
+        "id": "0x80e851fd",
+        "signature": "payments.getOnrampLimits#80e851fd flags:# provider:string crypto_currency:string base_currency:string payment_method:flags.0?string = OnrampLimits;"
+      },
+      {
+        "key": "function:payments.getOnrampProviders",
+        "kind": "function",
+        "name": "payments.getOnrampProviders",
+        "id": "0x3f3e00dc",
+        "signature": "payments.getOnrampProviders#3f3e00dc flags:# crypto_currency:flags.0?string = Vector<OnrampProviderInfo>;"
+      },
+      {
+        "key": "function:payments.getOnrampQuote",
+        "kind": "function",
+        "name": "payments.getOnrampQuote",
+        "id": "0xe06645fa",
+        "signature": "payments.getOnrampQuote#e06645fa flags:# provider:string crypto_currency:string base_currency:string base_amount:flags.0?string crypto_amount:flags.1?string payment_method:flags.2?string = OnrampQuote;"
+      },
+      {
         "key": "function:stats.getPollStats",
         "kind": "function",
         "name": "stats.getPollStats",
         "id": "0xc27dfa68",
         "signature": "stats.getPollStats#c27dfa68 flags:# dark:flags.0?true peer:InputPeer msg_id:int = stats.PollStats;"
+      },
+      {
+        "key": "function:toncenter.getStreamingUrl",
+        "kind": "function",
+        "name": "toncenter.getStreamingUrl",
+        "id": "0xcdaf63c7",
+        "signature": "toncenter.getStreamingUrl#cdaf63c7 = toncenter.StreamingUrl;"
+      },
+      {
+        "key": "function:toncenter.performApiRequest",
+        "kind": "function",
+        "name": "toncenter.performApiRequest",
+        "id": "0x8d7bdd61",
+        "signature": "toncenter.performApiRequest#8d7bdd61 flags:# post:flags.0?true endpoint:string query:flags.1?string payload:flags.2?string = toncenter.ApiResponse;"
+      },
+      {
+        "key": "function:wallet.disableBackup",
+        "kind": "function",
+        "name": "wallet.disableBackup",
+        "id": "0x0b0bf0da",
+        "signature": "wallet.disableBackup#b0bf0da flags:# password:flags.0?InputCheckPasswordSRP new_public_key:flags.1?bytes proof:flags.2?WalletOwnershipProof = WalletState;"
+      },
+      {
+        "key": "function:wallet.enableBackup",
+        "kind": "function",
+        "name": "wallet.enableBackup",
+        "id": "0x4500c525",
+        "signature": "wallet.enableBackup#4500c525 flags:# parts:Vector<bytes> new_public_key:flags.1?bytes proof:flags.2?WalletOwnershipProof = WalletState;"
+      },
+      {
+        "key": "function:wallet.exportSecretPhrase",
+        "kind": "function",
+        "name": "wallet.exportSecretPhrase",
+        "id": "0x9077c9ac",
+        "signature": "wallet.exportSecretPhrase#9077c9ac flags:# password:flags.0?InputCheckPasswordSRP = wallet.SecretPhraseParts;"
+      },
+      {
+        "key": "function:wallet.fetchEncryptedSecretPhrasePart",
+        "kind": "function",
+        "name": "wallet.fetchEncryptedSecretPhrasePart",
+        "id": "0xf53925cf",
+        "signature": "wallet.fetchEncryptedSecretPhrasePart#f53925cf token:string public_key:bytes = wallet.EncryptedSecretPhrasePart;"
+      },
+      {
+        "key": "function:wallet.getBackupHolderDcs",
+        "kind": "function",
+        "name": "wallet.getBackupHolderDcs",
+        "id": "0xd179d494",
+        "signature": "wallet.getBackupHolderDcs#d179d494 = Vector<wallet.HolderDc>;"
+      },
+      {
+        "key": "function:wallet.getExistingWaltBalance",
+        "kind": "function",
+        "name": "wallet.getExistingWaltBalance",
+        "id": "0x691f4360",
+        "signature": "wallet.getExistingWaltBalance#691f4360 = wallet.ExistingBalance;"
+      },
+      {
+        "key": "function:wallet.getGaslessInfo",
+        "kind": "function",
+        "name": "wallet.getGaslessInfo",
+        "id": "0x742df0a1",
+        "signature": "wallet.getGaslessInfo#742df0a1 = Updates;"
+      },
+      {
+        "key": "function:wallet.getNfts",
+        "kind": "function",
+        "name": "wallet.getNfts",
+        "id": "0x8c12f3a4",
+        "signature": "wallet.getNfts#8c12f3a4 offset:string limit:int = wallet.NftItems;"
+      },
+      {
+        "key": "function:wallet.getProofChallenge",
+        "kind": "function",
+        "name": "wallet.getProofChallenge",
+        "id": "0x2025e697",
+        "signature": "wallet.getProofChallenge#2025e697 = wallet.ProofChallenge;"
+      },
+      {
+        "key": "function:wallet.getState",
+        "kind": "function",
+        "name": "wallet.getState",
+        "id": "0xab83b33a",
+        "signature": "wallet.getState#ab83b33a = WalletState;"
+      },
+      {
+        "key": "function:wallet.getTransactions",
+        "kind": "function",
+        "name": "wallet.getTransactions",
+        "id": "0xa8830a83",
+        "signature": "wallet.getTransactions#a8830a83 flags:# inbound:flags.0?true outbound:flags.1?true offset:string limit:int = wallet.Transactions;"
+      },
+      {
+        "key": "function:wallet.getTransactionsByIDs",
+        "kind": "function",
+        "name": "wallet.getTransactionsByIDs",
+        "id": "0x811ceab6",
+        "signature": "wallet.getTransactionsByIDs#811ceab6 id:Vector<string> = wallet.Transactions;"
+      },
+      {
+        "key": "function:wallet.getTransactionsByMsgHash",
+        "kind": "function",
+        "name": "wallet.getTransactionsByMsgHash",
+        "id": "0xa6bb795d",
+        "signature": "wallet.getTransactionsByMsgHash#a6bb795d msg_hash:Vector<string> = wallet.Transactions;"
+      },
+      {
+        "key": "function:wallet.getUserAddresses",
+        "kind": "function",
+        "name": "wallet.getUserAddresses",
+        "id": "0x5275dfdd",
+        "signature": "wallet.getUserAddresses#5275dfdd flags:# force:flags.0?true id:Vector<InputUser> addresses:Vector<string> = wallet.UserAddresses;"
+      },
+      {
+        "key": "function:wallet.replaceWallet",
+        "kind": "function",
+        "name": "wallet.replaceWallet",
+        "id": "0xd8c72eec",
+        "signature": "wallet.replaceWallet#d8c72eec flags:# wallet:InputWalletReplacement password:flags.0?InputCheckPasswordSRP = WalletState;"
+      },
+      {
+        "key": "function:wallet.sendTransfer",
+        "kind": "function",
+        "name": "wallet.sendTransfer",
+        "id": "0xd9e5d9e2",
+        "signature": "wallet.sendTransfer#d9e5d9e2 flags:# data_normal:bytes data_gasless:flags.0?bytes user_id:InputUser random_id:long = Updates;"
+      },
+      {
+        "key": "function:wallet.tonConnectClaimRequest",
+        "kind": "function",
+        "name": "wallet.tonConnectClaimRequest",
+        "id": "0x66b57b41",
+        "signature": "wallet.tonConnectClaimRequest#66b57b41 flags:# declined:flags.1?true session_id:long msg_id:int app_request_id:string challenge_answer:flags.0?bytes = Bool;"
+      },
+      {
+        "key": "function:wallet.tonConnectCloseSession",
+        "kind": "function",
+        "name": "wallet.tonConnectCloseSession",
+        "id": "0xd63f61ce",
+        "signature": "wallet.tonConnectCloseSession#d63f61ce flags:# session_id:long body:flags.0?bytes = Bool;"
+      },
+      {
+        "key": "function:wallet.tonConnectCreateSession",
+        "kind": "function",
+        "name": "wallet.tonConnectCreateSession",
+        "id": "0xcc931046",
+        "signature": "wallet.tonConnectCreateSession#cc931046 dapp_client_id:string manifest_url:string = TonConnectSession;"
+      },
+      {
+        "key": "function:wallet.tonConnectGetPending",
+        "kind": "function",
+        "name": "wallet.tonConnectGetPending",
+        "id": "0x11aee065",
+        "signature": "wallet.tonConnectGetPending#11aee065 flags:# dapp_client_id:flags.0?string session_id:flags.1?long = wallet.TonConnectPending;"
+      },
+      {
+        "key": "function:wallet.tonConnectGetSessions",
+        "kind": "function",
+        "name": "wallet.tonConnectGetSessions",
+        "id": "0xa7ffb56e",
+        "signature": "wallet.tonConnectGetSessions#a7ffb56e = wallet.TonConnectSessions;"
+      },
+      {
+        "key": "function:wallet.tonConnectNextEventId",
+        "kind": "function",
+        "name": "wallet.tonConnectNextEventId",
+        "id": "0x775d7244",
+        "signature": "wallet.tonConnectNextEventId#775d7244 session_id:long = TonConnectNextEventId;"
+      },
+      {
+        "key": "function:wallet.tonConnectRegisterKey",
+        "kind": "function",
+        "name": "wallet.tonConnectRegisterKey",
+        "id": "0x338bcf1c",
+        "signature": "wallet.tonConnectRegisterKey#338bcf1c session_id:long client_id:string = wallet.TonConnectChallenge;"
+      },
+      {
+        "key": "function:wallet.tonConnectSubmitConnectResult",
+        "kind": "function",
+        "name": "wallet.tonConnectSubmitConnectResult",
+        "id": "0xc2c00779",
+        "signature": "wallet.tonConnectSubmitConnectResult#c2c00779 flags:# error:flags.0?true session_id:long challenge_answer:bytes body:bytes trace_id:flags.1?string = Bool;"
+      },
+      {
+        "key": "function:wallet.tonConnectSubmitResponse",
+        "kind": "function",
+        "name": "wallet.tonConnectSubmitResponse",
+        "id": "0xfac67d3c",
+        "signature": "wallet.tonConnectSubmitResponse#fac67d3c flags:# session_id:long msg_id:int body:bytes trace_id:flags.0?string = Bool;"
       }
     ],
     "removed": [
@@ -3237,6 +4514,13 @@
         "name": "inputKeyboardButtonUserProfile",
         "id": "0x7d5e07c7",
         "signature": "inputKeyboardButtonUserProfile#7d5e07c7 flags:# style:flags.10?KeyboardButtonStyle text:string user_id:InputUser = KeyboardButton;"
+      },
+      {
+        "key": "constructor:inputPasskeyCredentialFirebasePNV",
+        "kind": "constructor",
+        "name": "inputPasskeyCredentialFirebasePNV",
+        "id": "0x5b1ccb28",
+        "signature": "inputPasskeyCredentialFirebasePNV#5b1ccb28 pnv_token:string = InputPasskeyCredential;"
       },
       {
         "key": "constructor:keyboardButtonBuy",
@@ -3362,6 +4646,32 @@
         "after": {
           "id": "0x9852d6d2",
           "signature": "botCommand#9852d6d2 flags:# ephemeral:flags.0?true command:string description:string = BotCommand;"
+        }
+      },
+      {
+        "key": "constructor:botVerification",
+        "kind": "constructor",
+        "name": "botVerification",
+        "before": {
+          "id": "0xf93cd45c",
+          "signature": "botVerification#f93cd45c bot_id:long icon:long description:string = BotVerification;"
+        },
+        "after": {
+          "id": "0xf72e0ed9",
+          "signature": "botVerification#f72e0ed9 bot_id:long icon:long description:TextWithEntities = BotVerification;"
+        }
+      },
+      {
+        "key": "constructor:botVerifierSettings",
+        "kind": "constructor",
+        "name": "botVerifierSettings",
+        "before": {
+          "id": "0xb0cd6617",
+          "signature": "botVerifierSettings#b0cd6617 flags:# can_modify_custom_description:flags.1?true icon:long company:string custom_description:flags.0?string = BotVerifierSettings;"
+        },
+        "after": {
+          "id": "0xa12aefff",
+          "signature": "botVerifierSettings#a12aefff flags:# can_modify_custom_description:flags.1?true icon:long company:string custom_description:flags.0?TextWithEntities = BotVerifierSettings;"
         }
       },
       {
@@ -3742,6 +5052,19 @@
         }
       },
       {
+        "key": "constructor:username",
+        "kind": "constructor",
+        "name": "username",
+        "before": {
+          "id": "0xb4073647",
+          "signature": "username#b4073647 flags:# editable:flags.0?true active:flags.1?true username:string = Username;"
+        },
+        "after": {
+          "id": "0xb4073647",
+          "signature": "username#b4073647 flags:# editable:flags.0?true active:flags.1?true deletable:flags.2?true expired:flags.3?true username:string = Username;"
+        }
+      },
+      {
         "key": "constructor:webViewResultUrl",
         "kind": "constructor",
         "name": "webViewResultUrl",
@@ -3752,6 +5075,32 @@
         "after": {
           "id": "0x4d22ff98",
           "signature": "webViewResultUrl#4d22ff98 flags:# fullsize:flags.1?true fullscreen:flags.2?true same_origin:flags.3?true query_id:flags.0?long url:string = WebViewResult;"
+        }
+      },
+      {
+        "key": "function:bots.checkUsername",
+        "kind": "function",
+        "name": "bots.checkUsername",
+        "before": {
+          "id": "0x87f2219b",
+          "signature": "bots.checkUsername#87f2219b username:string = Bool;"
+        },
+        "after": {
+          "id": "0xe3ac4c61",
+          "signature": "bots.checkUsername#e3ac4c61 flags:# additional:flags.0?true username:string = Bool;"
+        }
+      },
+      {
+        "key": "function:bots.setCustomVerification",
+        "kind": "function",
+        "name": "bots.setCustomVerification",
+        "before": {
+          "id": "0x8b89dfbd",
+          "signature": "bots.setCustomVerification#8b89dfbd flags:# enabled:flags.1?true bot:flags.0?InputUser peer:InputPeer custom_description:flags.2?string = Bool;"
+        },
+        "after": {
+          "id": "0xf4946757",
+          "signature": "bots.setCustomVerification#f4946757 flags:# enabled:flags.1?true bot:flags.0?InputUser peer:InputPeer custom_description:flags.2?TextWithEntities = Bool;"
         }
       },
       {

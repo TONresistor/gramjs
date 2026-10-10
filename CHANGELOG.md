@@ -1,6 +1,28 @@
 # Changelog
 
-## 2.33.0 - Unreleased
+## 2.34.0 - Unreleased
+
+### Added
+
+- Telegram API Layer 230 from immutable Telegram Desktop schema commit
+  `d36272b193057a114ef3a9fe7f15a8f8b587c489`.
+- Wallet, TON Connect, onramp, and TON address protocol definitions.
+
+### Changed
+
+- Bot verification descriptions use `TextWithEntities`.
+- Bot usernames expose deletion and expiry flags and additional username methods.
+- Firebase PNV login accepts excluded account IDs; the obsolete Firebase PNV
+  passkey credential constructor is removed.
+- Package and runtime versions are aligned at `2.34.0`.
+
+### Fixed
+
+- Dependency updates remove all reported audit findings. Jest 30 and ts-loader 9
+  remove vulnerable development dependency chains; NYC configuration loading
+  uses js-yaml 4 through a scoped override.
+
+## 2.33.0 - 2026-08-26
 
 ### Added
 

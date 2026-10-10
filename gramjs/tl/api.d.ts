@@ -2968,6 +2968,50 @@ export namespace Api {
   static fromReader(reader: Reader): MessageActionChatJoinedViaCommunity;
     communityId: long;
   }
+  export class MessageActionGramTransfer extends VirtualClass<{
+    // flags: null;
+    commentEncrypted?: boolean;
+    amount: long;
+    peerAddress: string;
+    transactionId: string;
+    comment?: string;
+  }> {
+  CONSTRUCTOR_ID: 2468997683;
+  SUBCLASS_OF_ID: 2256589094;
+  classType: "constructor";
+  className: "MessageActionGramTransfer";
+  static fromReader(reader: Reader): MessageActionGramTransfer;
+    // flags: null;
+    commentEncrypted?: boolean;
+    amount: long;
+    peerAddress: string;
+    transactionId: string;
+    comment?: string;
+  }
+  export class MessageActionWalletTonConnectRequest extends VirtualClass<{
+    // flags: null;
+    accepted?: boolean;
+    declined?: boolean;
+    sessionId: long;
+    expires: int;
+    topic?: string;
+    traceId?: string;
+    dappName?: string;
+  }> {
+  CONSTRUCTOR_ID: 1773716671;
+  SUBCLASS_OF_ID: 2256589094;
+  classType: "constructor";
+  className: "MessageActionWalletTonConnectRequest";
+  static fromReader(reader: Reader): MessageActionWalletTonConnectRequest;
+    // flags: null;
+    accepted?: boolean;
+    declined?: boolean;
+    sessionId: long;
+    expires: int;
+    topic?: string;
+    traceId?: string;
+    dappName?: string;
+  }
   export class Dialog extends VirtualClass<{
     // flags: null;
     pinned?: boolean;
@@ -6059,6 +6103,72 @@ export namespace Api {
     payload: bytes;
     qts: int;
   }
+  export class UpdateWalletState extends VirtualClass<{
+    state: Api.TypeWalletState;
+  }> {
+  CONSTRUCTOR_ID: 1791226538;
+  SUBCLASS_OF_ID: 2676568142;
+  classType: "constructor";
+  className: "UpdateWalletState";
+  static fromReader(reader: Reader): UpdateWalletState;
+    state: Api.TypeWalletState;
+  }
+  export class UpdateSentWalletTransaction extends VirtualClass<{
+    // flags: null;
+    gasless?: boolean;
+    msgHash: string;
+    transaction?: Api.TypeWalletTransaction;
+  }> {
+  CONSTRUCTOR_ID: 2973977930;
+  SUBCLASS_OF_ID: 2676568142;
+  classType: "constructor";
+  className: "UpdateSentWalletTransaction";
+  static fromReader(reader: Reader): UpdateSentWalletTransaction;
+    // flags: null;
+    gasless?: boolean;
+    msgHash: string;
+    transaction?: Api.TypeWalletTransaction;
+  }
+  export class UpdateWalletGaslessInfo extends VirtualClass<{
+    // flags: null;
+    available?: boolean;
+    left: int;
+    resetAt: int;
+    minAmount: long;
+    relayerAddress: string;
+  }> {
+  CONSTRUCTOR_ID: 2829982892;
+  SUBCLASS_OF_ID: 2676568142;
+  classType: "constructor";
+  className: "UpdateWalletGaslessInfo";
+  static fromReader(reader: Reader): UpdateWalletGaslessInfo;
+    // flags: null;
+    available?: boolean;
+    left: int;
+    resetAt: int;
+    minAmount: long;
+    relayerAddress: string;
+  }
+  export class UpdateWalletTonConnectSession extends VirtualClass<{
+    session: Api.TypeTonConnectSession;
+  }> {
+  CONSTRUCTOR_ID: 1352896014;
+  SUBCLASS_OF_ID: 2676568142;
+  classType: "constructor";
+  className: "UpdateWalletTonConnectSession";
+  static fromReader(reader: Reader): UpdateWalletTonConnectSession;
+    session: Api.TypeTonConnectSession;
+  }
+  export class UpdateWalletTonConnectPendingDisconnect extends VirtualClass<{
+    sessionIds: long[];
+  }> {
+  CONSTRUCTOR_ID: 3522068889;
+  SUBCLASS_OF_ID: 2676568142;
+  classType: "constructor";
+  className: "UpdateWalletTonConnectPendingDisconnect";
+  static fromReader(reader: Reader): UpdateWalletTonConnectPendingDisconnect;
+    sessionIds: long[];
+  }
   export class UpdatesTooLong extends VirtualClass<void> {
   CONSTRUCTOR_ID: 3809980286;
   SUBCLASS_OF_ID: 2331323052;
@@ -8316,6 +8426,18 @@ export namespace Api {
     offset: int;
     length: int;
   }
+  export class MessageEntityTonAddress extends VirtualClass<{
+    offset: int;
+    length: int;
+  }> {
+  CONSTRUCTOR_ID: 4255891405;
+  SUBCLASS_OF_ID: 3479443932;
+  classType: "constructor";
+  className: "MessageEntityTonAddress";
+  static fromReader(reader: Reader): MessageEntityTonAddress;
+    offset: int;
+    length: int;
+  }
   export class InputChannelEmpty extends VirtualClass<void> {
   CONSTRUCTOR_ID: 4002160262;
   SUBCLASS_OF_ID: 1089602301;
@@ -9773,6 +9895,16 @@ export namespace Api {
     text: Api.TypeRichText;
     type: Api.TypeInlineButtonType;
     style?: Api.TypeRichButtonStyle;
+  }
+  export class TextTonAddress extends VirtualClass<{
+    text: Api.TypeRichText;
+  }> {
+  CONSTRUCTOR_ID: 1020437354;
+  SUBCLASS_OF_ID: 4056986745;
+  classType: "constructor";
+  className: "TextTonAddress";
+  static fromReader(reader: Reader): TextTonAddress;
+    text: Api.TypeRichText;
   }
   export class PageBlockUnsupported extends VirtualClass<void> {
   CONSTRUCTOR_ID: 324435594;
@@ -15233,6 +15365,8 @@ export namespace Api {
     // flags: null;
     editable?: boolean;
     active?: boolean;
+    deletable?: boolean;
+    expired?: boolean;
     username: string;
   }> {
   CONSTRUCTOR_ID: 3020371527;
@@ -15243,6 +15377,8 @@ export namespace Api {
     // flags: null;
     editable?: boolean;
     active?: boolean;
+    deletable?: boolean;
+    expired?: boolean;
     username: string;
   }
   export class ForumTopicDeleted extends VirtualClass<{
@@ -17642,9 +17778,9 @@ export namespace Api {
     canModifyCustomDescription?: boolean;
     icon: long;
     company: string;
-    customDescription?: string;
+    customDescription?: Api.TypeTextWithEntities;
   }> {
-  CONSTRUCTOR_ID: 2966251031;
+  CONSTRUCTOR_ID: 2703945727;
   SUBCLASS_OF_ID: 4057334604;
   classType: "constructor";
   className: "BotVerifierSettings";
@@ -17653,21 +17789,21 @@ export namespace Api {
     canModifyCustomDescription?: boolean;
     icon: long;
     company: string;
-    customDescription?: string;
+    customDescription?: Api.TypeTextWithEntities;
   }
   export class BotVerification extends VirtualClass<{
     botId: long;
     icon: long;
-    description: string;
+    description: Api.TypeTextWithEntities;
   }> {
-  CONSTRUCTOR_ID: 4181513308;
+  CONSTRUCTOR_ID: 4146990809;
   SUBCLASS_OF_ID: 750730330;
   classType: "constructor";
   className: "BotVerification";
   static fromReader(reader: Reader): BotVerification;
     botId: long;
     icon: long;
-    description: string;
+    description: Api.TypeTextWithEntities;
   }
   export class StarGiftAttributeModel extends VirtualClass<{
     // flags: null;
@@ -18517,16 +18653,6 @@ export namespace Api {
     rawId: string;
     response: Api.TypeInputPasskeyResponse;
   }
-  export class InputPasskeyCredentialFirebasePNV extends VirtualClass<{
-    pnvToken: string;
-  }> {
-  CONSTRUCTOR_ID: 1528613672;
-  SUBCLASS_OF_ID: 514925102;
-  classType: "constructor";
-  className: "InputPasskeyCredentialFirebasePNV";
-  static fromReader(reader: Reader): InputPasskeyCredentialFirebasePNV;
-    pnvToken: string;
-  }
   export class StarGiftBackground extends VirtualClass<{
     centerColor: int;
     edgeColor: int;
@@ -19249,6 +19375,392 @@ export namespace Api {
     text: Api.TypeRichText;
     type: Api.TypeInlineButtonType;
     style?: Api.TypeRichButtonStyle;
+  }
+  export class CurrencyRate extends VirtualClass<{
+    currency: string;
+    rate: double;
+  }> {
+  CONSTRUCTOR_ID: 819557436;
+  SUBCLASS_OF_ID: 4161718814;
+  classType: "constructor";
+  className: "CurrencyRate";
+  static fromReader(reader: Reader): CurrencyRate;
+    currency: string;
+    rate: double;
+  }
+  export class OnrampMethodAvailability extends VirtualClass<{
+    // flags: null;
+    available?: boolean;
+    paymentMethod: string;
+  }> {
+  CONSTRUCTOR_ID: 2663958184;
+  SUBCLASS_OF_ID: 1419237264;
+  classType: "constructor";
+  className: "OnrampMethodAvailability";
+  static fromReader(reader: Reader): OnrampMethodAvailability;
+    // flags: null;
+    available?: boolean;
+    paymentMethod: string;
+  }
+  export class OnrampProviderInfo extends VirtualClass<{
+    // flags: null;
+    supportsBaseCurrencies?: boolean;
+    supportsLimits?: boolean;
+    supportsQuote?: boolean;
+    id: string;
+    name: string;
+    cryptoCurrencies: string[];
+  }> {
+  CONSTRUCTOR_ID: 230847874;
+  SUBCLASS_OF_ID: 588371091;
+  classType: "constructor";
+  className: "OnrampProviderInfo";
+  static fromReader(reader: Reader): OnrampProviderInfo;
+    // flags: null;
+    supportsBaseCurrencies?: boolean;
+    supportsLimits?: boolean;
+    supportsQuote?: boolean;
+    id: string;
+    name: string;
+    cryptoCurrencies: string[];
+  }
+  export class OnrampAvailability extends VirtualClass<{
+    // flags: null;
+    allowed?: boolean;
+    buyAllowed?: boolean;
+    countryCode: string;
+    state?: string;
+    methods: Api.TypeOnrampMethodAvailability[];
+  }> {
+  CONSTRUCTOR_ID: 4190652787;
+  SUBCLASS_OF_ID: 1739292786;
+  classType: "constructor";
+  className: "OnrampAvailability";
+  static fromReader(reader: Reader): OnrampAvailability;
+    // flags: null;
+    allowed?: boolean;
+    buyAllowed?: boolean;
+    countryCode: string;
+    state?: string;
+    methods: Api.TypeOnrampMethodAvailability[];
+  }
+  export class OnrampLimits extends VirtualClass<{
+    baseCurrency: string;
+    baseMinAmount: string;
+    baseMaxAmount: string;
+    cryptoMinAmount: string;
+    cryptoMaxAmount: string;
+    paymentMethod: string;
+  }> {
+  CONSTRUCTOR_ID: 2078435198;
+  SUBCLASS_OF_ID: 3306121981;
+  classType: "constructor";
+  className: "OnrampLimits";
+  static fromReader(reader: Reader): OnrampLimits;
+    baseCurrency: string;
+    baseMinAmount: string;
+    baseMaxAmount: string;
+    cryptoMinAmount: string;
+    cryptoMaxAmount: string;
+    paymentMethod: string;
+  }
+  export class OnrampQuote extends VirtualClass<{
+    baseCurrency: string;
+    baseAmount: string;
+    cryptoCurrency: string;
+    cryptoAmount: string;
+    cryptoPrice: string;
+    feeAmount: string;
+    extraFeeAmount: string;
+    networkFeeAmount: string;
+    totalAmount: string;
+    paymentMethod: string;
+    expiresDate: int;
+  }> {
+  CONSTRUCTOR_ID: 2055213545;
+  SUBCLASS_OF_ID: 2933657721;
+  classType: "constructor";
+  className: "OnrampQuote";
+  static fromReader(reader: Reader): OnrampQuote;
+    baseCurrency: string;
+    baseAmount: string;
+    cryptoCurrency: string;
+    cryptoAmount: string;
+    cryptoPrice: string;
+    feeAmount: string;
+    extraFeeAmount: string;
+    networkFeeAmount: string;
+    totalAmount: string;
+    paymentMethod: string;
+    expiresDate: int;
+  }
+  export class OnrampSession extends VirtualClass<{
+    provider: string;
+    sessionId: string;
+    url: string;
+    expiresDate: int;
+  }> {
+  CONSTRUCTOR_ID: 3521392164;
+  SUBCLASS_OF_ID: 1332280611;
+  classType: "constructor";
+  className: "OnrampSession";
+  static fromReader(reader: Reader): OnrampSession;
+    provider: string;
+    sessionId: string;
+    url: string;
+    expiresDate: int;
+  }
+  export class WalletStateEmpty extends VirtualClass<{
+    // flags: null;
+    creating?: boolean;
+  }> {
+  CONSTRUCTOR_ID: 2629415660;
+  SUBCLASS_OF_ID: 3564762934;
+  classType: "constructor";
+  className: "WalletStateEmpty";
+  static fromReader(reader: Reader): WalletStateEmpty;
+    // flags: null;
+    creating?: boolean;
+  }
+  export class WalletState extends VirtualClass<{
+    // flags: null;
+    backupEnabled?: boolean;
+    canExportPhrase?: boolean;
+    canEnableBackup?: boolean;
+    address: string;
+    publicKey: bytes;
+    balance: long;
+  }> {
+  CONSTRUCTOR_ID: 2512729195;
+  SUBCLASS_OF_ID: 3564762934;
+  classType: "constructor";
+  className: "WalletState";
+  static fromReader(reader: Reader): WalletState;
+    // flags: null;
+    backupEnabled?: boolean;
+    canExportPhrase?: boolean;
+    canEnableBackup?: boolean;
+    address: string;
+    publicKey: bytes;
+    balance: long;
+  }
+  export class WalletUserAddress extends VirtualClass<{
+    // flags: null;
+    userId?: long;
+    address: string;
+    publicKey: bytes;
+  }> {
+  CONSTRUCTOR_ID: 4269338316;
+  SUBCLASS_OF_ID: 314169396;
+  classType: "constructor";
+  className: "WalletUserAddress";
+  static fromReader(reader: Reader): WalletUserAddress;
+    // flags: null;
+    userId?: long;
+    address: string;
+    publicKey: bytes;
+  }
+  export class WalletTransactionPeerUser extends VirtualClass<{
+    // flags: null;
+    userId: long;
+    address: string;
+    domain?: string;
+  }> {
+  CONSTRUCTOR_ID: 3572133997;
+  SUBCLASS_OF_ID: 3389222725;
+  classType: "constructor";
+  className: "WalletTransactionPeerUser";
+  static fromReader(reader: Reader): WalletTransactionPeerUser;
+    // flags: null;
+    userId: long;
+    address: string;
+    domain?: string;
+  }
+  export class WalletTransactionPeerAddress extends VirtualClass<{
+    // flags: null;
+    address: string;
+    domain?: string;
+  }> {
+  CONSTRUCTOR_ID: 103596476;
+  SUBCLASS_OF_ID: 3389222725;
+  classType: "constructor";
+  className: "WalletTransactionPeerAddress";
+  static fromReader(reader: Reader): WalletTransactionPeerAddress;
+    // flags: null;
+    address: string;
+    domain?: string;
+  }
+  export class WalletTransactionPeerOnramp extends VirtualClass<{
+    // flags: null;
+    address: string;
+    domain?: string;
+    providerName: string;
+  }> {
+  CONSTRUCTOR_ID: 3851753582;
+  SUBCLASS_OF_ID: 3389222725;
+  classType: "constructor";
+  className: "WalletTransactionPeerOnramp";
+  static fromReader(reader: Reader): WalletTransactionPeerOnramp;
+    // flags: null;
+    address: string;
+    domain?: string;
+    providerName: string;
+  }
+  export class WalletTransactionPeerUnsupported extends VirtualClass<void> {
+  CONSTRUCTOR_ID: 1921772890;
+  SUBCLASS_OF_ID: 3389222725;
+  classType: "constructor";
+  className: "WalletTransactionPeerUnsupported";
+  static fromReader(reader: Reader): WalletTransactionPeerUnsupported;
+}
+  export class WalletTransaction extends VirtualClass<{
+    // flags: null;
+    incoming?: boolean;
+    gasless?: boolean;
+    failed?: boolean;
+    keyChange?: boolean;
+    commentEncrypted?: boolean;
+    id: string;
+    amount: long;
+    fee: long;
+    date: int;
+    peer: Api.TypeWalletTransactionPeer;
+    comment?: string;
+    txHash?: string;
+    nft?: wallet.TypeNftItem;
+  }> {
+  CONSTRUCTOR_ID: 2502803779;
+  SUBCLASS_OF_ID: 1042052934;
+  classType: "constructor";
+  className: "WalletTransaction";
+  static fromReader(reader: Reader): WalletTransaction;
+    // flags: null;
+    incoming?: boolean;
+    gasless?: boolean;
+    failed?: boolean;
+    keyChange?: boolean;
+    commentEncrypted?: boolean;
+    id: string;
+    amount: long;
+    fee: long;
+    date: int;
+    peer: Api.TypeWalletTransactionPeer;
+    comment?: string;
+    txHash?: string;
+    nft?: wallet.TypeNftItem;
+  }
+  export class WalletOwnershipProof extends VirtualClass<{
+    timestamp: int;
+    signature: bytes;
+  }> {
+  CONSTRUCTOR_ID: 1622985485;
+  SUBCLASS_OF_ID: 3036052525;
+  classType: "constructor";
+  className: "WalletOwnershipProof";
+  static fromReader(reader: Reader): WalletOwnershipProof;
+    timestamp: int;
+    signature: bytes;
+  }
+  export class InputWalletNew extends VirtualClass<void> {
+  CONSTRUCTOR_ID: 1671708892;
+  SUBCLASS_OF_ID: 3871209444;
+  classType: "constructor";
+  className: "InputWalletNew";
+  static fromReader(reader: Reader): InputWalletNew;
+}
+  export class InputWalletImported extends VirtualClass<{
+    // flags: null;
+    publicKey: bytes;
+    anchorPublicKey?: bytes;
+    proof: Api.TypeWalletOwnershipProof;
+  }> {
+  CONSTRUCTOR_ID: 1722182203;
+  SUBCLASS_OF_ID: 3871209444;
+  classType: "constructor";
+  className: "InputWalletImported";
+  static fromReader(reader: Reader): InputWalletImported;
+    // flags: null;
+    publicKey: bytes;
+    anchorPublicKey?: bytes;
+    proof: Api.TypeWalletOwnershipProof;
+  }
+  export class TonConnectManifest extends VirtualClass<{
+    // flags: null;
+    url: string;
+    name: string;
+    icon?: Api.TypeWebDocument;
+  }> {
+  CONSTRUCTOR_ID: 304255588;
+  SUBCLASS_OF_ID: 3962743368;
+  classType: "constructor";
+  className: "TonConnectManifest";
+  static fromReader(reader: Reader): TonConnectManifest;
+    // flags: null;
+    url: string;
+    name: string;
+    icon?: Api.TypeWebDocument;
+  }
+  export class TonConnectSession extends VirtualClass<{
+    // flags: null;
+    pending?: boolean;
+    closing?: boolean;
+    closed?: boolean;
+    id: long;
+    dappClientId: string;
+    clientId?: string;
+    nonce: bytes;
+    manifest?: Api.TypeTonConnectManifest;
+    manifestError?: int;
+    date: int;
+  }> {
+  CONSTRUCTOR_ID: 308631238;
+  SUBCLASS_OF_ID: 3340999856;
+  classType: "constructor";
+  className: "TonConnectSession";
+  static fromReader(reader: Reader): TonConnectSession;
+    // flags: null;
+    pending?: boolean;
+    closing?: boolean;
+    closed?: boolean;
+    id: long;
+    dappClientId: string;
+    clientId?: string;
+    nonce: bytes;
+    manifest?: Api.TypeTonConnectManifest;
+    manifestError?: int;
+    date: int;
+  }
+  export class TonConnectNextEventId extends VirtualClass<{
+    eventId: long;
+  }> {
+  CONSTRUCTOR_ID: 1478780131;
+  SUBCLASS_OF_ID: 638963315;
+  classType: "constructor";
+  className: "TonConnectNextEventId";
+  static fromReader(reader: Reader): TonConnectNextEventId;
+    eventId: long;
+  }
+  export class TonConnectRequest extends VirtualClass<{
+    // flags: null;
+    sessionId: long;
+    msgId: int;
+    body: bytes;
+    expires: int;
+    topic?: string;
+    traceId?: string;
+  }> {
+  CONSTRUCTOR_ID: 2707391763;
+  SUBCLASS_OF_ID: 753977083;
+  classType: "constructor";
+  className: "TonConnectRequest";
+  static fromReader(reader: Reader): TonConnectRequest;
+    // flags: null;
+    sessionId: long;
+    msgId: int;
+    body: bytes;
+    expires: int;
+    topic?: string;
+    traceId?: string;
   }
   export class ResPQ extends VirtualClass<{
     nonce: int128;
@@ -23952,6 +24464,16 @@ export namespace Api {
     static fromReader(reader: Reader): StarGiftUpgradeAttributes;
       attributes: Api.TypeStarGiftAttribute[];
     }
+    export class CurrencyRates extends VirtualClass<{
+      rates: Api.TypeCurrencyRate[];
+    }> {
+    CONSTRUCTOR_ID: 3150767298;
+    SUBCLASS_OF_ID: 298959809;
+    classType: "constructor";
+    className: "payments.CurrencyRates";
+    static fromReader(reader: Reader): CurrencyRates;
+      rates: Api.TypeCurrencyRate[];
+    }
   }
 
   export namespace phone {
@@ -24849,6 +25371,222 @@ export namespace Api {
       messages: Api.TypeEphemeralMessage[];
     }
   }
+
+  export namespace toncenter {
+    export class ApiResponse extends VirtualClass<{
+      response: Api.TypeDataJSON;
+    }> {
+    CONSTRUCTOR_ID: 2894986777;
+    SUBCLASS_OF_ID: 1477001169;
+    classType: "constructor";
+    className: "toncenter.ApiResponse";
+    static fromReader(reader: Reader): ApiResponse;
+      response: Api.TypeDataJSON;
+    }
+    export class StreamingUrl extends VirtualClass<{
+      url: string;
+      expires: int;
+    }> {
+    CONSTRUCTOR_ID: 428373505;
+    SUBCLASS_OF_ID: 1278712994;
+    classType: "constructor";
+    className: "toncenter.StreamingUrl";
+    static fromReader(reader: Reader): StreamingUrl;
+      url: string;
+      expires: int;
+    }
+  }
+
+  export namespace wallet {
+    export class UserAddresses extends VirtualClass<{
+      addresses: Api.TypeWalletUserAddress[];
+      users: Api.TypeUser[];
+    }> {
+    CONSTRUCTOR_ID: 2458811221;
+    SUBCLASS_OF_ID: 3595135971;
+    classType: "constructor";
+    className: "wallet.UserAddresses";
+    static fromReader(reader: Reader): UserAddresses;
+      addresses: Api.TypeWalletUserAddress[];
+      users: Api.TypeUser[];
+    }
+    export class Transactions extends VirtualClass<{
+      // flags: null;
+      balance: long;
+      transactions: Api.TypeWalletTransaction[];
+      nextOffset?: string;
+      chats: Api.TypeChat[];
+      users: Api.TypeUser[];
+    }> {
+    CONSTRUCTOR_ID: 1126356389;
+    SUBCLASS_OF_ID: 3662773019;
+    classType: "constructor";
+    className: "wallet.Transactions";
+    static fromReader(reader: Reader): Transactions;
+      // flags: null;
+      balance: long;
+      transactions: Api.TypeWalletTransaction[];
+      nextOffset?: string;
+      chats: Api.TypeChat[];
+      users: Api.TypeUser[];
+    }
+    export class SecretPhraseParts extends VirtualClass<{
+      token: string;
+      dcs: int[];
+    }> {
+    CONSTRUCTOR_ID: 3872452353;
+    SUBCLASS_OF_ID: 779205392;
+    classType: "constructor";
+    className: "wallet.SecretPhraseParts";
+    static fromReader(reader: Reader): SecretPhraseParts;
+      token: string;
+      dcs: int[];
+    }
+    export class EncryptedSecretPhrasePart extends VirtualClass<{
+      data: bytes;
+    }> {
+    CONSTRUCTOR_ID: 417867063;
+    SUBCLASS_OF_ID: 3982642258;
+    classType: "constructor";
+    className: "wallet.EncryptedSecretPhrasePart";
+    static fromReader(reader: Reader): EncryptedSecretPhrasePart;
+      data: bytes;
+    }
+    export class HolderDc extends VirtualClass<{
+      dc: int;
+      publicKey: bytes;
+    }> {
+    CONSTRUCTOR_ID: 4191556335;
+    SUBCLASS_OF_ID: 4185802399;
+    classType: "constructor";
+    className: "wallet.HolderDc";
+    static fromReader(reader: Reader): HolderDc;
+      dc: int;
+      publicKey: bytes;
+    }
+    export class ProofChallenge extends VirtualClass<{
+      payload: string;
+      expires: int;
+      domain: string;
+    }> {
+    CONSTRUCTOR_ID: 2581862151;
+    SUBCLASS_OF_ID: 3637596933;
+    classType: "constructor";
+    className: "wallet.ProofChallenge";
+    static fromReader(reader: Reader): ProofChallenge;
+      payload: string;
+      expires: int;
+      domain: string;
+    }
+    export class TonConnectChallenge extends VirtualClass<{
+      challenge: bytes;
+      eventId: long;
+    }> {
+    CONSTRUCTOR_ID: 1271436947;
+    SUBCLASS_OF_ID: 1875476222;
+    classType: "constructor";
+    className: "wallet.TonConnectChallenge";
+    static fromReader(reader: Reader): TonConnectChallenge;
+      challenge: bytes;
+      eventId: long;
+    }
+    export class TonConnectPending extends VirtualClass<{
+      session: Api.TypeTonConnectSession;
+      requests: Api.TypeTonConnectRequest[];
+    }> {
+    CONSTRUCTOR_ID: 2244014372;
+    SUBCLASS_OF_ID: 2179726390;
+    classType: "constructor";
+    className: "wallet.TonConnectPending";
+    static fromReader(reader: Reader): TonConnectPending;
+      session: Api.TypeTonConnectSession;
+      requests: Api.TypeTonConnectRequest[];
+    }
+    export class TonConnectSessions extends VirtualClass<{
+      sessions: Api.TypeTonConnectSession[];
+    }> {
+    CONSTRUCTOR_ID: 236939414;
+    SUBCLASS_OF_ID: 3878829348;
+    classType: "constructor";
+    className: "wallet.TonConnectSessions";
+    static fromReader(reader: Reader): TonConnectSessions;
+      sessions: Api.TypeTonConnectSession[];
+    }
+    export class ExistingBalance extends VirtualClass<{
+      // flags: null;
+      hasBalance?: boolean;
+      url: string;
+    }> {
+    CONSTRUCTOR_ID: 3186166413;
+    SUBCLASS_OF_ID: 2805594710;
+    classType: "constructor";
+    className: "wallet.ExistingBalance";
+    static fromReader(reader: Reader): ExistingBalance;
+      // flags: null;
+      hasBalance?: boolean;
+      url: string;
+    }
+    export class NftAttribute extends VirtualClass<{
+      traitType: string;
+      value: string;
+    }> {
+    CONSTRUCTOR_ID: 1277096206;
+    SUBCLASS_OF_ID: 1393432641;
+    classType: "constructor";
+    className: "wallet.NftAttribute";
+    static fromReader(reader: Reader): NftAttribute;
+      traitType: string;
+      value: string;
+    }
+    export class NftItem extends VirtualClass<{
+      // flags: null;
+      collectionAddress?: string;
+      address: string;
+      ownerAddress: string;
+      index: string;
+      name?: string;
+      description?: string;
+      image?: Api.TypeWebDocument;
+      imageSmall?: Api.TypeWebDocument;
+      contentUrl?: Api.TypeWebDocument;
+      lottie?: Api.TypeWebDocument;
+      attributes?: wallet.TypeNftAttribute[];
+      extra?: Api.TypeDataJSON;
+    }> {
+    CONSTRUCTOR_ID: 876739868;
+    SUBCLASS_OF_ID: 3560020534;
+    classType: "constructor";
+    className: "wallet.NftItem";
+    static fromReader(reader: Reader): NftItem;
+      // flags: null;
+      collectionAddress?: string;
+      address: string;
+      ownerAddress: string;
+      index: string;
+      name?: string;
+      description?: string;
+      image?: Api.TypeWebDocument;
+      imageSmall?: Api.TypeWebDocument;
+      contentUrl?: Api.TypeWebDocument;
+      lottie?: Api.TypeWebDocument;
+      attributes?: wallet.TypeNftAttribute[];
+      extra?: Api.TypeDataJSON;
+    }
+    export class NftItems extends VirtualClass<{
+      // flags: null;
+      items: wallet.TypeNftItem[];
+      nextOffset?: string;
+    }> {
+    CONSTRUCTOR_ID: 2035107951;
+    SUBCLASS_OF_ID: 3563088648;
+    classType: "constructor";
+    className: "wallet.NftItems";
+    static fromReader(reader: Reader): NftItems;
+      // flags: null;
+      items: wallet.TypeNftItem[];
+      nextOffset?: string;
+    }
+  }
   
 
   export namespace storage {
@@ -25058,6 +25796,7 @@ export namespace Api {
     export type TypeStarGiftAuctionAcquiredGifts = payments.StarGiftAuctionAcquiredGifts;
     export type TypeStarGiftActiveAuctions = payments.StarGiftActiveAuctionsNotModified | payments.StarGiftActiveAuctions;
     export type TypeStarGiftUpgradeAttributes = payments.StarGiftUpgradeAttributes;
+    export type TypeCurrencyRates = payments.CurrencyRates;
   }
 
   export namespace phone {
@@ -25144,6 +25883,27 @@ export namespace Api {
 
   export namespace ephemeral {
     export type TypeWelcomeMessages = ephemeral.WelcomeMessagesNotModified | ephemeral.WelcomeMessages;
+  }
+
+  export namespace toncenter {
+    export type TypeApiResponse = toncenter.ApiResponse;
+    export type TypeStreamingUrl = toncenter.StreamingUrl;
+  }
+
+  export namespace wallet {
+    export type TypeUserAddresses = wallet.UserAddresses;
+    export type TypeTransactions = wallet.Transactions;
+    export type TypeSecretPhraseParts = wallet.SecretPhraseParts;
+    export type TypeEncryptedSecretPhrasePart = wallet.EncryptedSecretPhrasePart;
+    export type TypeHolderDc = wallet.HolderDc;
+    export type TypeProofChallenge = wallet.ProofChallenge;
+    export type TypeTonConnectChallenge = wallet.TonConnectChallenge;
+    export type TypeTonConnectPending = wallet.TonConnectPending;
+    export type TypeTonConnectSessions = wallet.TonConnectSessions;
+    export type TypeExistingBalance = wallet.ExistingBalance;
+    export type TypeNftAttribute = wallet.NftAttribute;
+    export type TypeNftItem = wallet.NftItem;
+    export type TypeNftItems = wallet.NftItems;
   }
   
 
@@ -25485,15 +26245,29 @@ export namespace Api {
       fromDcId?: int;
       fromAuthKeyId?: long;
     }
+    export class CancelWebTokenAuthorization extends Request<Partial<{
+      webAuthToken: string;
+    }>, Bool> {
+    CONSTRUCTOR_ID: 1225633185;
+    SUBCLASS_OF_ID: 4122188204;
+    classType: "request";
+    className: "auth.CancelWebTokenAuthorization";
+    static fromReader(reader: Reader): CancelWebTokenAuthorization;
+      webAuthToken: string;
+    }
     export class InitFirebasePnvLogin extends Request<Partial<{
+      // flags: null;
+      exceptIds?: long[];
       apiId: int;
       apiHash: string;
     }>, auth.TypeFirebasePnvIntent> {
-    CONSTRUCTOR_ID: 2004743034;
+    CONSTRUCTOR_ID: 1682904512;
     SUBCLASS_OF_ID: 4200866471;
     classType: "request";
     className: "auth.InitFirebasePnvLogin";
     static fromReader(reader: Reader): InitFirebasePnvLogin;
+      // flags: null;
+      exceptIds?: long[];
       apiId: int;
       apiHash: string;
     }
@@ -33027,9 +33801,9 @@ export namespace Api {
       enabled?: boolean;
       bot?: Api.TypeEntityLike;
       peer: Api.TypeEntityLike;
-      customDescription?: string;
+      customDescription?: Api.TypeTextWithEntities;
     }>, Bool> {
-    CONSTRUCTOR_ID: 2341068733;
+    CONSTRUCTOR_ID: 4103366487;
     SUBCLASS_OF_ID: 4122188204;
     classType: "request";
     className: "bots.SetCustomVerification";
@@ -33038,7 +33812,7 @@ export namespace Api {
       enabled?: boolean;
       bot?: Api.TypeEntityLike;
       peer: Api.TypeEntityLike;
-      customDescription?: string;
+      customDescription?: Api.TypeTextWithEntities;
     }
     export class GetBotRecommendations extends Request<Partial<{
       bot: Api.TypeEntityLike;
@@ -33051,13 +33825,17 @@ export namespace Api {
       bot: Api.TypeEntityLike;
     }
     export class CheckUsername extends Request<Partial<{
+      // flags: null;
+      additional?: boolean;
       username: string;
     }>, Bool> {
-    CONSTRUCTOR_ID: 2280792475;
+    CONSTRUCTOR_ID: 3819719777;
     SUBCLASS_OF_ID: 4122188204;
     classType: "request";
     className: "bots.CheckUsername";
     static fromReader(reader: Reader): CheckUsername;
+      // flags: null;
+      additional?: boolean;
       username: string;
     }
     export class CreateBot extends Request<Partial<{
@@ -33151,6 +33929,30 @@ export namespace Api {
     static fromReader(reader: Reader): SetJoinChatResults;
       queryId: long;
       result: Api.TypeJoinChatBotResult;
+    }
+    export class AddUsername extends Request<Partial<{
+      bot: Api.TypeEntityLike;
+      username: string;
+    }>, Bool> {
+    CONSTRUCTOR_ID: 889307274;
+    SUBCLASS_OF_ID: 4122188204;
+    classType: "request";
+    className: "bots.AddUsername";
+    static fromReader(reader: Reader): AddUsername;
+      bot: Api.TypeEntityLike;
+      username: string;
+    }
+    export class RemoveUsername extends Request<Partial<{
+      bot: Api.TypeEntityLike;
+      username: string;
+    }>, Bool> {
+    CONSTRUCTOR_ID: 3338933373;
+    SUBCLASS_OF_ID: 4122188204;
+    classType: "request";
+    className: "bots.RemoveUsername";
+    static fromReader(reader: Reader): RemoveUsername;
+      bot: Api.TypeEntityLike;
+      username: string;
     }
   }
 
@@ -34037,6 +34839,125 @@ export namespace Api {
     className: "payments.CraftStarGift";
     static fromReader(reader: Reader): CraftStarGift;
       stargift: Api.TypeInputSavedStarGift[];
+    }
+    export class GetCurrencyRates extends Request<void, payments.TypeCurrencyRates> {
+    CONSTRUCTOR_ID: 3545859048;
+    SUBCLASS_OF_ID: 298959809;
+    classType: "request";
+    className: "payments.GetCurrencyRates";
+    static fromReader(reader: Reader): GetCurrencyRates;
+}
+    export class GetOnrampProviders extends Request<Partial<{
+      // flags: null;
+      cryptoCurrency?: string;
+    }>, Api.TypeOnrampProviderInfo[]> {
+    CONSTRUCTOR_ID: 1061028060;
+    SUBCLASS_OF_ID: 4137300930;
+    classType: "request";
+    className: "payments.GetOnrampProviders";
+    static fromReader(reader: Reader): GetOnrampProviders;
+      // flags: null;
+      cryptoCurrency?: string;
+    }
+    export class GetOnrampBaseCurrencies extends Request<Partial<{
+      provider: string;
+      cryptoCurrency: string;
+    }>, string[]> {
+    CONSTRUCTOR_ID: 478932467;
+    SUBCLASS_OF_ID: 31028498;
+    classType: "request";
+    className: "payments.GetOnrampBaseCurrencies";
+    static fromReader(reader: Reader): GetOnrampBaseCurrencies;
+      provider: string;
+      cryptoCurrency: string;
+    }
+    export class GetOnrampAvailability extends Request<Partial<{
+      // flags: null;
+      provider: string;
+      cryptoCurrency: string;
+      baseCurrency?: string;
+    }>, Api.TypeOnrampAvailability> {
+    CONSTRUCTOR_ID: 784505169;
+    SUBCLASS_OF_ID: 1739292786;
+    classType: "request";
+    className: "payments.GetOnrampAvailability";
+    static fromReader(reader: Reader): GetOnrampAvailability;
+      // flags: null;
+      provider: string;
+      cryptoCurrency: string;
+      baseCurrency?: string;
+    }
+    export class GetOnrampLimits extends Request<Partial<{
+      // flags: null;
+      provider: string;
+      cryptoCurrency: string;
+      baseCurrency: string;
+      paymentMethod?: string;
+    }>, Api.TypeOnrampLimits> {
+    CONSTRUCTOR_ID: 2162708989;
+    SUBCLASS_OF_ID: 3306121981;
+    classType: "request";
+    className: "payments.GetOnrampLimits";
+    static fromReader(reader: Reader): GetOnrampLimits;
+      // flags: null;
+      provider: string;
+      cryptoCurrency: string;
+      baseCurrency: string;
+      paymentMethod?: string;
+    }
+    export class GetOnrampQuote extends Request<Partial<{
+      // flags: null;
+      provider: string;
+      cryptoCurrency: string;
+      baseCurrency: string;
+      baseAmount?: string;
+      cryptoAmount?: string;
+      paymentMethod?: string;
+    }>, Api.TypeOnrampQuote> {
+    CONSTRUCTOR_ID: 3764798970;
+    SUBCLASS_OF_ID: 2933657721;
+    classType: "request";
+    className: "payments.GetOnrampQuote";
+    static fromReader(reader: Reader): GetOnrampQuote;
+      // flags: null;
+      provider: string;
+      cryptoCurrency: string;
+      baseCurrency: string;
+      baseAmount?: string;
+      cryptoAmount?: string;
+      paymentMethod?: string;
+    }
+    export class CreateOnrampSession extends Request<Partial<{
+      // flags: null;
+      provider: string;
+      cryptoCurrency: string;
+      address: string;
+      paymentMethod?: string;
+      baseCurrency?: string;
+      baseAmount?: string;
+      memo?: string;
+      theme?: string;
+      successReturnUrl?: string;
+      failReturnUrl?: string;
+      cryptoAmount?: string;
+    }>, Api.TypeOnrampSession> {
+    CONSTRUCTOR_ID: 2719579382;
+    SUBCLASS_OF_ID: 1332280611;
+    classType: "request";
+    className: "payments.CreateOnrampSession";
+    static fromReader(reader: Reader): CreateOnrampSession;
+      // flags: null;
+      provider: string;
+      cryptoCurrency: string;
+      address: string;
+      paymentMethod?: string;
+      baseCurrency?: string;
+      baseAmount?: string;
+      memo?: string;
+      theme?: string;
+      successReturnUrl?: string;
+      failReturnUrl?: string;
+      cryptoAmount?: string;
     }
   }
 
@@ -36199,6 +37120,353 @@ export namespace Api {
       hash: long;
     }
   }
+
+  export namespace toncenter {
+    export class PerformApiRequest extends Request<Partial<{
+      // flags: null;
+      post?: boolean;
+      endpoint: string;
+      query?: string;
+      payload?: string;
+    }>, toncenter.TypeApiResponse> {
+    CONSTRUCTOR_ID: 2373705057;
+    SUBCLASS_OF_ID: 1477001169;
+    classType: "request";
+    className: "toncenter.PerformApiRequest";
+    static fromReader(reader: Reader): PerformApiRequest;
+      // flags: null;
+      post?: boolean;
+      endpoint: string;
+      query?: string;
+      payload?: string;
+    }
+    export class GetStreamingUrl extends Request<void, toncenter.TypeStreamingUrl> {
+    CONSTRUCTOR_ID: 3450823623;
+    SUBCLASS_OF_ID: 1278712994;
+    classType: "request";
+    className: "toncenter.GetStreamingUrl";
+    static fromReader(reader: Reader): GetStreamingUrl;
+}
+  }
+
+  export namespace wallet {
+    export class GetState extends Request<void, Api.TypeWalletState> {
+    CONSTRUCTOR_ID: 2877535034;
+    SUBCLASS_OF_ID: 3564762934;
+    classType: "request";
+    className: "wallet.GetState";
+    static fromReader(reader: Reader): GetState;
+}
+    export class GetUserAddresses extends Request<Partial<{
+      // flags: null;
+      force?: boolean;
+      id: Api.TypeEntityLike[];
+      addresses: string[];
+    }>, wallet.TypeUserAddresses> {
+    CONSTRUCTOR_ID: 1383456733;
+    SUBCLASS_OF_ID: 3595135971;
+    classType: "request";
+    className: "wallet.GetUserAddresses";
+    static fromReader(reader: Reader): GetUserAddresses;
+      // flags: null;
+      force?: boolean;
+      id: Api.TypeEntityLike[];
+      addresses: string[];
+    }
+    export class GetTransactions extends Request<Partial<{
+      // flags: null;
+      inbound?: boolean;
+      outbound?: boolean;
+      offset: string;
+      limit: int;
+    }>, wallet.TypeTransactions> {
+    CONSTRUCTOR_ID: 2827160195;
+    SUBCLASS_OF_ID: 3662773019;
+    classType: "request";
+    className: "wallet.GetTransactions";
+    static fromReader(reader: Reader): GetTransactions;
+      // flags: null;
+      inbound?: boolean;
+      outbound?: boolean;
+      offset: string;
+      limit: int;
+    }
+    export class GetTransactionsByIDs extends Request<Partial<{
+      id: string[];
+    }>, wallet.TypeTransactions> {
+    CONSTRUCTOR_ID: 2166155958;
+    SUBCLASS_OF_ID: 3662773019;
+    classType: "request";
+    className: "wallet.GetTransactionsByIDs";
+    static fromReader(reader: Reader): GetTransactionsByIDs;
+      id: string[];
+    }
+    export class GetTransactionsByMsgHash extends Request<Partial<{
+      msgHash: string[];
+    }>, wallet.TypeTransactions> {
+    CONSTRUCTOR_ID: 2797304157;
+    SUBCLASS_OF_ID: 3662773019;
+    classType: "request";
+    className: "wallet.GetTransactionsByMsgHash";
+    static fromReader(reader: Reader): GetTransactionsByMsgHash;
+      msgHash: string[];
+    }
+    export class ExportSecretPhrase extends Request<Partial<{
+      // flags: null;
+      password?: Api.TypeInputCheckPasswordSRP;
+    }>, wallet.TypeSecretPhraseParts> {
+    CONSTRUCTOR_ID: 2423769516;
+    SUBCLASS_OF_ID: 779205392;
+    classType: "request";
+    className: "wallet.ExportSecretPhrase";
+    static fromReader(reader: Reader): ExportSecretPhrase;
+      // flags: null;
+      password?: Api.TypeInputCheckPasswordSRP;
+    }
+    export class FetchEncryptedSecretPhrasePart extends Request<Partial<{
+      token: string;
+      publicKey: bytes;
+    }>, wallet.TypeEncryptedSecretPhrasePart> {
+    CONSTRUCTOR_ID: 4114163151;
+    SUBCLASS_OF_ID: 3982642258;
+    classType: "request";
+    className: "wallet.FetchEncryptedSecretPhrasePart";
+    static fromReader(reader: Reader): FetchEncryptedSecretPhrasePart;
+      token: string;
+      publicKey: bytes;
+    }
+    export class ReplaceWallet extends Request<Partial<{
+      // flags: null;
+      wallet: Api.TypeInputWalletReplacement;
+      password?: Api.TypeInputCheckPasswordSRP;
+    }>, Api.TypeWalletState> {
+    CONSTRUCTOR_ID: 3636932332;
+    SUBCLASS_OF_ID: 3564762934;
+    classType: "request";
+    className: "wallet.ReplaceWallet";
+    static fromReader(reader: Reader): ReplaceWallet;
+      // flags: null;
+      wallet: Api.TypeInputWalletReplacement;
+      password?: Api.TypeInputCheckPasswordSRP;
+    }
+    export class DisableBackup extends Request<Partial<{
+      // flags: null;
+      password?: Api.TypeInputCheckPasswordSRP;
+      newPublicKey?: bytes;
+      proof?: Api.TypeWalletOwnershipProof;
+    }>, Api.TypeWalletState> {
+    CONSTRUCTOR_ID: 185331930;
+    SUBCLASS_OF_ID: 3564762934;
+    classType: "request";
+    className: "wallet.DisableBackup";
+    static fromReader(reader: Reader): DisableBackup;
+      // flags: null;
+      password?: Api.TypeInputCheckPasswordSRP;
+      newPublicKey?: bytes;
+      proof?: Api.TypeWalletOwnershipProof;
+    }
+    export class GetBackupHolderDcs extends Request<void, wallet.TypeHolderDc[]> {
+    CONSTRUCTOR_ID: 3514422420;
+    SUBCLASS_OF_ID: 3695619106;
+    classType: "request";
+    className: "wallet.GetBackupHolderDcs";
+    static fromReader(reader: Reader): GetBackupHolderDcs;
+}
+    export class EnableBackup extends Request<Partial<{
+      // flags: null;
+      parts: bytes[];
+      newPublicKey?: bytes;
+      proof?: Api.TypeWalletOwnershipProof;
+    }>, Api.TypeWalletState> {
+    CONSTRUCTOR_ID: 1157678373;
+    SUBCLASS_OF_ID: 3564762934;
+    classType: "request";
+    className: "wallet.EnableBackup";
+    static fromReader(reader: Reader): EnableBackup;
+      // flags: null;
+      parts: bytes[];
+      newPublicKey?: bytes;
+      proof?: Api.TypeWalletOwnershipProof;
+    }
+    export class GetProofChallenge extends Request<void, wallet.TypeProofChallenge> {
+    CONSTRUCTOR_ID: 539354775;
+    SUBCLASS_OF_ID: 3637596933;
+    classType: "request";
+    className: "wallet.GetProofChallenge";
+    static fromReader(reader: Reader): GetProofChallenge;
+}
+    export class SendTransfer extends Request<Partial<{
+      // flags: null;
+      dataNormal: bytes;
+      dataGasless?: bytes;
+      userId: Api.TypeEntityLike;
+      randomId?: long;
+    }>, Api.TypeUpdates> {
+    CONSTRUCTOR_ID: 3655719394;
+    SUBCLASS_OF_ID: 2331323052;
+    classType: "request";
+    className: "wallet.SendTransfer";
+    static fromReader(reader: Reader): SendTransfer;
+      // flags: null;
+      dataNormal: bytes;
+      dataGasless?: bytes;
+      userId: Api.TypeEntityLike;
+      randomId?: long;
+    }
+    export class GetGaslessInfo extends Request<void, Api.TypeUpdates> {
+    CONSTRUCTOR_ID: 1949167777;
+    SUBCLASS_OF_ID: 2331323052;
+    classType: "request";
+    className: "wallet.GetGaslessInfo";
+    static fromReader(reader: Reader): GetGaslessInfo;
+}
+    export class GetExistingWaltBalance extends Request<void, wallet.TypeExistingBalance> {
+    CONSTRUCTOR_ID: 1763656544;
+    SUBCLASS_OF_ID: 2805594710;
+    classType: "request";
+    className: "wallet.GetExistingWaltBalance";
+    static fromReader(reader: Reader): GetExistingWaltBalance;
+}
+    export class GetNfts extends Request<Partial<{
+      offset: string;
+      limit: int;
+    }>, wallet.TypeNftItems> {
+    CONSTRUCTOR_ID: 2350052260;
+    SUBCLASS_OF_ID: 3563088648;
+    classType: "request";
+    className: "wallet.GetNfts";
+    static fromReader(reader: Reader): GetNfts;
+      offset: string;
+      limit: int;
+    }
+    export class TonConnectCreateSession extends Request<Partial<{
+      dappClientId: string;
+      manifestUrl: string;
+    }>, Api.TypeTonConnectSession> {
+    CONSTRUCTOR_ID: 3432190022;
+    SUBCLASS_OF_ID: 3340999856;
+    classType: "request";
+    className: "wallet.TonConnectCreateSession";
+    static fromReader(reader: Reader): TonConnectCreateSession;
+      dappClientId: string;
+      manifestUrl: string;
+    }
+    export class TonConnectRegisterKey extends Request<Partial<{
+      sessionId: long;
+      clientId: string;
+    }>, wallet.TypeTonConnectChallenge> {
+    CONSTRUCTOR_ID: 864800540;
+    SUBCLASS_OF_ID: 1875476222;
+    classType: "request";
+    className: "wallet.TonConnectRegisterKey";
+    static fromReader(reader: Reader): TonConnectRegisterKey;
+      sessionId: long;
+      clientId: string;
+    }
+    export class TonConnectSubmitConnectResult extends Request<Partial<{
+      // flags: null;
+      error?: boolean;
+      sessionId: long;
+      challengeAnswer: bytes;
+      body: bytes;
+      traceId?: string;
+    }>, Bool> {
+    CONSTRUCTOR_ID: 3267364729;
+    SUBCLASS_OF_ID: 4122188204;
+    classType: "request";
+    className: "wallet.TonConnectSubmitConnectResult";
+    static fromReader(reader: Reader): TonConnectSubmitConnectResult;
+      // flags: null;
+      error?: boolean;
+      sessionId: long;
+      challengeAnswer: bytes;
+      body: bytes;
+      traceId?: string;
+    }
+    export class TonConnectGetPending extends Request<Partial<{
+      // flags: null;
+      dappClientId?: string;
+      sessionId?: long;
+    }>, wallet.TypeTonConnectPending> {
+    CONSTRUCTOR_ID: 296673381;
+    SUBCLASS_OF_ID: 2179726390;
+    classType: "request";
+    className: "wallet.TonConnectGetPending";
+    static fromReader(reader: Reader): TonConnectGetPending;
+      // flags: null;
+      dappClientId?: string;
+      sessionId?: long;
+    }
+    export class TonConnectClaimRequest extends Request<Partial<{
+      // flags: null;
+      declined?: boolean;
+      sessionId: long;
+      msgId: MessageIDLike;
+      appRequestId: string;
+      challengeAnswer?: bytes;
+    }>, Bool> {
+    CONSTRUCTOR_ID: 1723169601;
+    SUBCLASS_OF_ID: 4122188204;
+    classType: "request";
+    className: "wallet.TonConnectClaimRequest";
+    static fromReader(reader: Reader): TonConnectClaimRequest;
+      // flags: null;
+      declined?: boolean;
+      sessionId: long;
+      msgId: MessageIDLike;
+      appRequestId: string;
+      challengeAnswer?: bytes;
+    }
+    export class TonConnectSubmitResponse extends Request<Partial<{
+      // flags: null;
+      sessionId: long;
+      msgId: MessageIDLike;
+      body: bytes;
+      traceId?: string;
+    }>, Bool> {
+    CONSTRUCTOR_ID: 4207312188;
+    SUBCLASS_OF_ID: 4122188204;
+    classType: "request";
+    className: "wallet.TonConnectSubmitResponse";
+    static fromReader(reader: Reader): TonConnectSubmitResponse;
+      // flags: null;
+      sessionId: long;
+      msgId: MessageIDLike;
+      body: bytes;
+      traceId?: string;
+    }
+    export class TonConnectNextEventId extends Request<Partial<{
+      sessionId: long;
+    }>, Api.TypeTonConnectNextEventId> {
+    CONSTRUCTOR_ID: 2002612804;
+    SUBCLASS_OF_ID: 638963315;
+    classType: "request";
+    className: "wallet.TonConnectNextEventId";
+    static fromReader(reader: Reader): TonConnectNextEventId;
+      sessionId: long;
+    }
+    export class TonConnectCloseSession extends Request<Partial<{
+      // flags: null;
+      sessionId: long;
+      body?: bytes;
+    }>, Bool> {
+    CONSTRUCTOR_ID: 3594478030;
+    SUBCLASS_OF_ID: 4122188204;
+    classType: "request";
+    className: "wallet.TonConnectCloseSession";
+    static fromReader(reader: Reader): TonConnectCloseSession;
+      // flags: null;
+      sessionId: long;
+      body?: bytes;
+    }
+    export class TonConnectGetSessions extends Request<void, wallet.TypeTonConnectSessions> {
+    CONSTRUCTOR_ID: 2818553198;
+    SUBCLASS_OF_ID: 3878829348;
+    classType: "request";
+    className: "wallet.TonConnectGetSessions";
+    static fromReader(reader: Reader): TonConnectGetSessions;
+}
+  }
 // Types
   export type TypeEntityLike = EntityLike;
   export type TypeInputPeer = InputPeerEmpty | InputPeerSelf | InputPeerChat | InputPeerUser | InputPeerChannel | InputPeerUserFromMessage | InputPeerChannelFromMessage;
@@ -36221,7 +37489,7 @@ export namespace Api {
   export type TypeChatPhoto = ChatPhotoEmpty | ChatPhoto;
   export type TypeMessage = MessageEmpty | Message | MessageService;
   export type TypeMessageMedia = MessageMediaEmpty | MessageMediaPhoto | MessageMediaGeo | MessageMediaContact | MessageMediaUnsupported | MessageMediaDocument | MessageMediaWebPage | MessageMediaVenue | MessageMediaGame | MessageMediaInvoice | MessageMediaGeoLive | MessageMediaPoll | MessageMediaDice | MessageMediaStory | MessageMediaGiveaway | MessageMediaGiveawayResults | MessageMediaPaidMedia | MessageMediaToDo | MessageMediaVideoStream;
-  export type TypeMessageAction = MessageActionEmpty | MessageActionChatCreate | MessageActionChatEditTitle | MessageActionChatEditPhoto | MessageActionChatDeletePhoto | MessageActionChatAddUser | MessageActionChatDeleteUser | MessageActionChatJoinedByLink | MessageActionChannelCreate | MessageActionChatMigrateTo | MessageActionChannelMigrateFrom | MessageActionPinMessage | MessageActionHistoryClear | MessageActionGameScore | MessageActionPaymentSentMe | MessageActionPaymentSent | MessageActionPhoneCall | MessageActionScreenshotTaken | MessageActionCustomAction | MessageActionBotAllowed | MessageActionSecureValuesSentMe | MessageActionSecureValuesSent | MessageActionContactSignUp | MessageActionGeoProximityReached | MessageActionGroupCall | MessageActionInviteToGroupCall | MessageActionSetMessagesTTL | MessageActionGroupCallScheduled | MessageActionSetChatTheme | MessageActionChatJoinedByRequest | MessageActionWebViewDataSentMe | MessageActionWebViewDataSent | MessageActionGiftPremium | MessageActionTopicCreate | MessageActionTopicEdit | MessageActionSuggestProfilePhoto | MessageActionRequestedPeer | MessageActionSetChatWallPaper | MessageActionGiftCode | MessageActionGiveawayLaunch | MessageActionGiveawayResults | MessageActionBoostApply | MessageActionRequestedPeerSentMe | MessageActionPaymentRefunded | MessageActionGiftStars | MessageActionPrizeStars | MessageActionStarGift | MessageActionStarGiftUnique | MessageActionPaidMessagesRefunded | MessageActionPaidMessagesPrice | MessageActionConferenceCall | MessageActionTodoCompletions | MessageActionTodoAppendTasks | MessageActionSuggestedPostApproval | MessageActionSuggestedPostSuccess | MessageActionSuggestedPostRefund | MessageActionGiftTon | MessageActionSuggestBirthday | MessageActionStarGiftPurchaseOffer | MessageActionStarGiftPurchaseOfferDeclined | MessageActionNewCreatorPending | MessageActionChangeCreator | MessageActionNoForwardsToggle | MessageActionNoForwardsRequest | MessageActionPollAppendAnswer | MessageActionPollDeleteAnswer | MessageActionManagedBotCreated | MessageActionChangeCommunity | MessageActionChatJoinedViaCommunity;
+  export type TypeMessageAction = MessageActionEmpty | MessageActionChatCreate | MessageActionChatEditTitle | MessageActionChatEditPhoto | MessageActionChatDeletePhoto | MessageActionChatAddUser | MessageActionChatDeleteUser | MessageActionChatJoinedByLink | MessageActionChannelCreate | MessageActionChatMigrateTo | MessageActionChannelMigrateFrom | MessageActionPinMessage | MessageActionHistoryClear | MessageActionGameScore | MessageActionPaymentSentMe | MessageActionPaymentSent | MessageActionPhoneCall | MessageActionScreenshotTaken | MessageActionCustomAction | MessageActionBotAllowed | MessageActionSecureValuesSentMe | MessageActionSecureValuesSent | MessageActionContactSignUp | MessageActionGeoProximityReached | MessageActionGroupCall | MessageActionInviteToGroupCall | MessageActionSetMessagesTTL | MessageActionGroupCallScheduled | MessageActionSetChatTheme | MessageActionChatJoinedByRequest | MessageActionWebViewDataSentMe | MessageActionWebViewDataSent | MessageActionGiftPremium | MessageActionTopicCreate | MessageActionTopicEdit | MessageActionSuggestProfilePhoto | MessageActionRequestedPeer | MessageActionSetChatWallPaper | MessageActionGiftCode | MessageActionGiveawayLaunch | MessageActionGiveawayResults | MessageActionBoostApply | MessageActionRequestedPeerSentMe | MessageActionPaymentRefunded | MessageActionGiftStars | MessageActionPrizeStars | MessageActionStarGift | MessageActionStarGiftUnique | MessageActionPaidMessagesRefunded | MessageActionPaidMessagesPrice | MessageActionConferenceCall | MessageActionTodoCompletions | MessageActionTodoAppendTasks | MessageActionSuggestedPostApproval | MessageActionSuggestedPostSuccess | MessageActionSuggestedPostRefund | MessageActionGiftTon | MessageActionSuggestBirthday | MessageActionStarGiftPurchaseOffer | MessageActionStarGiftPurchaseOfferDeclined | MessageActionNewCreatorPending | MessageActionChangeCreator | MessageActionNoForwardsToggle | MessageActionNoForwardsRequest | MessageActionPollAppendAnswer | MessageActionPollDeleteAnswer | MessageActionManagedBotCreated | MessageActionChangeCommunity | MessageActionChatJoinedViaCommunity | MessageActionGramTransfer | MessageActionWalletTonConnectRequest;
   export type TypeDialog = Dialog | DialogFolder | DialogCommunity;
   export type TypePhoto = PhotoEmpty | Photo;
   export type TypePhotoSize = PhotoSizeEmpty | PhotoSize | PhotoCachedSize | PhotoStrippedSize | PhotoSizeProgressive | PhotoPathSize;
@@ -36237,7 +37505,7 @@ export namespace Api {
   export type TypeImportedContact = ImportedContact;
   export type TypeContactStatus = ContactStatus;
   export type TypeMessagesFilter = InputMessagesFilterEmpty | InputMessagesFilterPhotos | InputMessagesFilterVideo | InputMessagesFilterPhotoVideo | InputMessagesFilterDocument | InputMessagesFilterUrl | InputMessagesFilterGif | InputMessagesFilterVoice | InputMessagesFilterMusic | InputMessagesFilterChatPhotos | InputMessagesFilterPhoneCalls | InputMessagesFilterRoundVoice | InputMessagesFilterRoundVideo | InputMessagesFilterMyMentions | InputMessagesFilterGeo | InputMessagesFilterContacts | InputMessagesFilterPinned | InputMessagesFilterPoll;
-  export type TypeUpdate = UpdateNewMessage | UpdateMessageID | UpdateDeleteMessages | UpdateUserTyping | UpdateChatUserTyping | UpdateChatParticipants | UpdateUserStatus | UpdateUserName | UpdateNewAuthorization | UpdateNewEncryptedMessage | UpdateEncryptedChatTyping | UpdateEncryption | UpdateEncryptedMessagesRead | UpdateChatParticipantAdd | UpdateChatParticipantDelete | UpdateDcOptions | UpdateNotifySettings | UpdateServiceNotification | UpdatePrivacy | UpdateUserPhone | UpdateReadHistoryInbox | UpdateReadHistoryOutbox | UpdateWebPage | UpdateReadMessagesContents | UpdateChannelTooLong | UpdateChannel | UpdateNewChannelMessage | UpdateReadChannelInbox | UpdateDeleteChannelMessages | UpdateChannelMessageViews | UpdateChatParticipantAdmin | UpdateNewStickerSet | UpdateStickerSetsOrder | UpdateStickerSets | UpdateSavedGifs | UpdateBotInlineQuery | UpdateBotInlineSend | UpdateEditChannelMessage | UpdateBotCallbackQuery | UpdateEditMessage | UpdateInlineBotCallbackQuery | UpdateReadChannelOutbox | UpdateDraftMessage | UpdateReadFeaturedStickers | UpdateRecentStickers | UpdateConfig | UpdatePtsChanged | UpdateChannelWebPage | UpdateDialogPinned | UpdatePinnedDialogs | UpdateBotWebhookJSON | UpdateBotWebhookJSONQuery | UpdateBotShippingQuery | UpdateBotPrecheckoutQuery | UpdatePhoneCall | UpdateLangPackTooLong | UpdateLangPack | UpdateFavedStickers | UpdateChannelReadMessagesContents | UpdateContactsReset | UpdateChannelAvailableMessages | UpdateDialogUnreadMark | UpdateMessagePoll | UpdateChatDefaultBannedRights | UpdateFolderPeers | UpdatePeerSettings | UpdatePeerLocated | UpdateNewScheduledMessage | UpdateDeleteScheduledMessages | UpdateTheme | UpdateGeoLiveViewed | UpdateLoginToken | UpdateMessagePollVote | UpdateDialogFilter | UpdateDialogFilterOrder | UpdateDialogFilters | UpdatePhoneCallSignalingData | UpdateChannelMessageForwards | UpdateReadChannelDiscussionInbox | UpdateReadChannelDiscussionOutbox | UpdatePeerBlocked | UpdateChannelUserTyping | UpdatePinnedMessages | UpdatePinnedChannelMessages | UpdateChat | UpdateGroupCallParticipants | UpdateGroupCall | UpdatePeerHistoryTTL | UpdateChatParticipant | UpdateChannelParticipant | UpdateBotStopped | UpdateGroupCallConnection | UpdateBotCommands | UpdatePendingJoinRequests | UpdateBotChatInviteRequester | UpdateMessageReactions | UpdateAttachMenuBots | UpdateWebViewResultSent | UpdateBotMenuButton | UpdateSavedRingtones | UpdateTranscribedAudio | UpdateReadFeaturedEmojiStickers | UpdateUserEmojiStatus | UpdateRecentEmojiStatuses | UpdateRecentReactions | UpdateMoveStickerSetToTop | UpdateMessageExtendedMedia | UpdateUser | UpdateAutoSaveSettings | UpdateStory | UpdateReadStories | UpdateStoryID | UpdateStoriesStealthMode | UpdateSentStoryReaction | UpdateBotChatBoost | UpdateChannelViewForumAsMessages | UpdatePeerWallpaper | UpdateBotMessageReaction | UpdateBotMessageReactions | UpdateSavedDialogPinned | UpdatePinnedSavedDialogs | UpdateSavedReactionTags | UpdateSmsJob | UpdateQuickReplies | UpdateNewQuickReply | UpdateDeleteQuickReply | UpdateQuickReplyMessage | UpdateDeleteQuickReplyMessages | UpdateBotBusinessConnect | UpdateBotNewBusinessMessage | UpdateBotEditBusinessMessage | UpdateBotDeleteBusinessMessage | UpdateNewStoryReaction | UpdateStarsBalance | UpdateBusinessBotCallbackQuery | UpdateStarsRevenueStatus | UpdateBotPurchasedPaidMedia | UpdatePaidReactionPrivacy | UpdateSentPhoneCode | UpdateGroupCallChainBlocks | UpdateReadMonoForumInbox | UpdateReadMonoForumOutbox | UpdateMonoForumNoPaidException | UpdateGroupCallMessage | UpdateGroupCallEncryptedMessage | UpdatePinnedForumTopic | UpdatePinnedForumTopics | UpdateDeleteGroupCallMessages | UpdateStarGiftAuctionState | UpdateStarGiftAuctionUserState | UpdateEmojiGameInfo | UpdateStarGiftCraftFail | UpdateChatParticipantRank | UpdateManagedBot | UpdateBotGuestChatQuery | UpdateAiComposeTones | UpdateJoinChatWebViewDecision | UpdateNewBotConnection | UpdateWebBrowserSettings | UpdateWebBrowserException | UpdateNewEphemeralMessage | UpdateDeleteEphemeralMessages | UpdateEditEphemeralMessage | UpdateEphemeralBotCallbackQuery | UpdateBotStarsSubscription;
+  export type TypeUpdate = UpdateNewMessage | UpdateMessageID | UpdateDeleteMessages | UpdateUserTyping | UpdateChatUserTyping | UpdateChatParticipants | UpdateUserStatus | UpdateUserName | UpdateNewAuthorization | UpdateNewEncryptedMessage | UpdateEncryptedChatTyping | UpdateEncryption | UpdateEncryptedMessagesRead | UpdateChatParticipantAdd | UpdateChatParticipantDelete | UpdateDcOptions | UpdateNotifySettings | UpdateServiceNotification | UpdatePrivacy | UpdateUserPhone | UpdateReadHistoryInbox | UpdateReadHistoryOutbox | UpdateWebPage | UpdateReadMessagesContents | UpdateChannelTooLong | UpdateChannel | UpdateNewChannelMessage | UpdateReadChannelInbox | UpdateDeleteChannelMessages | UpdateChannelMessageViews | UpdateChatParticipantAdmin | UpdateNewStickerSet | UpdateStickerSetsOrder | UpdateStickerSets | UpdateSavedGifs | UpdateBotInlineQuery | UpdateBotInlineSend | UpdateEditChannelMessage | UpdateBotCallbackQuery | UpdateEditMessage | UpdateInlineBotCallbackQuery | UpdateReadChannelOutbox | UpdateDraftMessage | UpdateReadFeaturedStickers | UpdateRecentStickers | UpdateConfig | UpdatePtsChanged | UpdateChannelWebPage | UpdateDialogPinned | UpdatePinnedDialogs | UpdateBotWebhookJSON | UpdateBotWebhookJSONQuery | UpdateBotShippingQuery | UpdateBotPrecheckoutQuery | UpdatePhoneCall | UpdateLangPackTooLong | UpdateLangPack | UpdateFavedStickers | UpdateChannelReadMessagesContents | UpdateContactsReset | UpdateChannelAvailableMessages | UpdateDialogUnreadMark | UpdateMessagePoll | UpdateChatDefaultBannedRights | UpdateFolderPeers | UpdatePeerSettings | UpdatePeerLocated | UpdateNewScheduledMessage | UpdateDeleteScheduledMessages | UpdateTheme | UpdateGeoLiveViewed | UpdateLoginToken | UpdateMessagePollVote | UpdateDialogFilter | UpdateDialogFilterOrder | UpdateDialogFilters | UpdatePhoneCallSignalingData | UpdateChannelMessageForwards | UpdateReadChannelDiscussionInbox | UpdateReadChannelDiscussionOutbox | UpdatePeerBlocked | UpdateChannelUserTyping | UpdatePinnedMessages | UpdatePinnedChannelMessages | UpdateChat | UpdateGroupCallParticipants | UpdateGroupCall | UpdatePeerHistoryTTL | UpdateChatParticipant | UpdateChannelParticipant | UpdateBotStopped | UpdateGroupCallConnection | UpdateBotCommands | UpdatePendingJoinRequests | UpdateBotChatInviteRequester | UpdateMessageReactions | UpdateAttachMenuBots | UpdateWebViewResultSent | UpdateBotMenuButton | UpdateSavedRingtones | UpdateTranscribedAudio | UpdateReadFeaturedEmojiStickers | UpdateUserEmojiStatus | UpdateRecentEmojiStatuses | UpdateRecentReactions | UpdateMoveStickerSetToTop | UpdateMessageExtendedMedia | UpdateUser | UpdateAutoSaveSettings | UpdateStory | UpdateReadStories | UpdateStoryID | UpdateStoriesStealthMode | UpdateSentStoryReaction | UpdateBotChatBoost | UpdateChannelViewForumAsMessages | UpdatePeerWallpaper | UpdateBotMessageReaction | UpdateBotMessageReactions | UpdateSavedDialogPinned | UpdatePinnedSavedDialogs | UpdateSavedReactionTags | UpdateSmsJob | UpdateQuickReplies | UpdateNewQuickReply | UpdateDeleteQuickReply | UpdateQuickReplyMessage | UpdateDeleteQuickReplyMessages | UpdateBotBusinessConnect | UpdateBotNewBusinessMessage | UpdateBotEditBusinessMessage | UpdateBotDeleteBusinessMessage | UpdateNewStoryReaction | UpdateStarsBalance | UpdateBusinessBotCallbackQuery | UpdateStarsRevenueStatus | UpdateBotPurchasedPaidMedia | UpdatePaidReactionPrivacy | UpdateSentPhoneCode | UpdateGroupCallChainBlocks | UpdateReadMonoForumInbox | UpdateReadMonoForumOutbox | UpdateMonoForumNoPaidException | UpdateGroupCallMessage | UpdateGroupCallEncryptedMessage | UpdatePinnedForumTopic | UpdatePinnedForumTopics | UpdateDeleteGroupCallMessages | UpdateStarGiftAuctionState | UpdateStarGiftAuctionUserState | UpdateEmojiGameInfo | UpdateStarGiftCraftFail | UpdateChatParticipantRank | UpdateManagedBot | UpdateBotGuestChatQuery | UpdateAiComposeTones | UpdateJoinChatWebViewDecision | UpdateNewBotConnection | UpdateWebBrowserSettings | UpdateWebBrowserException | UpdateNewEphemeralMessage | UpdateDeleteEphemeralMessages | UpdateEditEphemeralMessage | UpdateEphemeralBotCallbackQuery | UpdateBotStarsSubscription | UpdateWalletState | UpdateSentWalletTransaction | UpdateWalletGaslessInfo | UpdateWalletTonConnectSession | UpdateWalletTonConnectPendingDisconnect;
   export type TypeUpdates = UpdatesTooLong | UpdateShortMessage | UpdateShortChatMessage | UpdateShort | UpdatesCombined | Updates | UpdateShortSentMessage;
   export type TypeDcOption = DcOption;
   export type TypeConfig = Config;
@@ -36270,7 +37538,7 @@ export namespace Api {
   export type TypeKeyboardButton = KeyboardButton;
   export type TypeKeyboardButtonRow = KeyboardButtonRow;
   export type TypeReplyMarkup = ReplyKeyboardHide | ReplyKeyboardForceReply | ReplyKeyboardMarkup | ReplyInlineMarkup;
-  export type TypeMessageEntity = MessageEntityUnknown | MessageEntityMention | MessageEntityHashtag | MessageEntityBotCommand | MessageEntityUrl | MessageEntityEmail | MessageEntityBold | MessageEntityItalic | MessageEntityCode | MessageEntityPre | MessageEntityTextUrl | MessageEntityMentionName | InputMessageEntityMentionName | MessageEntityPhone | MessageEntityCashtag | MessageEntityUnderline | MessageEntityStrike | MessageEntityBankCard | MessageEntitySpoiler | MessageEntityCustomEmoji | MessageEntityBlockquote | MessageEntityFormattedDate | MessageEntityDiffInsert | MessageEntityDiffReplace | MessageEntityDiffDelete;
+  export type TypeMessageEntity = MessageEntityUnknown | MessageEntityMention | MessageEntityHashtag | MessageEntityBotCommand | MessageEntityUrl | MessageEntityEmail | MessageEntityBold | MessageEntityItalic | MessageEntityCode | MessageEntityPre | MessageEntityTextUrl | MessageEntityMentionName | InputMessageEntityMentionName | MessageEntityPhone | MessageEntityCashtag | MessageEntityUnderline | MessageEntityStrike | MessageEntityBankCard | MessageEntitySpoiler | MessageEntityCustomEmoji | MessageEntityBlockquote | MessageEntityFormattedDate | MessageEntityDiffInsert | MessageEntityDiffReplace | MessageEntityDiffDelete | MessageEntityTonAddress;
   export type TypeInputChannel = InputChannelEmpty | InputChannel | InputChannelFromMessage;
   export type TypeMessageRange = MessageRange;
   export type TypeChannelMessagesFilter = ChannelMessagesFilterEmpty | ChannelMessagesFilter;
@@ -36294,7 +37562,7 @@ export namespace Api {
   export type TypeGame = Game;
   export type TypeInputGame = InputGameID | InputGameShortName;
   export type TypeHighScore = HighScore;
-  export type TypeRichText = TextEmpty | TextPlain | TextBold | TextItalic | TextUnderline | TextStrike | TextFixed | TextUrl | TextEmail | TextConcat | TextSubscript | TextSuperscript | TextMarked | TextPhone | TextImage | TextAnchor | TextMath | TextCustomEmoji | TextSpoiler | TextMention | TextHashtag | TextBotCommand | TextCashtag | TextAutoUrl | TextAutoEmail | TextAutoPhone | TextBankCard | TextMentionName | TextDate | TextDiff | TextButton;
+  export type TypeRichText = TextEmpty | TextPlain | TextBold | TextItalic | TextUnderline | TextStrike | TextFixed | TextUrl | TextEmail | TextConcat | TextSubscript | TextSuperscript | TextMarked | TextPhone | TextImage | TextAnchor | TextMath | TextCustomEmoji | TextSpoiler | TextMention | TextHashtag | TextBotCommand | TextCashtag | TextAutoUrl | TextAutoEmail | TextAutoPhone | TextBankCard | TextMentionName | TextDate | TextDiff | TextButton | TextTonAddress;
   export type TypePageBlock = PageBlockUnsupported | PageBlockTitle | PageBlockSubtitle | PageBlockAuthorDate | PageBlockHeader | PageBlockSubheader | PageBlockParagraph | PageBlockPreformatted | PageBlockFooter | PageBlockDivider | PageBlockAnchor | PageBlockList | PageBlockBlockquote | PageBlockPullquote | PageBlockPhoto | PageBlockVideo | PageBlockCover | PageBlockEmbed | PageBlockEmbedPost | PageBlockCollage | PageBlockSlideshow | PageBlockChannel | PageBlockAudio | PageBlockKicker | PageBlockTable | PageBlockOrderedList | PageBlockDetails | PageBlockRelatedArticles | PageBlockMap | PageBlockHeading1 | PageBlockHeading2 | PageBlockHeading3 | PageBlockHeading4 | PageBlockHeading5 | PageBlockHeading6 | PageBlockMath | PageBlockThinking | InputPageBlockMap | PageBlockBlockquoteBlocks | PageBlockButtonRow | PageBlockDocument;
   export type TypePhoneCallDiscardReason = PhoneCallDiscardReasonMissed | PhoneCallDiscardReasonDisconnect | PhoneCallDiscardReasonHangup | PhoneCallDiscardReasonBusy | PhoneCallDiscardReasonMigrateConferenceCall;
   export type TypeDataJSON = DataJSON;
@@ -36568,7 +37836,7 @@ export namespace Api {
   export type TypeInputStarGiftAuction = InputStarGiftAuction | InputStarGiftAuctionSlug;
   export type TypePasskey = Passkey;
   export type TypeInputPasskeyResponse = InputPasskeyResponseRegister | InputPasskeyResponseLogin;
-  export type TypeInputPasskeyCredential = InputPasskeyCredentialPublicKey | InputPasskeyCredentialFirebasePNV;
+  export type TypeInputPasskeyCredential = InputPasskeyCredentialPublicKey;
   export type TypeStarGiftBackground = StarGiftBackground;
   export type TypeStarGiftAuctionRound = StarGiftAuctionRound | StarGiftAuctionRoundExtendable;
   export type TypeStarGiftAttributeRarity = StarGiftAttributeRarity | StarGiftAttributeRarityUncommon | StarGiftAttributeRarityRare | StarGiftAttributeRarityEpic | StarGiftAttributeRarityLegendary;
@@ -36591,6 +37859,23 @@ export namespace Api {
   export type TypeKeyboardInlineButtonRow = KeyboardInlineButtonRow;
   export type TypeRichButtonStyle = RichButtonStyle;
   export type TypePageButton = PageButton;
+  export type TypeCurrencyRate = CurrencyRate;
+  export type TypeOnrampMethodAvailability = OnrampMethodAvailability;
+  export type TypeOnrampProviderInfo = OnrampProviderInfo;
+  export type TypeOnrampAvailability = OnrampAvailability;
+  export type TypeOnrampLimits = OnrampLimits;
+  export type TypeOnrampQuote = OnrampQuote;
+  export type TypeOnrampSession = OnrampSession;
+  export type TypeWalletState = WalletStateEmpty | WalletState;
+  export type TypeWalletUserAddress = WalletUserAddress;
+  export type TypeWalletTransactionPeer = WalletTransactionPeerUser | WalletTransactionPeerAddress | WalletTransactionPeerOnramp | WalletTransactionPeerUnsupported;
+  export type TypeWalletTransaction = WalletTransaction;
+  export type TypeWalletOwnershipProof = WalletOwnershipProof;
+  export type TypeInputWalletReplacement = InputWalletNew | InputWalletImported;
+  export type TypeTonConnectManifest = TonConnectManifest;
+  export type TypeTonConnectSession = TonConnectSession;
+  export type TypeTonConnectNextEventId = TonConnectNextEventId;
+  export type TypeTonConnectRequest = TonConnectRequest;
   export type TypeResPQ = ResPQ;
   export type TypeP_Q_inner_data = PQInnerData | PQInnerDataDc | PQInnerDataTemp | PQInnerDataTempDc;
   export type TypeBindAuthKeyInner = BindAuthKeyInner;
@@ -36620,7 +37905,7 @@ export namespace Api {
   export type TypeTlsBlock = TlsBlockString | TlsBlockRandom | TlsBlockZero | TlsBlockDomain | TlsBlockGrease | TlsBlockPublicKey | TlsBlockScope | TlsBlockPermutation | TlsBlockM | TlsBlockE | TlsBlockPadding;
 // All requests
   export type AnyRequest = InvokeAfterMsg | InvokeAfterMsgs | InitConnection | InvokeWithLayer | InvokeWithoutUpdates | InvokeWithMessagesRange | InvokeWithTakeout | InvokeWithBusinessConnection | InvokeWithGooglePlayIntegrity | InvokeWithApnsSecret | InvokeWithReCaptcha | ReqPq | ReqPqMulti | ReqDHParams | SetClientDHParams | DestroyAuthKey | RpcDropAnswer | GetFutureSalts | Ping | PingDelayDisconnect | DestroySession
-    | auth.SendCode | auth.SignUp | auth.SignIn | auth.LogOut | auth.ResetAuthorizations | auth.ExportAuthorization | auth.ImportAuthorization | auth.BindTempAuthKey | auth.ImportBotAuthorization | auth.CheckPassword | auth.RequestPasswordRecovery | auth.RecoverPassword | auth.ResendCode | auth.CancelCode | auth.DropTempAuthKeys | auth.ExportLoginToken | auth.ImportLoginToken | auth.AcceptLoginToken | auth.CheckRecoveryPassword | auth.ImportWebTokenAuthorization | auth.RequestFirebaseSms | auth.ResetLoginEmail | auth.ReportMissingCode | auth.CheckPaidAuth | auth.InitPasskeyLogin | auth.FinishPasskeyLogin | auth.InitFirebasePnvLogin | auth.FinishFirebasePnvLogin | auth.FirebasePnvSignUp
+    | auth.SendCode | auth.SignUp | auth.SignIn | auth.LogOut | auth.ResetAuthorizations | auth.ExportAuthorization | auth.ImportAuthorization | auth.BindTempAuthKey | auth.ImportBotAuthorization | auth.CheckPassword | auth.RequestPasswordRecovery | auth.RecoverPassword | auth.ResendCode | auth.CancelCode | auth.DropTempAuthKeys | auth.ExportLoginToken | auth.ImportLoginToken | auth.AcceptLoginToken | auth.CheckRecoveryPassword | auth.ImportWebTokenAuthorization | auth.RequestFirebaseSms | auth.ResetLoginEmail | auth.ReportMissingCode | auth.CheckPaidAuth | auth.InitPasskeyLogin | auth.FinishPasskeyLogin | auth.CancelWebTokenAuthorization | auth.InitFirebasePnvLogin | auth.FinishFirebasePnvLogin | auth.FirebasePnvSignUp
     | account.RegisterDevice | account.UnregisterDevice | account.UpdateNotifySettings | account.GetNotifySettings | account.ResetNotifySettings | account.UpdateProfile | account.UpdateStatus | account.GetWallPapers | account.ReportPeer | account.CheckUsername | account.UpdateUsername | account.GetPrivacy | account.SetPrivacy | account.DeleteAccount | account.GetAccountTTL | account.SetAccountTTL | account.SendChangePhoneCode | account.ChangePhone | account.UpdateDeviceLocked | account.GetAuthorizations | account.ResetAuthorization | account.GetPassword | account.GetPasswordSettings | account.UpdatePasswordSettings | account.SendConfirmPhoneCode | account.ConfirmPhone | account.GetTmpPassword | account.GetWebAuthorizations | account.ResetWebAuthorization | account.ResetWebAuthorizations | account.GetAllSecureValues | account.GetSecureValue | account.SaveSecureValue | account.DeleteSecureValue | account.GetAuthorizationForm | account.AcceptAuthorization | account.SendVerifyPhoneCode | account.VerifyPhone | account.SendVerifyEmailCode | account.VerifyEmail | account.InitTakeoutSession | account.FinishTakeoutSession | account.ConfirmPasswordEmail | account.ResendPasswordEmail | account.CancelPasswordEmail | account.GetContactSignUpNotification | account.SetContactSignUpNotification | account.GetNotifyExceptions | account.GetWallPaper | account.UploadWallPaper | account.SaveWallPaper | account.InstallWallPaper | account.ResetWallPapers | account.GetAutoDownloadSettings | account.SaveAutoDownloadSettings | account.UploadTheme | account.CreateTheme | account.UpdateTheme | account.SaveTheme | account.InstallTheme | account.GetTheme | account.GetThemes | account.SetContentSettings | account.GetContentSettings | account.GetMultiWallPapers | account.GetGlobalPrivacySettings | account.SetGlobalPrivacySettings | account.ReportProfilePhoto | account.ResetPassword | account.DeclinePasswordReset | account.GetChatThemes | account.SetAuthorizationTTL | account.ChangeAuthorizationSettings | account.GetSavedRingtones | account.SaveRingtone | account.UploadRingtone | account.UpdateEmojiStatus | account.GetDefaultEmojiStatuses | account.GetRecentEmojiStatuses | account.ClearRecentEmojiStatuses | account.ReorderUsernames | account.ToggleUsername | account.GetDefaultProfilePhotoEmojis | account.GetDefaultGroupPhotoEmojis | account.GetAutoSaveSettings | account.SaveAutoSaveSettings | account.DeleteAutoSaveExceptions | account.InvalidateSignInCodes | account.UpdateColor | account.GetDefaultBackgroundEmojis | account.GetChannelDefaultEmojiStatuses | account.GetChannelRestrictedStatusEmojis | account.UpdateBusinessWorkHours | account.UpdateBusinessLocation | account.UpdateBusinessGreetingMessage | account.UpdateBusinessAwayMessage | account.UpdateConnectedBot | account.GetConnectedBots | account.GetBotBusinessConnection | account.UpdateBusinessIntro | account.ToggleConnectedBotPaused | account.DisablePeerConnectedBot | account.UpdateBirthday | account.CreateBusinessChatLink | account.EditBusinessChatLink | account.DeleteBusinessChatLink | account.GetBusinessChatLinks | account.ResolveBusinessChatLink | account.UpdatePersonalChannel | account.ToggleSponsoredMessages | account.GetReactionsNotifySettings | account.SetReactionsNotifySettings | account.GetCollectibleEmojiStatuses | account.GetPaidMessagesRevenue | account.ToggleNoPaidMessagesException | account.SetMainProfileTab | account.SaveMusic | account.GetSavedMusicIds | account.GetUniqueGiftChatThemes | account.InitPasskeyRegistration | account.RegisterPasskey | account.GetPasskeys | account.DeletePasskey | account.ConfirmBotConnection | account.GetWebBrowserSettings | account.UpdateWebBrowserSettings | account.ToggleWebBrowserSettingsException | account.DeleteWebBrowserSettingsExceptions
     | users.GetUsers | users.GetFullUser | users.SetSecureValueErrors | users.GetRequirementsToContact | users.GetSavedMusic | users.GetSavedMusicByID | users.SuggestBirthday
     | contacts.GetContactIDs | contacts.GetStatuses | contacts.GetContacts | contacts.ImportContacts | contacts.DeleteContacts | contacts.DeleteByPhones | contacts.Block | contacts.Unblock | contacts.GetBlocked | contacts.Search | contacts.ResolveUsername | contacts.GetTopPeers | contacts.ResetTopPeerRating | contacts.ResetSaved | contacts.GetSaved | contacts.ToggleTopPeers | contacts.AddContact | contacts.AcceptContact | contacts.GetLocated | contacts.BlockFromReplies | contacts.ResolvePhone | contacts.ExportContactToken | contacts.ImportContactToken | contacts.EditCloseFriends | contacts.SetBlocked | contacts.GetBirthdays | contacts.GetSponsoredPeers | contacts.UpdateContactNote
@@ -36630,8 +37915,8 @@ export namespace Api {
     | upload.SaveFilePart | upload.GetFile | upload.SaveBigFilePart | upload.GetWebFile | upload.GetCdnFile | upload.ReuploadCdnFile | upload.GetCdnFileHashes | upload.GetFileHashes
     | help.GetConfig | help.GetNearestDc | help.GetAppUpdate | help.GetInviteText | help.GetSupport | help.SetBotUpdatesStatus | help.GetCdnConfig | help.GetRecentMeUrls | help.GetTermsOfServiceUpdate | help.AcceptTermsOfService | help.GetDeepLinkInfo | help.GetAppConfig | help.SaveAppLog | help.GetPassportConfig | help.GetSupportName | help.GetUserInfo | help.EditUserInfo | help.GetPromoData | help.HidePromoData | help.DismissSuggestion | help.GetCountriesList | help.GetPremiumPromo | help.GetPeerColors | help.GetPeerProfileColors | help.GetTimezonesList
     | channels.ReadHistory | channels.DeleteMessages | channels.ReportSpam | channels.GetMessages | channels.GetParticipants | channels.GetParticipant | channels.GetChannels | channels.GetFullChannel | channels.CreateChannel | channels.EditAdmin | channels.EditTitle | channels.EditPhoto | channels.CheckUsername | channels.UpdateUsername | channels.JoinChannel | channels.LeaveChannel | channels.InviteToChannel | channels.DeleteChannel | channels.ExportMessageLink | channels.ToggleSignatures | channels.GetAdminedPublicChannels | channels.EditBanned | channels.GetAdminLog | channels.SetStickers | channels.ReadMessageContents | channels.DeleteHistory | channels.TogglePreHistoryHidden | channels.GetLeftChannels | channels.GetGroupsForDiscussion | channels.SetDiscussionGroup | channels.EditLocation | channels.ToggleSlowMode | channels.GetInactiveChannels | channels.ConvertToGigagroup | channels.GetSendAs | channels.DeleteParticipantHistory | channels.ToggleJoinToSend | channels.ToggleJoinRequest | channels.ReorderUsernames | channels.ToggleUsername | channels.DeactivateAllUsernames | channels.ToggleForum | channels.ToggleAntiSpam | channels.ReportAntiSpamFalsePositive | channels.ToggleParticipantsHidden | channels.UpdateColor | channels.ToggleViewForumAsMessages | channels.GetChannelRecommendations | channels.UpdateEmojiStatus | channels.SetBoostsToUnblockRestrictions | channels.SetEmojiStickers | channels.RestrictSponsoredMessages | channels.SearchPosts | channels.UpdatePaidMessagesPrice | channels.ToggleAutotranslation | channels.GetMessageAuthor | channels.CheckSearchPostsFlood | channels.SetMainProfileTab
-    | bots.SendCustomRequest | bots.AnswerWebhookJSONQuery | bots.SetBotCommands | bots.ResetBotCommands | bots.GetBotCommands | bots.SetBotMenuButton | bots.GetBotMenuButton | bots.SetBotBroadcastDefaultAdminRights | bots.SetBotGroupDefaultAdminRights | bots.SetBotInfo | bots.GetBotInfo | bots.ReorderUsernames | bots.ToggleUsername | bots.CanSendMessage | bots.AllowSendMessage | bots.InvokeWebViewCustomMethod | bots.GetPopularAppBots | bots.AddPreviewMedia | bots.EditPreviewMedia | bots.DeletePreviewMedia | bots.ReorderPreviewMedias | bots.GetPreviewInfo | bots.GetPreviewMedias | bots.UpdateUserEmojiStatus | bots.ToggleUserEmojiStatusPermission | bots.CheckDownloadFileParams | bots.GetAdminedBots | bots.UpdateStarRefProgram | bots.SetCustomVerification | bots.GetBotRecommendations | bots.CheckUsername | bots.CreateBot | bots.ExportBotToken | bots.RequestWebViewButton | bots.GetRequestedWebViewButton | bots.GetAccessSettings | bots.EditAccessSettings | bots.SetJoinChatResults
-    | payments.GetPaymentForm | payments.GetPaymentReceipt | payments.ValidateRequestedInfo | payments.SendPaymentForm | payments.GetSavedInfo | payments.ClearSavedInfo | payments.GetBankCardData | payments.ExportInvoice | payments.AssignAppStoreTransaction | payments.AssignPlayMarketTransaction | payments.GetPremiumGiftCodeOptions | payments.CheckGiftCode | payments.ApplyGiftCode | payments.GetGiveawayInfo | payments.LaunchPrepaidGiveaway | payments.GetStarsTopupOptions | payments.GetStarsStatus | payments.GetStarsTransactions | payments.SendStarsForm | payments.RefundStarsCharge | payments.GetStarsRevenueStats | payments.GetStarsRevenueWithdrawalUrl | payments.GetStarsRevenueAdsAccountUrl | payments.GetStarsTransactionsByID | payments.GetStarsGiftOptions | payments.GetStarsSubscriptions | payments.ChangeStarsSubscription | payments.FulfillStarsSubscription | payments.GetStarsGiveawayOptions | payments.GetStarGifts | payments.SaveStarGift | payments.ConvertStarGift | payments.BotCancelStarsSubscription | payments.GetConnectedStarRefBots | payments.GetConnectedStarRefBot | payments.GetSuggestedStarRefBots | payments.ConnectStarRefBot | payments.EditConnectedStarRefBot | payments.GetStarGiftUpgradePreview | payments.UpgradeStarGift | payments.TransferStarGift | payments.GetUniqueStarGift | payments.GetSavedStarGifts | payments.GetSavedStarGift | payments.GetStarGiftWithdrawalUrl | payments.ToggleChatStarGiftNotifications | payments.ToggleStarGiftsPinnedToTop | payments.CanPurchaseStore | payments.GetResaleStarGifts | payments.UpdateStarGiftPrice | payments.CreateStarGiftCollection | payments.UpdateStarGiftCollection | payments.ReorderStarGiftCollections | payments.DeleteStarGiftCollection | payments.GetStarGiftCollections | payments.GetUniqueStarGiftValueInfo | payments.CheckCanSendGift | payments.GetStarGiftAuctionState | payments.GetStarGiftAuctionAcquiredGifts | payments.GetStarGiftActiveAuctions | payments.ResolveStarGiftOffer | payments.SendStarGiftOffer | payments.GetStarGiftUpgradeAttributes | payments.GetCraftStarGifts | payments.CraftStarGift
+    | bots.SendCustomRequest | bots.AnswerWebhookJSONQuery | bots.SetBotCommands | bots.ResetBotCommands | bots.GetBotCommands | bots.SetBotMenuButton | bots.GetBotMenuButton | bots.SetBotBroadcastDefaultAdminRights | bots.SetBotGroupDefaultAdminRights | bots.SetBotInfo | bots.GetBotInfo | bots.ReorderUsernames | bots.ToggleUsername | bots.CanSendMessage | bots.AllowSendMessage | bots.InvokeWebViewCustomMethod | bots.GetPopularAppBots | bots.AddPreviewMedia | bots.EditPreviewMedia | bots.DeletePreviewMedia | bots.ReorderPreviewMedias | bots.GetPreviewInfo | bots.GetPreviewMedias | bots.UpdateUserEmojiStatus | bots.ToggleUserEmojiStatusPermission | bots.CheckDownloadFileParams | bots.GetAdminedBots | bots.UpdateStarRefProgram | bots.SetCustomVerification | bots.GetBotRecommendations | bots.CheckUsername | bots.CreateBot | bots.ExportBotToken | bots.RequestWebViewButton | bots.GetRequestedWebViewButton | bots.GetAccessSettings | bots.EditAccessSettings | bots.SetJoinChatResults | bots.AddUsername | bots.RemoveUsername
+    | payments.GetPaymentForm | payments.GetPaymentReceipt | payments.ValidateRequestedInfo | payments.SendPaymentForm | payments.GetSavedInfo | payments.ClearSavedInfo | payments.GetBankCardData | payments.ExportInvoice | payments.AssignAppStoreTransaction | payments.AssignPlayMarketTransaction | payments.GetPremiumGiftCodeOptions | payments.CheckGiftCode | payments.ApplyGiftCode | payments.GetGiveawayInfo | payments.LaunchPrepaidGiveaway | payments.GetStarsTopupOptions | payments.GetStarsStatus | payments.GetStarsTransactions | payments.SendStarsForm | payments.RefundStarsCharge | payments.GetStarsRevenueStats | payments.GetStarsRevenueWithdrawalUrl | payments.GetStarsRevenueAdsAccountUrl | payments.GetStarsTransactionsByID | payments.GetStarsGiftOptions | payments.GetStarsSubscriptions | payments.ChangeStarsSubscription | payments.FulfillStarsSubscription | payments.GetStarsGiveawayOptions | payments.GetStarGifts | payments.SaveStarGift | payments.ConvertStarGift | payments.BotCancelStarsSubscription | payments.GetConnectedStarRefBots | payments.GetConnectedStarRefBot | payments.GetSuggestedStarRefBots | payments.ConnectStarRefBot | payments.EditConnectedStarRefBot | payments.GetStarGiftUpgradePreview | payments.UpgradeStarGift | payments.TransferStarGift | payments.GetUniqueStarGift | payments.GetSavedStarGifts | payments.GetSavedStarGift | payments.GetStarGiftWithdrawalUrl | payments.ToggleChatStarGiftNotifications | payments.ToggleStarGiftsPinnedToTop | payments.CanPurchaseStore | payments.GetResaleStarGifts | payments.UpdateStarGiftPrice | payments.CreateStarGiftCollection | payments.UpdateStarGiftCollection | payments.ReorderStarGiftCollections | payments.DeleteStarGiftCollection | payments.GetStarGiftCollections | payments.GetUniqueStarGiftValueInfo | payments.CheckCanSendGift | payments.GetStarGiftAuctionState | payments.GetStarGiftAuctionAcquiredGifts | payments.GetStarGiftActiveAuctions | payments.ResolveStarGiftOffer | payments.SendStarGiftOffer | payments.GetStarGiftUpgradeAttributes | payments.GetCraftStarGifts | payments.CraftStarGift | payments.GetCurrencyRates | payments.GetOnrampProviders | payments.GetOnrampBaseCurrencies | payments.GetOnrampAvailability | payments.GetOnrampLimits | payments.GetOnrampQuote | payments.CreateOnrampSession
     | stickers.CreateStickerSet | stickers.RemoveStickerFromSet | stickers.ChangeStickerPosition | stickers.AddStickerToSet | stickers.SetStickerSetThumb | stickers.CheckShortName | stickers.SuggestShortName | stickers.ChangeSticker | stickers.RenameStickerSet | stickers.DeleteStickerSet | stickers.ReplaceSticker
     | phone.GetCallConfig | phone.RequestCall | phone.AcceptCall | phone.ConfirmCall | phone.ReceivedCall | phone.DiscardCall | phone.SetCallRating | phone.SaveCallDebug | phone.SendSignalingData | phone.CreateGroupCall | phone.JoinGroupCall | phone.LeaveGroupCall | phone.InviteToGroupCall | phone.DiscardGroupCall | phone.ToggleGroupCallSettings | phone.GetGroupCall | phone.GetGroupParticipants | phone.CheckGroupCall | phone.ToggleGroupCallRecord | phone.EditGroupCallParticipant | phone.EditGroupCallTitle | phone.GetGroupCallJoinAs | phone.ExportGroupCallInvite | phone.ToggleGroupCallStartSubscription | phone.StartScheduledGroupCall | phone.SaveDefaultGroupCallJoinAs | phone.JoinGroupCallPresentation | phone.LeaveGroupCallPresentation | phone.GetGroupCallStreamChannels | phone.GetGroupCallStreamRtmpUrl | phone.SaveCallLog | phone.CreateConferenceCall | phone.DeleteConferenceCallParticipants | phone.SendConferenceCallBroadcast | phone.InviteConferenceCallParticipant | phone.DeclineConferenceCallInvite | phone.GetGroupCallChainBlocks | phone.SendGroupCallMessage | phone.SendGroupCallEncryptedMessage | phone.DeleteGroupCallMessages | phone.DeleteGroupCallParticipantMessages | phone.GetGroupCallStars | phone.SaveDefaultSendAs
     | langpack.GetLangPack | langpack.GetStrings | langpack.GetDifference | langpack.GetLanguages | langpack.GetLanguage
@@ -36644,5 +37929,7 @@ export namespace Api {
     | fragment.GetCollectibleInfo
     | aicompose.CreateTone | aicompose.UpdateTone | aicompose.SaveTone | aicompose.DeleteTone | aicompose.GetTone | aicompose.GetTones | aicompose.GetToneExample
     | communities.Create | communities.TogglePeerLink | communities.GetJoinedCommunities | communities.ToggleCommunityCollapsedInDialogs | communities.GetPeerLinkRequests | communities.TogglePeerLinkRequestApproval | communities.ToggleAllPeerLinkRequestApproval | communities.ToggleParticipantBanned | communities.GetParticipantJoinedChats
-    | ephemeral.SendMessage | ephemeral.DeleteMessage | ephemeral.ReportMessage | ephemeral.GetCallbackAnswer | ephemeral.EditMessage | ephemeral.DeleteWelcomeMessage | ephemeral.DeleteAllWelcomeMessages | ephemeral.GetWelcomeMessages;
+    | ephemeral.SendMessage | ephemeral.DeleteMessage | ephemeral.ReportMessage | ephemeral.GetCallbackAnswer | ephemeral.EditMessage | ephemeral.DeleteWelcomeMessage | ephemeral.DeleteAllWelcomeMessages | ephemeral.GetWelcomeMessages
+    | toncenter.PerformApiRequest | toncenter.GetStreamingUrl
+    | wallet.GetState | wallet.GetUserAddresses | wallet.GetTransactions | wallet.GetTransactionsByIDs | wallet.GetTransactionsByMsgHash | wallet.ExportSecretPhrase | wallet.FetchEncryptedSecretPhrasePart | wallet.ReplaceWallet | wallet.DisableBackup | wallet.GetBackupHolderDcs | wallet.EnableBackup | wallet.GetProofChallenge | wallet.SendTransfer | wallet.GetGaslessInfo | wallet.GetExistingWaltBalance | wallet.GetNfts | wallet.TonConnectCreateSession | wallet.TonConnectRegisterKey | wallet.TonConnectSubmitConnectResult | wallet.TonConnectGetPending | wallet.TonConnectClaimRequest | wallet.TonConnectSubmitResponse | wallet.TonConnectNextEventId | wallet.TonConnectCloseSession | wallet.TonConnectGetSessions;
 }

@@ -31,7 +31,7 @@ function getChangedIds(semanticDiff) {
 }
 
 function validateChangedIds(Api, tlobjects, changedIds) {
-  assert.strictEqual(changedIds.length, 32);
+  assert.strictEqual(changedIds.length, 36);
   for (const definition of changedIds) {
     const apiClass = getApiClass(Api, definition.name);
     const oldId = Number.parseInt(definition.before.slice(2), 16);
@@ -48,7 +48,18 @@ function validateChangedIds(Api, tlobjects, changedIds) {
 }
 
 function validateProtocolSerialization(Api, bigInt) {
+  const walletState = new Api.wallet.GetState({}).getBytes();
+  assert.strictEqual(walletState.length, 4);
+  assert.strictEqual(walletState.readUInt32LE(), 0xab83b33a);
   const requests = [
+    new Api.wallet.TonConnectCreateSession({
+      dappClientId: "test-client",
+      manifestUrl: "https://example.com/tonconnect-manifest.json",
+    }),
+    new Api.bots.SetCustomVerification({
+      peer: new Api.InputPeerSelf(),
+      customDescription: new Api.TextWithEntities({ text: "verified", entities: [] }),
+    }),
     new Api.messages.SearchGlobal({
       q: "installed-consumer-smoke",
       filter: new Api.InputMessagesFilterEmpty(),

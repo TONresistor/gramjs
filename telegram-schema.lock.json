@@ -1,9 +1,9 @@
 {
-  "layer": 229,
+  "layer": 230,
   "source": {
     "repository": "telegramdesktop/tdesktop",
-    "commit": "11d18d829b25d583f2e3058663b522a528fde51a",
-    "committedAt": "2026-08-22T11:13:24Z"
+    "commit": "d36272b193057a114ef3a9fe7f15a8f8b587c489",
+    "committedAt": "2026-10-08T18:24:49Z"
   },
   "history": [
     {
@@ -44,16 +44,23 @@
     {
       "layer": 229,
       "commit": "11d18d829b25d583f2e3058663b522a528fde51a",
-      "path": "gramjs/tl/static/api.tl",
+      "path": "schema-history/api-229.tl",
       "sha256": "7655504c25a5d3a368e7729d3e9e64afffcacbcb54ec85508c60f0472064b617",
       "definitionCount": 2471
+    },
+    {
+      "layer": 230,
+      "commit": "d36272b193057a114ef3a9fe7f15a8f8b587c489",
+      "path": "gramjs/tl/static/api.tl",
+      "sha256": "3bc699f8b5d31262609720c0a6e88291d953ae12bb5132484db57207c72c25fd",
+      "definitionCount": 2554
     }
   ],
   "api": {
     "path": "gramjs/tl/static/api.tl",
     "sourcePath": "Telegram/SourceFiles/mtproto/scheme/api.tl",
-    "sha256": "7655504c25a5d3a368e7729d3e9e64afffcacbcb54ec85508c60f0472064b617",
-    "definitionCount": 2471
+    "sha256": "3bc699f8b5d31262609720c0a6e88291d953ae12bb5132484db57207c72c25fd",
+    "definitionCount": 2554
   },
   "mtproto": {
     "path": "gramjs/tl/static/schema.tl",
@@ -128,17 +135,29 @@
         "constructor:keyboardButtonUserProfile",
         "constructor:keyboardButtonWebView"
       ]
+    },
+    {
+      "from": 229,
+      "to": 230,
+      "commit": "d36272b193057a114ef3a9fe7f15a8f8b587c489",
+      "added": 84,
+      "removed": 1,
+      "modified": 6,
+      "changedIds": 5,
+      "allowedRemovals": [
+        "constructor:inputPasskeyCredentialFirebasePNV"
+      ]
     }
   ],
   "cumulativeFrom224": {
-    "added": 159,
-    "removed": 17,
-    "modified": 45,
-    "changedIds": 32
+    "added": 243,
+    "removed": 18,
+    "modified": 50,
+    "changedIds": 36
   },
   "semanticDiff": {
     "baselineLayer": 224,
     "path": "telegram-schema-diff.json",
-    "sha256": "22ab0b824639ca4fb17b64db63cf05ed05b1e8c82b4ea03aea7470cdd8b74249"
+    "sha256": "d3769ab6ac16a8c349760ce0693d494c65e12b4f3764d3ba8fb69346b08f3658"
   }
 }
